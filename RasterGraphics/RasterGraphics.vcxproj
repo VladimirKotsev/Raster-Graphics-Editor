@@ -137,6 +137,7 @@
     <ClCompile Include="RasterGraphics.cpp" />
     <ClCompile Include="Rotate.cpp" />
     <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionContainer.cpp" />
     <ClCompile Include="SessionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="PPMImage.h" />
     <ClInclude Include="Rotate.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="SessionContainer.h" />
     <ClInclude Include="SessionManager.h" />
     <ClInclude Include="Transformation.h" />
   </ItemGroup>

@@ -19,13 +19,19 @@ public:
 	SessionContainer(const SessionContainer& other);
 	SessionContainer& operator=(const SessionContainer& other);
 
-	SessionContainer(SessionContainer&& other);
-	SessionContainer& operator=(SessionContainer&& other);
+	SessionContainer(SessionContainer&& other) noexcept;
+	SessionContainer& operator=(SessionContainer&& other) noexcept;
 
-	~SessionContainer();
+	~SessionContainer() noexcept;
 
 	void addSession(const Session& other);
 	void addSession(Session&& other);
+
+	//Remove for close() Session???? !!!
+
+	const Session* operator[](size_t index) const;
+	size_t getSize() const;
+	size_t getCapacity() const;
 };
 
 

@@ -1,10 +1,14 @@
 #pragma once
-#include "Session.h"
+#include "SessionContainer.h"
 
 class SessionManager
 {
+private:
+	SessionContainer container;
 
-	// container
+	unsigned currentSession; // public??
+public:
+
 
 };
 
