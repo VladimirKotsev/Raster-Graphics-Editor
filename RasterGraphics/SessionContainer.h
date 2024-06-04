@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+
 #include "Session.h"
 
 class SessionContainer
@@ -25,11 +27,13 @@ public:
 	~SessionContainer() noexcept;
 
 	void addSession(const Session& other);
-	void addSession(Session&& other);
+	//void addSession(Session&& other);
+	void addSession(Session* other);
 
 	//Remove for close() Session???? !!!
 
 	const Session* operator[](size_t index) const;
+	Session* operator[](size_t index);
 	size_t getSize() const;
 	size_t getCapacity() const;
 };

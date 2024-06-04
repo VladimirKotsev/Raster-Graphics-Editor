@@ -129,6 +129,8 @@
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Grayscale.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageContainer.cpp" />
     <ClCompile Include="Monochrome.cpp" />
     <ClCompile Include="Negative.cpp" />
     <ClCompile Include="PBMImage.cpp" />
@@ -144,10 +146,12 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Grayscale.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageContainer.h" />
     <ClInclude Include="Monochrome.h" />
     <ClInclude Include="Negative.h" />
     <ClInclude Include="PBMImage.h" />
     <ClInclude Include="PGMImage.h" />
+    <ClInclude Include="Pixel.h" />
     <ClInclude Include="PPMImage.h" />
     <ClInclude Include="Rotate.h" />
     <ClInclude Include="Session.h" />
