@@ -17,7 +17,7 @@ void ImageContainer::copyFrom(const ImageContainer& other)
 	size = other.size;
 	for (size_t i = 0; i < size; i++)
 	{
-		images[i] = other.images[i];
+		images[i] = other.images[i]; //op=
 	}
 }
 
@@ -38,7 +38,7 @@ void ImageContainer::resize(size_t newCap)
 	Image** newData = new Image*[capacity];
 	for (size_t i = 0; i < size; i++)
 	{
-		newData[i] = images[i];
+		newData[i] = images[i]; //op=
 	}
 
 	delete[] images;

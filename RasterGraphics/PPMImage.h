@@ -12,8 +12,12 @@ private:
 
 public:
 	PPMImage(const char* filePath);
+
 	PPMImage(const PPMImage& other);
 	PPMImage& operator=(const PPMImage& other);
+
+	PPMImage(PPMImage&& other) noexcept = delete;
+	PPMImage& operator=(PPMImage&& other) noexcept = delete;
 
 	// Inherited via Image
 	Image* clone() const override;

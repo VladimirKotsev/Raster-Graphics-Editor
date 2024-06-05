@@ -3,6 +3,8 @@
 
 class PGMImage : public Image
 {
+
+
 	// Inherited via Image
 	Image* clone() const override;
 	void load() override;

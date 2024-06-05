@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DynamicSet.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Grayscale.cpp" />
     <ClCompile Include="Image.cpp" />
@@ -143,6 +144,7 @@
     <ClCompile Include="SessionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DynamicSet.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Grayscale.h" />
     <ClInclude Include="Image.h" />
