@@ -134,6 +134,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Grayscale.cpp" />
     <ClCompile Include="GrayscaleCommand.cpp" />
+    <ClCompile Include="IAddableCommand.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageContainer.cpp" />
     <ClCompile Include="InputService.cpp" />
@@ -152,7 +153,6 @@
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionContainer.cpp" />
     <ClCompile Include="SessionManager.cpp" />
-    <ClCompile Include="SwitchSessionCommand.cpp" />
     <ClCompile Include="UndoCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +185,6 @@
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionContainer.h" />
     <ClInclude Include="SessionManager.h" />
-    <ClInclude Include="SwitchSessionCommand.h" />
     <ClInclude Include="Transformation.h" />
     <ClInclude Include="UndoCommand.h" />
     <ClInclude Include="Vector.hpp" />

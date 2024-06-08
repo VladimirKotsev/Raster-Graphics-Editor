@@ -3,7 +3,7 @@
 class AddCommand : public IAddableCommand
 {
 public:
- 	AddCommand(SessionManager* const sesManager);
+ 	AddCommand(SessionManager* const sesManager, MyString filePath);
 
 
     // Inherited via IAddableCommand

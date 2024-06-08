@@ -1,9 +1,15 @@
 #pragma once
 #include "ITransformableCommand.h"
-class RotateCommand :
-    public ITransformableCommand
+#include "MyString.h"
+
+class RotateCommand : public ITransformableCommand
 {
+private:
+    MyString direction;
+
 public:
-    RotateCommand(SessionManager* const sesManager);
+    RotateCommand(SessionManager* const sesManager, MyString direction);
+
+    const MyString& getDirection() const;
 }
 

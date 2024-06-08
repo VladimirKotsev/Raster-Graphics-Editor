@@ -123,9 +123,6 @@
     <ClCompile Include="RotateCommand.cpp">
       <Filter>Source Files\Command files</Filter>
     </ClCompile>
-    <ClCompile Include="SwitchSessionCommand.cpp">
-      <Filter>Source Files\Command files</Filter>
-    </ClCompile>
     <ClCompile Include="UndoCommand.cpp">
       <Filter>Source Files\Command files</Filter>
     </ClCompile>
@@ -137,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="CollageCommand.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IAddableCommand.cpp">
+      <Filter>Source Files\Command files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -219,9 +219,6 @@
       <Filter>Header Files\Command files</Filter>
     </ClInclude>
     <ClInclude Include="UndoCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="SwitchSessionCommand.h">
       <Filter>Header Files\Command files</Filter>
     </ClInclude>
     <ClInclude Include="RotateCommand.h">
