@@ -55,6 +55,24 @@
     <Filter Include="Source Files\Container files">
       <UniqueIdentifier>{47cf09e3-ca4e-4263-895f-58a6f18e5b05}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Command files\Addable">
+      <UniqueIdentifier>{f0ef20da-611b-4d1f-ba27-a99474f09680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Command files\Executable">
+      <UniqueIdentifier>{22a6c720-c152-4441-9f7f-8e232dcc2cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Command files\Tranformational">
+      <UniqueIdentifier>{1c4ae8a2-fb99-4e98-bcdc-c8db20e97088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command files\Transformational">
+      <UniqueIdentifier>{15ac9b7f-86cd-41de-85f3-19e050abeed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command files\Addable">
+      <UniqueIdentifier>{9ebee977-57a8-4c12-9aab-d0b7230b7ef6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command files\Executable">
+      <UniqueIdentifier>{036768b9-254a-45c1-9d9e-7f7c99b8b9cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RasterGraphics.cpp">
@@ -108,35 +126,47 @@
     <ClCompile Include="Command.cpp">
       <Filter>Source Files\Command files</Filter>
     </ClCompile>
-    <ClCompile Include="GrayscaleCommand.cpp">
-      <Filter>Source Files\Command files</Filter>
-    </ClCompile>
-    <ClCompile Include="AddCommand.cpp">
-      <Filter>Source Files\Command files</Filter>
-    </ClCompile>
-    <ClCompile Include="MonochromeCommand.cpp">
-      <Filter>Source Files\Command files</Filter>
-    </ClCompile>
-    <ClCompile Include="NegativeCommand.cpp">
-      <Filter>Source Files\Command files</Filter>
-    </ClCompile>
-    <ClCompile Include="RotateCommand.cpp">
-      <Filter>Source Files\Command files</Filter>
-    </ClCompile>
-    <ClCompile Include="UndoCommand.cpp">
-      <Filter>Source Files\Command files</Filter>
-    </ClCompile>
     <ClCompile Include="SessionContainer.cpp">
       <Filter>Source Files\Container files</Filter>
     </ClCompile>
     <ClCompile Include="ImageContainer.cpp">
       <Filter>Source Files\Container files</Filter>
     </ClCompile>
-    <ClCompile Include="CollageCommand.cpp">
+    <ClCompile Include="SaveCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SaveAsCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddCommand.cpp">
+      <Filter>Source Files\Command files\Addable</Filter>
+    </ClCompile>
     <ClCompile Include="IAddableCommand.cpp">
-      <Filter>Source Files\Command files</Filter>
+      <Filter>Source Files\Command files\Addable</Filter>
+    </ClCompile>
+    <ClCompile Include="CollageCommand.cpp">
+      <Filter>Source Files\Command files\Addable</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadCommand.cpp">
+      <Filter>Source Files\Command files\Executable</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionInfoCommand.cpp">
+      <Filter>Source Files\Command files\Executable</Filter>
+    </ClCompile>
+    <ClCompile Include="UndoCommand.cpp">
+      <Filter>Source Files\Command files\Executable</Filter>
+    </ClCompile>
+    <ClCompile Include="GrayscaleCommand.cpp">
+      <Filter>Source Files\Command files\Transformational</Filter>
+    </ClCompile>
+    <ClCompile Include="MonochromeCommand.cpp">
+      <Filter>Source Files\Command files\Transformational</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeCommand.cpp">
+      <Filter>Source Files\Command files\Transformational</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateCommand.cpp">
+      <Filter>Header Files\Command files\Addable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -200,41 +230,53 @@
     <ClInclude Include="Command.h">
       <Filter>Header Files\Command files</Filter>
     </ClInclude>
-    <ClInclude Include="GrayscaleCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="IAddableCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="ITransformableCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="NegativeCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="MonochromeCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="AddCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="UndoCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="RotateCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
-    <ClInclude Include="IExecutableCommand.h">
-      <Filter>Header Files\Command files</Filter>
-    </ClInclude>
     <ClInclude Include="ImageContainer.h">
       <Filter>Header Files\Container files</Filter>
     </ClInclude>
     <ClInclude Include="SessionContainer.h">
       <Filter>Header Files\Container files</Filter>
     </ClInclude>
-    <ClInclude Include="CollageCommand.h">
+    <ClInclude Include="SaveCommand.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveAsCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddCommand.h">
+      <Filter>Header Files\Command files\Addable</Filter>
+    </ClInclude>
+    <ClInclude Include="CollageCommand.h">
+      <Filter>Header Files\Command files\Addable</Filter>
+    </ClInclude>
+    <ClInclude Include="IAddableCommand.h">
+      <Filter>Header Files\Command files\Addable</Filter>
+    </ClInclude>
+    <ClInclude Include="UndoCommand.h">
+      <Filter>Header Files\Command files\Executable</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionInfoCommand.h">
+      <Filter>Header Files\Command files\Executable</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadCommand.h">
+      <Filter>Header Files\Command files\Executable</Filter>
+    </ClInclude>
+    <ClInclude Include="IExecutableCommand.h">
+      <Filter>Header Files\Command files\Executable</Filter>
+    </ClInclude>
+    <ClInclude Include="GrayscaleCommand.h">
+      <Filter>Header Files\Command files\Tranformational</Filter>
+    </ClInclude>
+    <ClInclude Include="ITransformableCommand.h">
+      <Filter>Header Files\Command files\Tranformational</Filter>
+    </ClInclude>
+    <ClInclude Include="MonochromeCommand.h">
+      <Filter>Header Files\Command files\Tranformational</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeCommand.h">
+      <Filter>Header Files\Command files\Tranformational</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateCommand.h">
+      <Filter>Header Files\Command files\Tranformational</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
