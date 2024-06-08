@@ -127,39 +127,68 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddCommand.cpp" />
+    <ClCompile Include="CollageCommand.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="DynamicSet.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Grayscale.cpp" />
+    <ClCompile Include="GrayscaleCommand.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageContainer.cpp" />
+    <ClCompile Include="InputService.cpp" />
     <ClCompile Include="Monochrome.cpp" />
+    <ClCompile Include="MonochromeCommand.cpp" />
+    <ClCompile Include="MyString.cpp" />
     <ClCompile Include="Negative.cpp" />
+    <ClCompile Include="NegativeCommand.cpp" />
+    <ClCompile Include="OutputService.cpp" />
     <ClCompile Include="PBMImage.cpp" />
     <ClCompile Include="PGMImage.cpp" />
     <ClCompile Include="PPMImage.cpp" />
     <ClCompile Include="RasterGraphics.cpp" />
     <ClCompile Include="Rotate.cpp" />
+    <ClCompile Include="RotateCommand.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionContainer.cpp" />
     <ClCompile Include="SessionManager.cpp" />
+    <ClCompile Include="SwitchSessionCommand.cpp" />
+    <ClCompile Include="UndoCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddCommand.h" />
+    <ClInclude Include="CollageCommand.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="DynamicSet.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Grayscale.h" />
+    <ClInclude Include="GrayscaleCommand.h" />
+    <ClInclude Include="IAddableCommand.h" />
+    <ClInclude Include="IExecutableCommand.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageContainer.h" />
+    <ClInclude Include="InputService.h" />
+    <ClInclude Include="ITransformableCommand.h" />
     <ClInclude Include="Monochrome.h" />
+    <ClInclude Include="MonochromeCommand.h" />
+    <ClInclude Include="MyString.h" />
     <ClInclude Include="Negative.h" />
+    <ClInclude Include="NegativeCommand.h" />
+    <ClInclude Include="OutputService.h" />
     <ClInclude Include="PBMImage.h" />
     <ClInclude Include="PGMImage.h" />
     <ClInclude Include="Pixel.h" />
     <ClInclude Include="PPMImage.h" />
+    <ClInclude Include="Queue.hpp" />
     <ClInclude Include="Rotate.h" />
+    <ClInclude Include="RotateCommand.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionContainer.h" />
     <ClInclude Include="SessionManager.h" />
+    <ClInclude Include="SwitchSessionCommand.h" />
     <ClInclude Include="Transformation.h" />
+    <ClInclude Include="UndoCommand.h" />
+    <ClInclude Include="Vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -27,5 +27,6 @@ public:
 	void save() const override;
 
 	void saveAs(const char* direction) const override;
+	void saveToFile(const char* filePath) const override;
 };
 

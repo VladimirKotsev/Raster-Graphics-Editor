@@ -1,21 +1,26 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 
 class Image
 {
 private:
 	char* filePath;
 	char* magicFormat;
-
-	uint16_t width;
-	uint16_t height;
-	uint16_t colorMax;
 	
 	void copyFrom(const Image& other);
 	void free();
 
 	void setFilePath(const char* filePath);
 	void setMagicFormat(const char* format);
+
+	virtual void saveToFile(const char* filePath) const = 0;
+protected:
+	unsigned getFormatNumber() const;
+
+	uint16_t width;
+	uint16_t height;
+	uint16_t colorMax;
 public:
 	Image(const char* filePath);
 
@@ -39,5 +44,5 @@ public:
 	const uint16_t getHeight() const;
 	const uint16_t getColorMax() const;
 	const char* getFilePath() const;
-	const char* getImageFormat() const;
+	const char* getMagicFormat() const;
 };

@@ -31,12 +31,33 @@
     <Filter Include="Header Files\Session files">
       <UniqueIdentifier>{58936bbd-aa58-4644-b08a-4ada13b56c08}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{8ef6b454-c12d-4dff-8842-7b6a4394fee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{0532417d-c558-4160-8899-6620718c3139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ApplicationService files">
+      <UniqueIdentifier>{1d5198fe-1c5b-4b7a-bc62-14cc747ca6e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ApplicationService files">
+      <UniqueIdentifier>{18cd9a4a-354a-422e-97a4-f84e7e3a7315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command files">
+      <UniqueIdentifier>{e0cfe22e-3b82-4339-a5b1-97cdf88328d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Command files">
+      <UniqueIdentifier>{a3a701f1-05c3-40d0-86c6-cd635cabf57d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Container files">
+      <UniqueIdentifier>{6cbaf212-ed19-447c-9b51-a55f5d7ddc7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Container files">
+      <UniqueIdentifier>{47cf09e3-ca4e-4263-895f-58a6f18e5b05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RasterGraphics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PBMImage.cpp">
@@ -63,26 +84,62 @@
     <ClCompile Include="Session.cpp">
       <Filter>Source Files\Session files</Filter>
     </ClCompile>
-    <ClCompile Include="SessionContainer.cpp">
-      <Filter>Source Files\Session files</Filter>
-    </ClCompile>
     <ClCompile Include="SessionManager.cpp">
       <Filter>Source Files\Session files</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicSet.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="MyString.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
     <ClCompile Include="Image.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Image files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\ApplicationService files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputService.cpp">
+      <Filter>Source Files\ApplicationService files</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputService.cpp">
+      <Filter>Source Files\ApplicationService files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files\Command files</Filter>
+    </ClCompile>
+    <ClCompile Include="GrayscaleCommand.cpp">
+      <Filter>Source Files\Command files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddCommand.cpp">
+      <Filter>Source Files\Command files</Filter>
+    </ClCompile>
+    <ClCompile Include="MonochromeCommand.cpp">
+      <Filter>Source Files\Command files</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeCommand.cpp">
+      <Filter>Source Files\Command files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateCommand.cpp">
+      <Filter>Source Files\Command files</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchSessionCommand.cpp">
+      <Filter>Source Files\Command files</Filter>
+    </ClCompile>
+    <ClCompile Include="UndoCommand.cpp">
+      <Filter>Source Files\Command files</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionContainer.cpp">
+      <Filter>Source Files\Container files</Filter>
     </ClCompile>
     <ClCompile Include="ImageContainer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Container files</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicSet.cpp">
+    <ClCompile Include="CollageCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>Header Files\Image files</Filter>
     </ClInclude>
@@ -110,22 +167,76 @@
     <ClInclude Include="Grayscale.h">
       <Filter>Header Files\Transformation files</Filter>
     </ClInclude>
-    <ClInclude Include="SessionContainer.h">
-      <Filter>Header Files\Session files</Filter>
-    </ClInclude>
     <ClInclude Include="Session.h">
       <Filter>Header Files\Session files</Filter>
     </ClInclude>
     <ClInclude Include="SessionManager.h">
       <Filter>Header Files\Session files</Filter>
     </ClInclude>
-    <ClInclude Include="Pixel.h">
+    <ClInclude Include="DynamicSet.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pixel.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.hpp">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="MyString.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.hpp">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\ApplicationService files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputService.h">
+      <Filter>Header Files\ApplicationService files</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputService.h">
+      <Filter>Header Files\ApplicationService files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrayscaleCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="IAddableCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="ITransformableCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="MonochromeCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="UndoCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchSessionCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateCommand.h">
+      <Filter>Header Files\Command files</Filter>
+    </ClInclude>
+    <ClInclude Include="IExecutableCommand.h">
+      <Filter>Header Files\Command files</Filter>
     </ClInclude>
     <ClInclude Include="ImageContainer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Container files</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicSet.h">
+    <ClInclude Include="SessionContainer.h">
+      <Filter>Header Files\Container files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollageCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

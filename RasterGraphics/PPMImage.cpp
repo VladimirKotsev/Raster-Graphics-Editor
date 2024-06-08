@@ -57,4 +57,9 @@ void PPMImage::save() const
 
 void PPMImage::saveAs(const char* direction) const
 {
+
+}
+
+void PPMImage::saveToFile(const char* filePath) const
+{
 }

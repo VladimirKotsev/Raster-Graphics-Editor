@@ -2,5 +2,10 @@
 
 void Engine::run()
 {
-	std::cout << "Engine";
+	//InputService::readFromConsole();
+	while (true)
+	{
+
+
+	}
 }

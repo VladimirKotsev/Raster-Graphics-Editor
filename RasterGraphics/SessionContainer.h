@@ -34,6 +34,7 @@ public:
 
 	const Session* operator[](size_t index) const;
 	Session* operator[](size_t index);
+
 	size_t getSize() const;
 	size_t getCapacity() const;
 };

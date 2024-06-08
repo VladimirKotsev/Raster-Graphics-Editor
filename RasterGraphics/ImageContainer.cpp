@@ -15,9 +15,10 @@ void ImageContainer::copyFrom(const ImageContainer& other)
 	images = new Image*[other.capacity];
 	capacity = other.capacity;
 	size = other.size;
+
 	for (size_t i = 0; i < size; i++)
 	{
-		images[i] = other.images[i]; //op=
+		images[i] = other.images[i]->clone(); //op=
 	}
 }
 
@@ -111,16 +112,10 @@ size_t ImageContainer::getSize() const
 
 Image* ImageContainer::operator[](size_t index)
 {
-	if (index < 0 || index >= size)
-		throw std::invalid_argument("Given index out of bounds!");
-
 	return images[index];
 }
 
 const Image* ImageContainer::operator[](size_t index) const
 {
-	if (index < 0 || index >= size)
-		throw std::invalid_argument("Given index out of bounds!");
-
 	return images[index];
 }

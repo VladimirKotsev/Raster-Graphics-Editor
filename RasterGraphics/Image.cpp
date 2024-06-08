@@ -35,6 +35,11 @@ void Image::setMagicFormat(const char* format)
 		throw std::invalid_argument("Null-pointer passed for image magic number!");
 }
 
+unsigned Image::getFormatNumber() const
+{
+	return (*(getMagicFormat() + 1) - '0'); //return the number from magic format
+}
+
 Image::Image(const char* filePath)
 {
 	setFilePath(filePath);
@@ -81,7 +86,7 @@ const char* Image::getFilePath() const
 	return filePath;
 }
 
-const char* Image::getImageFormat() const
+const char* Image::getMagicFormat() const
 {
 	return magicFormat;
 }
