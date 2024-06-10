@@ -3,7 +3,6 @@
 #include <algorithm>
 #pragma warning (disable : 4996)
 
-
 static unsigned roundToPowerOfTwo(unsigned v)
 {
     v--;
@@ -166,6 +165,17 @@ void MyString::copyFrom(const MyString& other)
     std::strcpy(_data, other._data);
     _size = other._size;
 }
+
+MyString MyString::substr(size_t begin, size_t howMany) const
+{
+    if (begin + howMany > getSize())
+        throw std::length_error("Error, Substr out of range");
+
+    MyString res(howMany + 1);
+    strncat(res._data, _data + begin, howMany);
+    return res;
+}
+
 
 MyString operator+(const MyString& lhs, const MyString& rhs)
 {

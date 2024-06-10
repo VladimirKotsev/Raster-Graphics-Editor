@@ -4,3 +4,8 @@ SessionInfoCommand::SessionInfoCommand(SessionManager* const sesManager) : IExec
 {
 
 }
+
+void SessionInfoCommand::execute() const
+{
+	sessionManager->printSessionInfo();
+}

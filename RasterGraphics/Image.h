@@ -12,11 +12,11 @@ private:
 	void free();
 
 	void setFilePath(const char* filePath);
-	void setMagicFormat(const char* format);
 
 	virtual void saveToFile(const char* filePath) const = 0;
 protected:
 	unsigned getFormatNumber() const;
+	void setMagicFormat(const char* format);
 
 	uint16_t width;
 	uint16_t height;

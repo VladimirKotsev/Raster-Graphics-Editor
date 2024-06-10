@@ -1,11 +1,12 @@
 #pragma once
 #include "Image.h"
 #include "DynamicSet.h"
+#include "Vector.hpp"
 
 class PBMImage : public Image
 {
 private:
-	//DynamicSet* bits;
+	DynamicSet* data = nullptr;
 
 	void free();
 	void copyFrom(const PBMImage& other);

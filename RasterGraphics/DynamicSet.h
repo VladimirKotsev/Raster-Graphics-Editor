@@ -24,6 +24,8 @@ public:
 	bool contains(unsigned num) const;
 	void print() const;
 
+	unsigned getCount() const;
+
 	//TO DO: delete????
 	friend DynamicSet UnionOfSets(const DynamicSet& lhs, const DynamicSet& rhs);
 	friend DynamicSet IntersectionOfSets(const DynamicSet& lhs, const DynamicSet& rhs);

@@ -1,5 +1,3 @@
-//copied from https://github.com/Angeld55/Object-oriented_programming_FMI/blob/master/Week%2009/MyString%20(with%20move)/MyString.h
-
 #pragma once
 #include <iostream>
 
@@ -30,6 +28,9 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const MyString& obj);
     friend std::istream& operator>>(std::istream& is, MyString& ref);
     friend MyString operator+(const MyString& lhs, const MyString& rhs);
+
+    MyString substr(size_t begin, size_t howMany) const;
+
 private:
     explicit MyString(size_t stringLength);
     void resize(unsigned newAllocatedDataSize);

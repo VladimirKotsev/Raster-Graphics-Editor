@@ -90,6 +90,11 @@ void DynamicSet::print() const
 	std::cout << '}' << std::endl;
 }
 
+unsigned DynamicSet::getCount() const
+{
+	return bucketsCount;
+}
+
 DynamicSet UnionOfSets(const DynamicSet& lhs, const DynamicSet& rhs)
 {
 	DynamicSet result(std::max(lhs.N, rhs.N));

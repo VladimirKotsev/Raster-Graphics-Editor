@@ -10,7 +10,7 @@ private:
 public:
 	SessionManager(const char* fileName);
 
-	void createSession(const char* fileName);
+	void createSession(MyString* fileNames, size_t n);
 
 	void undo(); //undoes the last added transformation
 	void collage(/*TO DO*/); //makes a collage between to image from the same format and adds to image collection

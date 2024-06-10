@@ -1,4 +1,5 @@
 #include "PBMImage.h"
+#include "Vector.h"
 
 Image* PBMImage::clone() const
 {
@@ -8,6 +9,76 @@ Image* PBMImage::clone() const
 
 void PBMImage::load()
 {
+	std::ifstream ifs(getFilePath(), std::ios::in);
+
+	if (!ifs.is_open())
+		throw std::logic_error("File cannot be found!");
+
+	char buffer[2 + 1]; // CONSTANT SHOULD NOT BE HERE
+	ifs.getline(buffer, 2);
+	setMagicFormat(buffer);
+
+	ifs.close();
+	unsigned magicNumber = getFormatNumber();
+
+	if (magicNumber > 0 && magicNumber <= 3) //ASCII
+	{
+		std::ifstream ifs(getFilePath(), std::ios::in);
+
+		if (!ifs.is_open())
+			throw std::logic_error("File cannot be found!");
+
+		char buffer[2 + 1]; // CONSTANT SHOULD NOT BE HERE
+		ifs.getline(buffer, 2);
+
+		ifs >> width >> height;
+		ifs.ignore();
+
+		unsigned bits = getWidth() * getHeight();
+		uint8_t currentBit = 0;
+
+		data = new DynamicSet(bits);
+
+		for (size_t i = 0; i < bits; i++)
+		{
+			ifs >> currentBit;
+			if (currentBit == 1)
+				data->add(i);
+		}
+
+		ifs.close();
+	}
+	else // BINARY
+	{
+		std::ifstream ifs(getFilePath(), std::ios::in | std::ios::binary);
+		
+		if (!ifs.is_open())
+			throw std::logic_error("File cannot be found!");
+
+		char buffer[2 + 1]; // CONSTANT SHOULD NOT BE HERE
+		ifs.getline(buffer, 2);
+
+		ifs >> width >> height;
+		ifs.ignore();
+
+		unsigned bits = getWidth() * getHeight();
+		int dataSize = (width * height + 7) / 8;
+		uint8_t currentBit = 0;
+
+		data = new DynamicSet(bits);
+		uint8_t* fileData = new uint8_t[dataSize];
+
+		ifs.read((char*)(data), dataSize);
+		ifs.close();
+
+		for (int i = 0; i < dataSize; ++i)
+		{
+			int byteIndex = i / 8;
+			int bitIndex = 7 - (i % 8);
+			if (fileData[byteIndex] & (1 << bitIndex))
+				data->add(i);
+		}
+	}
 }
 
 void PBMImage::save() const
@@ -31,13 +102,12 @@ void PBMImage::free()
 
 void PBMImage::copyFrom(const PBMImage& other)
 {
-	//bits = new DynamicSet[other.getHeight()];
+	data = new DynamicSet(other.getHeight() * other.getWidth());
+	for (size_t i = 0; i < other.data->getCount(); i++)
+	{
+		data[i] = other.data[i];
+	}
 }
-
-//PBMImage::PBMImage(const char* filePath) : Image(filePath)
-//{
-//
-//}
 
 PBMImage::PBMImage(const char* filePath) : Image(filePath)
 {
@@ -59,15 +129,3 @@ PBMImage& PBMImage::operator=(const PBMImage& other)
 
 	return *this;
 }
-
-//PBMImage& PBMImage::operator=(const PBMImage& other)
-//{
-//	if (this != &other)
-//	{
-//		Image::operator=(other);
-//		free();
-//		copyFrom(other);
-//	}
-//
-//	return *this;
-//}

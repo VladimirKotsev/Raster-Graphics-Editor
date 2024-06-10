@@ -108,9 +108,6 @@
     <ClCompile Include="DynamicSet.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="MyString.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
     <ClCompile Include="Image.cpp">
       <Filter>Source Files\Image files</Filter>
     </ClCompile>
@@ -167,6 +164,9 @@
     </ClCompile>
     <ClCompile Include="RotateCommand.cpp">
       <Filter>Header Files\Command files\Addable</Filter>
+    </ClCompile>
+    <ClCompile Include="MyString.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -236,12 +236,6 @@
     <ClInclude Include="SessionContainer.h">
       <Filter>Header Files\Container files</Filter>
     </ClInclude>
-    <ClInclude Include="SaveCommand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SaveAsCommand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AddCommand.h">
       <Filter>Header Files\Command files\Addable</Filter>
     </ClInclude>
@@ -277,6 +271,12 @@
     </ClInclude>
     <ClInclude Include="RotateCommand.h">
       <Filter>Header Files\Command files\Tranformational</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveAsCommand.h">
+      <Filter>Header Files\Command files\Executable</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveCommand.h">
+      <Filter>Header Files\Command files\Executable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
