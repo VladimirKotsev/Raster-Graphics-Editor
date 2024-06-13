@@ -13,7 +13,8 @@ private:
 
 	void setFilePath(const char* filePath);
 
-	virtual void saveToFile(const char* filePath) const = 0;
+	virtual void saveToASCII(const char* filePath) const = 0;
+	virtual void saveToBinary(const char* filePath) const = 0;
 protected:
 	unsigned getFormatNumber() const;
 	void setMagicFormat(const char* format);

@@ -1,13 +1,17 @@
 #pragma once
 #include "Image.h"
+#include "Vector.hpp"
 
 class PGMImage : public Image
 {
 private:
-	uint8_t** data;
+	Vector<Vector<uint16_t>> data;
 
 	void free();
 	void copyFrom(const PGMImage& other);
+
+	void saveToASCII(const char* filePath) const override;
+	void saveToBinary(const char* filePath) const override;
 public:
 	PGMImage(const char* filePath);
 
@@ -22,6 +26,5 @@ public:
 	void load() override;
 	void save() const override;
 	void saveAs(const char* direction) const override;
-	void saveToFile(const char* filePath) const override;
 };
 

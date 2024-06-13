@@ -1,3 +1,4 @@
+#include "PGMImage.h"
 //#include "PGMImage.h"
 //
 //Image* PGMImage::clone() const
@@ -131,3 +132,99 @@
 //
 //	return *this;
 //}
+
+void PGMImage::free()
+{
+	for (size_t i = 0; i < data.getSize(); i++)
+	{
+		data[i].clear();
+	}
+	data.clear();
+}
+
+void PGMImage::copyFrom(const PGMImage& other)
+{
+	for (size_t i = 0; i < other.data.getSize(); i++)
+	{
+		data[i] = other.data[i]; // copy
+	}
+}
+
+void PGMImage::saveToASCII(const char* filePath) const
+{
+	std::ofstream ofs(getFilePath(), std::ios::out);
+	if (!ofs.is_open())
+		throw std::logic_error("File cannot be found!");
+
+	ofs << getMagicFormat() << '\n';
+	ofs << getWidth() << ' ' << getHeight() << '\n';
+
+	for (size_t i = 0; i < data.getSize(); i++)
+	{
+		size_t currRowSize = data[i].getSize();
+		for (size_t j = 0; j < currRowSize; j++)
+		{
+			ofs << data[i][j] << ' ';
+		}
+
+		ofs << '\n';
+	}
+
+	ofs.close(); //calls flush()
+}
+
+void PGMImage::saveToBinary(const char* filePath) const
+{
+
+}
+
+PGMImage::PGMImage(const char* filePath) : Image(filePath)
+{
+}
+
+PGMImage::PGMImage(const PGMImage& other) : Image(other)
+{
+	copyFrom(other);
+}
+
+PGMImage& PGMImage::operator=(const PGMImage& other)
+{
+	if (this != &other)
+	{
+		Image::operator=(other);
+		free();
+		copyFrom(other);
+	}
+
+	return *this;
+}
+
+Image* PGMImage::clone() const
+{
+	Image* cloned = new (std::nothrow) PGMImage(*this);
+	return cloned;
+}
+
+void PGMImage::save() const
+{
+	if (strcmp(getMagicFormat(), "P5") == 0) //BINARY
+	{
+
+	}
+	else //P2 ASCII
+	{
+		saveToASCII(getFilePath());
+	}
+}
+
+void PGMImage::saveAs(const char* direction) const
+{
+	if (strcmp(getMagicFormat(), "P5") == 0)
+	{
+
+	}
+	else
+	{
+		saveToASCII(direction);
+	}
+}

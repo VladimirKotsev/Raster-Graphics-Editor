@@ -162,11 +162,11 @@
     <ClCompile Include="NegativeCommand.cpp">
       <Filter>Source Files\Command files\Transformational</Filter>
     </ClCompile>
-    <ClCompile Include="RotateCommand.cpp">
-      <Filter>Header Files\Command files\Addable</Filter>
-    </ClCompile>
     <ClCompile Include="MyString.cpp">
       <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateCommand.cpp">
+      <Filter>Source Files\Command files\Transformational</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
