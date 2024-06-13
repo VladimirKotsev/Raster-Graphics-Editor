@@ -15,8 +15,9 @@ private:
 
 	virtual void saveToASCII(const char* filePath) const = 0;
 	virtual void saveToBinary(const char* filePath) const = 0;
+	virtual void loadContentFromASCII() = 0;
+	virtual void loadContentFromBinary() = 0;
 protected:
-	unsigned getFormatNumber() const;
 	void setMagicFormat(const char* format);
 
 	uint16_t width;

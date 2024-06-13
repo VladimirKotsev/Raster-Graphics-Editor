@@ -1,5 +1,5 @@
 #include "PBMImage.h"
-#include "Vector.h"
+#include "Vector.hpp"
 
 Image* PBMImage::clone() const
 {
@@ -21,37 +21,10 @@ void PBMImage::load()
 	ifs.close();
 	unsigned magicNumber = getFormatNumber();
 
-	if (magicNumber > 0 && magicNumber <= 3) //ASCII
-	{
-		std::ifstream ifs(getFilePath(), std::ios::in);
-
-		if (!ifs.is_open())
-			throw std::logic_error("File cannot be found!");
-
-		char buffer[2 + 1]; // CONSTANT SHOULD NOT BE HERE
-		ifs.getline(buffer, 2);
-
-		ifs >> width >> height;
-		ifs.ignore();
-
-		unsigned bits = getWidth() * getHeight();
-		uint8_t currentBit = 0;
-
-		data = new DynamicSet(bits);
-
-		for (size_t i = 0; i < bits; i++)
-		{
-			ifs >> currentBit;
-			if (currentBit == 1)
-				data->add(i);
-		}
-
-		ifs.close();
-	}
-	else // BINARY
+	if (strcmp(getMagicFormat(), "P4") == 0) //BINARY
 	{
 		std::ifstream ifs(getFilePath(), std::ios::in | std::ios::binary);
-		
+
 		if (!ifs.is_open())
 			throw std::logic_error("File cannot be found!");
 
@@ -78,6 +51,33 @@ void PBMImage::load()
 			if (fileData[byteIndex] & (1 << bitIndex))
 				data->add(i);
 		}
+	}
+	else // ASCII
+	{
+		std::ifstream ifs(getFilePath(), std::ios::in);
+
+		if (!ifs.is_open())
+			throw std::logic_error("File cannot be found!");
+
+		char buffer[2 + 1]; // CONSTANT SHOULD NOT BE HERE
+		ifs.getline(buffer, 2);
+
+		ifs >> width >> height;
+		ifs.ignore();
+
+		unsigned bits = getWidth() * getHeight();
+		uint8_t currentBit = 0;
+
+		data = new DynamicSet(bits);
+
+		for (size_t i = 0; i < bits; i++)
+		{
+			ifs >> currentBit;
+			if (currentBit == 1)
+				data->add(i);
+		}
+
+		ifs.close();
 	}
 }
 

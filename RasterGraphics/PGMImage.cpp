@@ -178,6 +178,35 @@ void PGMImage::saveToBinary(const char* filePath) const
 
 }
 
+void PGMImage::loadContentFromASCII()
+{
+	std::ifstream ifs(getFilePath(), std::ios::in);
+	char buffer[1024]; // Should be a constant
+	std::stringstream ss;
+
+	while (ifs.getline(buffer, 1024))
+	{
+		if (strlen(buffer) == 0) // Skip empty lines
+			continue;
+
+		ss.clear(); // Clear any previous state of stringstream
+		ss.str(buffer); // Set stringstream's content to the current line
+
+		Vector<uint16_t> row; // Creates a row
+		uint16_t num;
+
+		// Extract numbers from the current line
+		while (ss >> num)
+		{
+			row.pushBack(num);
+		}
+
+		data.pushBack(std::move(row)); // Add the row to the data vector
+	}
+
+	ifs.close();
+}
+
 PGMImage::PGMImage(const char* filePath) : Image(filePath)
 {
 }
@@ -205,6 +234,27 @@ Image* PGMImage::clone() const
 	return cloned;
 }
 
+void PGMImage::load()
+{
+	std::ifstream ifs(getFilePath(), std::ios::in);
+
+	char* magicFormat;
+	ifs >> magicFormat;
+	setMagicFormat(magicFormat);
+
+	ifs >> width >> height;
+	ifs.close();
+
+	if (strcmp(getMagicFormat(), "P5") == 0) //BINARY
+	{
+
+	}
+	else //ASCII
+	{
+		loadContentFromASCII();
+	}
+}
+
 void PGMImage::save() const
 {
 	if (strcmp(getMagicFormat(), "P5") == 0) //BINARY
@@ -223,7 +273,7 @@ void PGMImage::saveAs(const char* direction) const
 	{
 
 	}
-	else
+	else //ASCII
 	{
 		saveToASCII(direction);
 	}

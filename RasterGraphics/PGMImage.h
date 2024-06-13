@@ -1,6 +1,7 @@
 #pragma once
 #include "Image.h"
 #include "Vector.hpp"
+#include <sstream>
 
 class PGMImage : public Image
 {
@@ -12,6 +13,8 @@ private:
 
 	void saveToASCII(const char* filePath) const override;
 	void saveToBinary(const char* filePath) const override;
+	void loadContentFromASCII() override;
+	void loadContentFromBinary() override;
 public:
 	PGMImage(const char* filePath);
 
