@@ -1,12 +1,11 @@
 #pragma once
 #include "Image.h"
 #include "Vector.hpp"
-#include <sstream>
 
 class PGMImage : public Image
 {
 private:
-	Vector<Vector<uint16_t>> data;
+	Vector<uint16_t> data;
 
 	void free();
 	void copyFrom(const PGMImage& other);

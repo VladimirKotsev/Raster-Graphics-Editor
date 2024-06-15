@@ -2,23 +2,14 @@
 
 void PPMImage::free()
 {
-    for (size_t i = 0; i < getHeight(); i++)
-    {
-        delete[] pixels[i];
-    }
-
-    delete[] pixels;
+    data.clear();
 }
 
 void PPMImage::copyFrom(const PPMImage& other)
 {
-    pixels = new Pixel*[other.getHeight()];
-    for (size_t i = 0; i < other.getHeight(); i++)
+    for (size_t i = 0; i < other.data.getSize(); i++)
     {
-        for (size_t j = 0; j < other.getWidth(); j++)
-        {
-            pixels[i][j] = other.pixels[i][j];
-        }
+        data[i] = other.data[i];
     }
 }
 
@@ -62,4 +53,24 @@ void PPMImage::saveAs(const char* direction) const
 
 void PPMImage::saveToFile(const char* filePath) const
 {
+}
+
+void PPMImage::saveToASCII(const char* filePath) const
+{
+
+}
+
+void PPMImage::saveToBinary(const char* filePath) const
+{
+
+}
+
+void PPMImage::loadContentFromASCII()
+{
+
+}
+
+void PPMImage::loadContentFromBinary()
+{
+
 }
