@@ -1,5 +1,6 @@
 #pragma once
 #include "SessionContainer.h"
+#include "MyString.h"
 
 class SessionManager
 {
@@ -8,9 +9,9 @@ private:
 
 	unsigned currentSession; // public??
 public:
-	SessionManager(const char* fileName);
+	SessionManager(Session* const session);
 
-	void createSession(MyString* fileNames, size_t n);
+	void createSession(Session* const session);
 
 	void undo(); //undoes the last added transformation
 	void collage(/*TO DO*/); //makes a collage between to image from the same format and adds to image collection
@@ -21,6 +22,7 @@ public:
 	void saveAsSession(); //saves only first loaded image
 
 	unsigned getCurrSession() const; //gets current session id
+	//TO DO
 	void printSessionInfo() const; //prints sesion info
 };
 

@@ -23,11 +23,16 @@ void PGMImage::saveToASCII(const char* filePath) const
 	ofs << getMagicFormat() << '\n';
 	ofs << getWidth() << ' ' << getHeight() << '\n';
 
+	unsigned col = 0;
 	for (size_t i = 0; i < data.getSize(); i++)
 	{
-		ofs << data[i] << ' ';
+		if (col == getWidth())
+		{
+			col = 0;
+			ofs << '/n';
+		}
 
-		ofs << '\n';
+		ofs << data[i] << ' ';
 	}
 
 	ofs.close(); //calls flush()
@@ -62,6 +67,10 @@ void PGMImage::loadContentFromASCII()
 	}
 
 	ifs.close();
+}
+
+void PGMImage::loadContentFromBinary()
+{
 }
 
 PGMImage::PGMImage(const char* filePath) : Image(filePath)
@@ -116,6 +125,7 @@ void PGMImage::save() const
 {
 	if (strcmp(getMagicFormat(), "P5") == 0) //BINARY
 	{
+		saveToBinary(getFilePath());
 
 	}
 	else //P2 ASCII
@@ -128,7 +138,7 @@ void PGMImage::saveAs(const char* direction) const
 {
 	if (strcmp(getMagicFormat(), "P5") == 0)
 	{
-
+		saveToBinary(direction);
 	}
 	else //ASCII
 	{
