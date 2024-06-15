@@ -48,6 +48,11 @@ void Session::undoTransformation()
 	commands.popAt(atIndex);
 }
 
+void Session::addImage(MyString filePath)
+{
+	addImage(filePath);
+}
+
 void Session::save()
 {
 	executeCommands(); //executes
@@ -61,4 +66,9 @@ void Session::saveAs()
 unsigned Session::getID() const
 {
 	return ID;
+}
+
+const ImageContainer& Session::getImages() const
+{
+	return images;
 }

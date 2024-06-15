@@ -6,5 +6,5 @@ AddCommand::AddCommand(SessionManager* const sesManager, MyString filePath) : IA
 
 void AddCommand::execute() const
 {
-	//add image to current session
+	sessionManager->addImage(imagePath);
 }

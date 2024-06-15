@@ -130,6 +130,7 @@
     <ClCompile Include="AddCommand.cpp" />
     <ClCompile Include="CollageCommand.cpp" />
     <ClCompile Include="Command.cpp" />
+    <ClCompile Include="CommandFactory.cpp" />
     <ClCompile Include="DynamicSet.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Grayscale.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="AddCommand.h" />
     <ClInclude Include="CollageCommand.h" />
     <ClInclude Include="Command.h" />
+    <ClInclude Include="CommandFactory.h" />
     <ClInclude Include="DynamicSet.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Grayscale.h" />

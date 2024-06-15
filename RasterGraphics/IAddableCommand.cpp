@@ -7,5 +7,5 @@ IAddableCommand::IAddableCommand(SessionManager* const sesManager, MyString file
 
 const MyString& IAddableCommand::getImagePath() const
 {
-	return 
+	return imagePath;
 }

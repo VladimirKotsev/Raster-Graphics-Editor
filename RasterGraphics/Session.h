@@ -11,7 +11,7 @@ private:
 	static unsigned initializationCount;
 
 	unsigned ID = 0;
-	
+
 	//image container
 	ImageContainer images;
 	Vector<Command> commands;
@@ -24,10 +24,12 @@ public:
 
 	void addCommand(const Command& command);
 
+	void addImage(MyString filePath);
 	void undoTransformation();
 	void save();
 	void saveAs();
 
 	unsigned getID() const;
+	const ImageContainer& getImages() const;
 };
 

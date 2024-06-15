@@ -13,6 +13,7 @@ public:
 
 	void createSession(Session* const session);
 
+	void addImage(MyString filePath);
 	void undo(); //undoes the last added transformation
 	void collage(/*TO DO*/); //makes a collage between to image from the same format and adds to image collection
 	void switchSession(unsigned sessionId); //switches to other session
