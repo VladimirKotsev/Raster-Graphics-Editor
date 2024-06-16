@@ -1,11 +1,86 @@
 #include "Engine.h"
+#include "SessionManager.h"
 
 void Engine::run()
 {
-	//InputService::readFromConsole();
-	while (true)
+	SessionManager sessionManager;
+	Vector<MyString> input = InputService::readSplitedInput(' '); //const seperator
+	
+	while (input[0] != "exit")
 	{
+		MyString& command = input[0];
+		command.toLower();
+		if (command == "add")
+		{
+			//Create add command from factory and give it to session
+		}
+		else if (command == "help")
+		{
+			//outputService prints info
+		}
+		else if (command == "load")
+		{
+			if (input.getSize() == 1)
+				throw std::invalid_argument("No image file path given to load a session");
+			
+			Session session;
+			sessionManager.createSession(&session);
+			for (size_t i = 0; i < input; i++)
+			{
+
+			}
+		}
+		else if (command == "close")
+		{
+			//Close current session
+		}
+		else if (command == "save")
+		{
+			//save session
+		}
+		else if (command == "saveas")
+		{
+			//save session first image with given path
+		}
+		else if (command == "grayscale")
+		{
+			//Create grayscale command and add to session
+		}
+		else if (command == "rotate")
+		{
+			//Create rotate command with give rotation and add to session
+		}
+		else if (command == "monochrome")
+		{
+			//creates monochrome command and adds to session
+		}
+		else if (command == "negative")
+		{
+			//creates negative command and adds to session
+		}
+		else if (command == "undo")
+		{
+			//undoes last transformation in session
+		}
+		else if (command == "session")
+		{
+			MyString& additional = input[1];
+			additional.toLower();
+			if (additional == "info")
+			{
+				//Contact output service for printing session info
+			}
+		}
+		else if (command == "switch")
+		{
+			//Switches session
+		}
+		else if (command == "collage")
+		{
+			//creates a colage
+		}
 
 
+		input = InputService::readSplitedInput(' '); // separator should be constant
 	}
 }

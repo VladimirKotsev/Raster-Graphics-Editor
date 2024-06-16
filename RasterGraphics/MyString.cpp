@@ -176,6 +176,14 @@ MyString MyString::substr(size_t begin, size_t howMany) const
     return res;
 }
 
+void MyString::toLower()
+{
+    for (size_t i = 0; i < _size; ++i)
+    {
+        if (_data[i] >= 'A' && _data[i] <= 'Z')
+            _data[i] += 'a' - 'A';
+    }
+}
 
 MyString operator+(const MyString& lhs, const MyString& rhs)
 {

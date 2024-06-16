@@ -9,6 +9,7 @@ private:
 
 	unsigned currentSession; // public??
 public:
+	SessionManager() = default;
 	SessionManager(Session* const session);
 
 	void createSession(Session* const session);

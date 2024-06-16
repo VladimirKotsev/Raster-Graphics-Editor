@@ -30,7 +30,7 @@ public:
     friend MyString operator+(const MyString& lhs, const MyString& rhs);
 
     MyString substr(size_t begin, size_t howMany) const;
-
+    void toLower();
 private:
     explicit MyString(size_t stringLength);
     void resize(unsigned newAllocatedDataSize);
