@@ -105,6 +105,20 @@ void SessionContainer::addSession(Session* session)
 	session = nullptr;
 }
 
+void SessionContainer::removeAt(size_t index)
+{
+	if (index >= size)
+		throw std::out_of_range("Index out of range");
+
+	delete data[index];
+	for (size_t i = index; i < size - 1; i++)
+	{
+		data[i] = data[i + 1];
+	}
+
+	data[--size] = nullptr;  // Optional: nullify the last element
+}
+
 const Session* SessionContainer::operator[](size_t index) const
 {
 	if (index < 0 || index >= size)

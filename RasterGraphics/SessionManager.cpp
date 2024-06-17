@@ -34,6 +34,11 @@ void SessionManager::addCommandToSession(const Command& command)
 	container[currentSession - 1]->addCommand(command);
 }
 
+void SessionManager::closeSession()
+{
+	container.removeAt(currentSession - 1);
+}
+
 void SessionManager::saveSession()
 {
 	container[currentSession - 1]->save();
@@ -44,7 +49,7 @@ void SessionManager::saveAsSession()
 	container[currentSession - 1]->saveAs();
 }
 
-unsigned SessionManager::getCurrSession() const
+unsigned SessionManager::getCurrSessionID() const
 {
 	return currentSession;
 }

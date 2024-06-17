@@ -1,19 +1,15 @@
 #include "Session.h"
+#include "ITransformableCommand.h"
 
 unsigned Session::initializationCount = 0;
 
 unsigned Session::getLastTransformationIndex() const
 {
-	for (unsigned i = commands.getSize(); i >= 0; i--)
+	size_t size = commands.getSize();
+	for (size_t i = 0; i < size; i++)
 	{
-		switch (commands[i].getCommandType())
-		{
-		case CommandType::TRANSFORMATION: 
-			return i;
-		}
+		if (ITransformableCommand* transf = dynamic_cast<ITransformableCommand*>(commands[i]));
 	}
-
-	return -1;
 }
 
 void Session::executeCommands()
@@ -71,4 +67,9 @@ unsigned Session::getID() const
 const ImageContainer& Session::getImages() const
 {
 	return images;
+}
+
+const Vector<Command>& Session::getCommands() const
+{
+	return commands;
 }

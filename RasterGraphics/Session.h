@@ -31,5 +31,6 @@ public:
 
 	unsigned getID() const;
 	const ImageContainer& getImages() const;
+	const Vector<Command>& getCommands() const;
 };
 

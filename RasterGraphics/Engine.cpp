@@ -25,22 +25,22 @@ void Engine::run()
 			
 			Session session;
 			sessionManager.createSession(&session);
-			for (size_t i = 0; i < input; i++)
+			for (size_t i = 1; i < input.getSize(); i++)
 			{
-
+				sessionManager.getCurrentSession().addImage(input[i]);
 			}
 		}
 		else if (command == "close")
 		{
-			//Close current session
+			sessionManager.closeSession();
 		}
 		else if (command == "save")
 		{
-			//save session
+			sessionManager.saveSession();
 		}
 		else if (command == "saveas")
 		{
-			//save session first image with given path
+			sessionManager.saveAsSession();
 		}
 		else if (command == "grayscale")
 		{
@@ -60,7 +60,7 @@ void Engine::run()
 		}
 		else if (command == "undo")
 		{
-			//undoes last transformation in session
+			sessionManager.undo();
 		}
 		else if (command == "session")
 		{
@@ -73,7 +73,11 @@ void Engine::run()
 		}
 		else if (command == "switch")
 		{
-			//Switches session
+			if (input.getSize() == 1)
+				throw std::invalid_argument("Session ID needed!");
+
+			unsigned id = input[1][0] - '0';
+			sessionManager.switchSession(id);
 		}
 		else if (command == "collage")
 		{
