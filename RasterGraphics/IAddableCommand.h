@@ -10,6 +10,8 @@ protected:
 public:
 	IAddableCommand(SessionManager* const sesManager, MyString filePath);
 
+	virtual ~IAddableCommand() = default;
+
 	const MyString& getImagePath() const;
 
 	// Inherited via Command

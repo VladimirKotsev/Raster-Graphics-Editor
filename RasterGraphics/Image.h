@@ -47,4 +47,6 @@ public:
 	const uint16_t getColorMax() const;
 	const char* getFilePath() const;
 	const char* getMagicFormat() const;
+
+	friend std::ostream& operator<<(std::ostream& os, const Image& image);
 };

@@ -85,3 +85,8 @@ const char* Image::getMagicFormat() const
 {
 	return magicFormat;
 }
+
+std::ostream& operator<<(std::ostream& os, const Image& image)
+{
+	return os << image.getFilePath();
+}

@@ -32,7 +32,7 @@ Session* Session::clone() const
 	return toReturn;
 }
 
-void Session::addCommand(Command* command)
+void Session::addCommand(const polymorphic_ptr<Command>& command)
 {
 	commands.pushBack(command);
 }
@@ -70,3 +70,15 @@ unsigned Session::getID() const
 	return ID;
 }
 
+std::ostream& operator<<(std::ostream& os, const Session& ses)
+{
+	size_t count = ses.images.getSize();
+	for (size_t i = 0; i < count; i++)
+	{
+		os << ses.images[i];
+		if (i + 1 < count)
+			os << ", ";
+	}
+
+	return os;
+}

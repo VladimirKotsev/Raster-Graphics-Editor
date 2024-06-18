@@ -23,12 +23,14 @@ public:
 	Session();
 	Session* clone() const;
 
-	void addCommand(Command* command);
+	void addCommand(const polymorphic_ptr<Command>& command);
 
 	void addImage(MyString filePath);
 	void undoTransformation();
 	void save();
 	void saveAs();
+
+	friend std::ostream& operator<<(std::ostream& os, const Session& ses);
 
 	unsigned getID() const;
 };

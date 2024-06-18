@@ -67,7 +67,7 @@ void Engine::run()
 			additional.toLower();
 			if (additional == "info")
 			{
-				//Contact output service for printing session info
+				std::cout << sessionManager;
 			}
 		}
 		else if (command == "switch")
