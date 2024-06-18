@@ -1,6 +1,4 @@
 #include "MyString.h"
-#include <cstring>
-#include <algorithm>
 #pragma warning (disable : 4996)
 
 static unsigned roundToPowerOfTwo(unsigned v)

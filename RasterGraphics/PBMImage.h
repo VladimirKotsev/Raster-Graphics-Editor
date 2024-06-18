@@ -26,6 +26,10 @@ public:
 	void save() const override;
 	void saveAs(const char* direction) const override;
 
-	void saveToFile(const char* filePath) const override;
+	// Inherited via Image
+	void saveToASCII(const char* filePath) const override;
+	void saveToBinary(const char* filePath) const override;
+	void loadContentFromASCII() override;
+	void loadContentFromBinary() override;
 };
 

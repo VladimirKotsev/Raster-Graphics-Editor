@@ -1,6 +1,7 @@
 #include "SessionManager.h"
+#include "Command.h"
 
-SessionManager::SessionManager(Session* const session)
+SessionManager::SessionManager(Session& session)
 {
 	container.addSession(session);
 	currentSession = 1;
@@ -29,7 +30,7 @@ void SessionManager::switchSession(unsigned sessionId)
 	currentSession = sessionId;
 }
 
-void SessionManager::addCommandToSession(const Command& command)
+void SessionManager::addCommand(Command* command)
 {
 	container[currentSession - 1]->addCommand(command);
 }
@@ -54,6 +55,11 @@ unsigned SessionManager::getCurrSessionID() const
 	return currentSession;
 }
 
+const Session& SessionManager::getCurrentSession() const
+{
+	return *container[currentSession - 1];
+}
+
 void SessionManager::printSessionInfo() const
 {
 	//TO DO
@@ -62,12 +68,14 @@ void SessionManager::printSessionInfo() const
 	std::cout << "Session info: " << currentSession << std::endl;
 	std::cout << "Images in session: ";
 
-	size_t size = container[currentSession - 1]->getImages().getSize();
+	/*size_t size = container[currentSession - 1]->getImages().getSize();
 	for (size_t i = 0; i < size; i++)
 	{
 		std::cout << container[currentSession - 1]->getImages()[i]->getFilePath();
 
 		if (i - 1 < size)
 			std::cout << ", ";
-	}
+	}*/
 }
+
+void SessionManager::collage() {}

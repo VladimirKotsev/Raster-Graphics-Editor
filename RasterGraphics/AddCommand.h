@@ -9,5 +9,9 @@ public:
     // Inherited via IAddableCommand
     void execute() const override;
 
+
+    // Inherited via IAddableCommand
+    Command* clone() const override;
+
 };
 

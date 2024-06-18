@@ -7,5 +7,5 @@ LoadCommand::LoadCommand(SessionManager* const sesManager, MyString* images, siz
 
 void LoadCommand::execute() const
 {
-	sessionManager->createSession(images, n);
+	//sessionManager->createSession(images, n);
 }

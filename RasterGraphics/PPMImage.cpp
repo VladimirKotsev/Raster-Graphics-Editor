@@ -1,5 +1,4 @@
 #include "PPMImage.h"
-#include <sstream>
 
 void PPMImage::free()
 {

@@ -1,15 +1,17 @@
 #include "Session.h"
-#include "ITransformableCommand.h"
 
 unsigned Session::initializationCount = 0;
 
-unsigned Session::getLastTransformationIndex() const
+int Session::getLastTransformationIndex() const
 {
 	size_t size = commands.getSize();
-	for (size_t i = 0; i < size; i++)
+	for (int i = size - 1; i >= 0; i--)
 	{
-		if (ITransformableCommand* transf = dynamic_cast<ITransformableCommand*>(commands[i]));
+		/*if (const ITransformableCommand* transf = dynamic_cast<const ITransformableCommand*>(&commands[i]))
+			return i;*/
 	}
+
+	return -1;
 }
 
 void Session::executeCommands()
@@ -29,7 +31,7 @@ Session* Session::clone() const
 	return toReturn;
 }
 
-void Session::addCommand(const Command& command)
+void Session::addCommand(Command* command)
 {
 	commands.pushBack(command);
 }
@@ -41,7 +43,10 @@ void Session::undoTransformation()
 	if (atIndex == -1)
 		return;
 
-	commands.popAt(atIndex);
+	int index = getLastTransformationIndex();
+
+	if (index != -1)
+		commands.popAt(index);
 }
 
 void Session::addImage(MyString filePath)
@@ -64,12 +69,3 @@ unsigned Session::getID() const
 	return ID;
 }
 
-const ImageContainer& Session::getImages() const
-{
-	return images;
-}
-
-const Vector<Command>& Session::getCommands() const
-{
-	return commands;
-}

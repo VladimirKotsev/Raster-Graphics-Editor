@@ -1,4 +1,6 @@
 #pragma once
+#include <sstream>
+
 #include "Image.h"
 #include "Pixel.h"
 #include "Vector.hpp"
@@ -28,7 +30,6 @@ public:
 	void save() const override;
 
 	void saveAs(const char* direction) const override;
-	void saveToFile(const char* filePath) const override;
 
 	// Inherited via Image
 	void saveToASCII(const char* filePath) const override;

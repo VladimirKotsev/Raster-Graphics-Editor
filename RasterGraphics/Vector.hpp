@@ -1,6 +1,6 @@
 //copied from https://github.com/GeorgiTerziev02/Object-oriented_programming_FMI/blob/main/Sem.%2012/Solutions/Vector.hpp
-
 #pragma once
+
 #include <utility>
 #include <exception>
 
@@ -42,8 +42,8 @@ public:
 	void pushBack(T&& element);
 	void pushAt(const T& element, size_t index);
 	void pushAt(T&& element, size_t index);
-	T popBack();
-	T popAt(size_t index);
+	void popBack();
+	void popAt(size_t index);
 
 	bool empty() const;
 	void clear();
@@ -214,7 +214,7 @@ void Vector<T>::pushAt(T&& element, size_t index)
 }
 
 template<typename T>
-T Vector<T>::popBack()
+void Vector<T>::popBack()
 {
 	if (empty())
 	{
@@ -223,24 +223,21 @@ T Vector<T>::popBack()
 	// Note: the actual std::vector does NOT lower its capacity on this function
 	//downsizeIfNeeded();
 	// Note: the actual std::vector does NOT return on popback
-	return data[--size];
+	size--;
 }
 
 template<typename T>
-T Vector<T>::popAt(size_t index)
+void Vector<T>::popAt(size_t index)
 {
 	assertIndex(index);
 	// Note: the actual std::vector does NOT lower its capacity on this function
 	downsizeIfNeeded();
 
-	T temp = data[index];
 	size--;
 	for (size_t i = index; i < size; i++)
 	{
 		data[i] = std::move(data[i + 1]);
 	}
-
-	return temp;
 }
 
 template<typename T>

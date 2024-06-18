@@ -1,5 +1,5 @@
-#include "Image.h"
 #pragma warning(disable: 4996)
+#include "Image.h"
 
 void Image::copyFrom(const Image& other)
 {

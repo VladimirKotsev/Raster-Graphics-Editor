@@ -8,3 +8,9 @@ void AddCommand::execute() const
 {
 	sessionManager->addImage(imagePath);
 }
+
+Command* AddCommand::clone() const
+{
+	Command* toReturn = new (std::nothrow) AddCommand(*this);
+	return toReturn;
+}

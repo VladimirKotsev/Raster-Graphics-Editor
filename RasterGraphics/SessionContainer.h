@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#include "Session.h"
+class Session;
 
 class SessionContainer
 {
@@ -27,7 +27,6 @@ public:
 	~SessionContainer() noexcept;
 
 	void addSession(const Session& other);
-	//void addSession(Session&& other);
 	void addSession(Session* other);
 
 	void removeAt(size_t index);

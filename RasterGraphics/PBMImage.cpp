@@ -1,5 +1,4 @@
 #include "PBMImage.h"
-#include "Vector.hpp"
 
 Image* PBMImage::clone() const
 {
@@ -19,7 +18,6 @@ void PBMImage::load()
 	setMagicFormat(buffer);
 
 	ifs.close();
-	unsigned magicNumber = getFormatNumber();
 
 	if (strcmp(getMagicFormat(), "P4") == 0) //BINARY
 	{
@@ -91,7 +89,19 @@ void PBMImage::saveAs(const char* direction) const
 
 }
 
-void PBMImage::saveToFile(const char* filePath) const
+void PBMImage::saveToASCII(const char* filePath) const
+{
+}
+
+void PBMImage::saveToBinary(const char* filePath) const
+{
+}
+
+void PBMImage::loadContentFromASCII()
+{
+}
+
+void PBMImage::loadContentFromBinary()
 {
 }
 

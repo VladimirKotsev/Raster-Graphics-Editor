@@ -1,5 +1,4 @@
 #include "PGMImage.h"
-#include <sstream>
 
 void PGMImage::free()
 {

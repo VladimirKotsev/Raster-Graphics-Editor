@@ -1,9 +1,11 @@
 #pragma once
-#include <iostream>
 
-#include "ImageContainer.h"
 #include "Vector.hpp"
-#include "Command.h"
+#include "MyString.h"
+#include "PolymorphicPtr.hpp"
+#include "ImageContainer.h"
+
+class Command;
 
 class Session
 {
@@ -12,17 +14,16 @@ private:
 
 	unsigned ID = 0;
 
-	//image container
 	ImageContainer images;
-	Vector<Command> commands;
+	Vector<polymorphic_ptr<Command>> commands;
 
-	unsigned getLastTransformationIndex() const;
+	int getLastTransformationIndex() const;
 	void executeCommands();
 public:
 	Session();
 	Session* clone() const;
 
-	void addCommand(const Command& command);
+	void addCommand(Command* command);
 
 	void addImage(MyString filePath);
 	void undoTransformation();
@@ -30,7 +31,5 @@ public:
 	void saveAs();
 
 	unsigned getID() const;
-	const ImageContainer& getImages() const;
-	const Vector<Command>& getCommands() const;
 };
 

@@ -1,5 +1,5 @@
 #include "CollageCommand.h"
 
-CollageCommand::CollageCommand(SessionManager* const sesManager) : IAddableCommand(sesManager)
+CollageCommand::CollageCommand(SessionManager* const sesManager, MyString filePath) : IAddableCommand(sesManager, filePath)
 {
 }

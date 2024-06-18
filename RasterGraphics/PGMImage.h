@@ -1,6 +1,7 @@
 #pragma once
 #include "Image.h"
 #include "Vector.hpp"
+#include <sstream>
 
 class PGMImage : public Image
 {

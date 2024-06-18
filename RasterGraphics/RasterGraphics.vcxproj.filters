@@ -218,9 +218,6 @@
     <ClInclude Include="Pixel.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Queue.hpp">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
     <ClInclude Include="MyString.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
@@ -290,5 +287,11 @@
     <ClInclude Include="CommandFactory.h">
       <Filter>Header Files\Factory</Filter>
     </ClInclude>
+    <ClInclude Include="PolymorphicPtr.hpp">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

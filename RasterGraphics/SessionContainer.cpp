@@ -1,4 +1,5 @@
 #include "SessionContainer.h"
+#include "Session.h"
 
 void SessionContainer::resize(size_t newCap)
 {

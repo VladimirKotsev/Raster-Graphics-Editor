@@ -1,5 +1,4 @@
 #include "Engine.h"
-#include "SessionManager.h"
 
 void Engine::run()
 {
@@ -27,7 +26,7 @@ void Engine::run()
 			sessionManager.createSession(&session);
 			for (size_t i = 1; i < input.getSize(); i++)
 			{
-				sessionManager.getCurrentSession().addImage(input[i]);
+				sessionManager.addImage(input[i]);
 			}
 		}
 		else if (command == "close")

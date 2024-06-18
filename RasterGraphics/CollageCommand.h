@@ -3,6 +3,6 @@
 class CollageCommand : public IAddableCommand
 {
 public:
-	CollageCommand(SessionManager* const sesManager);
+	CollageCommand(SessionManager* const sesManager, MyString filePath);
 };
 
