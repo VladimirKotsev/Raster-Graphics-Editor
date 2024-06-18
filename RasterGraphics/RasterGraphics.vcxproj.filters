@@ -58,9 +58,6 @@
     <Filter Include="Header Files\Command files\Addable">
       <UniqueIdentifier>{f0ef20da-611b-4d1f-ba27-a99474f09680}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Command files\Executable">
-      <UniqueIdentifier>{22a6c720-c152-4441-9f7f-8e232dcc2cc1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Command files\Tranformational">
       <UniqueIdentifier>{1c4ae8a2-fb99-4e98-bcdc-c8db20e97088}</UniqueIdentifier>
     </Filter>
@@ -69,9 +66,6 @@
     </Filter>
     <Filter Include="Source Files\Command files\Addable">
       <UniqueIdentifier>{9ebee977-57a8-4c12-9aab-d0b7230b7ef6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Command files\Executable">
-      <UniqueIdentifier>{036768b9-254a-45c1-9d9e-7f7c99b8b9cd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Factory">
       <UniqueIdentifier>{37fd8756-6286-4d47-8c5e-8c11ffa1d023}</UniqueIdentifier>
@@ -144,15 +138,6 @@
     <ClCompile Include="CollageCommand.cpp">
       <Filter>Source Files\Command files\Addable</Filter>
     </ClCompile>
-    <ClCompile Include="LoadCommand.cpp">
-      <Filter>Source Files\Command files\Executable</Filter>
-    </ClCompile>
-    <ClCompile Include="SessionInfoCommand.cpp">
-      <Filter>Source Files\Command files\Executable</Filter>
-    </ClCompile>
-    <ClCompile Include="UndoCommand.cpp">
-      <Filter>Source Files\Command files\Executable</Filter>
-    </ClCompile>
     <ClCompile Include="GrayscaleCommand.cpp">
       <Filter>Source Files\Command files\Transformational</Filter>
     </ClCompile>
@@ -168,14 +153,11 @@
     <ClCompile Include="RotateCommand.cpp">
       <Filter>Source Files\Command files\Transformational</Filter>
     </ClCompile>
-    <ClCompile Include="SaveCommand.cpp">
-      <Filter>Source Files\Command files\Executable</Filter>
-    </ClCompile>
-    <ClCompile Include="SaveAsCommand.cpp">
-      <Filter>Source Files\Command files\Executable</Filter>
-    </ClCompile>
     <ClCompile Include="CommandFactory.cpp">
       <Filter>Source Files\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="ITransformableCommand.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,18 +233,6 @@
     <ClInclude Include="IAddableCommand.h">
       <Filter>Header Files\Command files\Addable</Filter>
     </ClInclude>
-    <ClInclude Include="UndoCommand.h">
-      <Filter>Header Files\Command files\Executable</Filter>
-    </ClInclude>
-    <ClInclude Include="SessionInfoCommand.h">
-      <Filter>Header Files\Command files\Executable</Filter>
-    </ClInclude>
-    <ClInclude Include="LoadCommand.h">
-      <Filter>Header Files\Command files\Executable</Filter>
-    </ClInclude>
-    <ClInclude Include="IExecutableCommand.h">
-      <Filter>Header Files\Command files\Executable</Filter>
-    </ClInclude>
     <ClInclude Include="GrayscaleCommand.h">
       <Filter>Header Files\Command files\Tranformational</Filter>
     </ClInclude>
@@ -277,12 +247,6 @@
     </ClInclude>
     <ClInclude Include="RotateCommand.h">
       <Filter>Header Files\Command files\Tranformational</Filter>
-    </ClInclude>
-    <ClInclude Include="SaveAsCommand.h">
-      <Filter>Header Files\Command files\Executable</Filter>
-    </ClInclude>
-    <ClInclude Include="SaveCommand.h">
-      <Filter>Header Files\Command files\Executable</Filter>
     </ClInclude>
     <ClInclude Include="CommandFactory.h">
       <Filter>Header Files\Factory</Filter>

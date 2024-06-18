@@ -13,4 +13,8 @@ public:
     RotateCommand(SessionManager* const sesManager, MyString direction);
 
     const MyString& getDirection() const;
+
+    // Inherited via ITransformableCommand
+    void execute() const override;
+    Command* clone() const override;
 };

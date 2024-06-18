@@ -11,4 +11,8 @@ public:
 	IAddableCommand(SessionManager* const sesManager, MyString filePath);
 
 	const MyString& getImagePath() const;
+
+	// Inherited via Command
+	void execute() const override;
+	Command* clone() const = 0;
 };

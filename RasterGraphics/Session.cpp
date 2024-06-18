@@ -1,4 +1,5 @@
 #include "Session.h"
+//#include "ITransformableCommand.h"
 
 unsigned Session::initializationCount = 0;
 
@@ -7,7 +8,7 @@ int Session::getLastTransformationIndex() const
 	size_t size = commands.getSize();
 	for (int i = size - 1; i >= 0; i--)
 	{
-		/*if (const ITransformableCommand* transf = dynamic_cast<const ITransformableCommand*>(&commands[i]))
+		/*if (const ITransformableCommand* transf = dynamic_cast<const ITransformableCommand*>(commands[i].operator->()))
 			return i;*/
 	}
 

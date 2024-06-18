@@ -9,3 +9,9 @@ void LoadCommand::execute() const
 {
 	//sessionManager->createSession(images, n);
 }
+
+Command* LoadCommand::clone() const
+{
+	Command* toReturn = new (std::nothrow) LoadCommand(*this);
+	return toReturn;
+}

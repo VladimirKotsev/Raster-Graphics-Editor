@@ -8,5 +8,8 @@ public:
 
 	// Inherited via ITransformableCommand
 	void execute() const override;
+
+	// Inherited via ITransformableCommand
+	Command* clone() const override;
 };
 

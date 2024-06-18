@@ -140,7 +140,7 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageContainer.cpp" />
     <ClCompile Include="InputService.cpp" />
-    <ClCompile Include="LoadCommand.cpp" />
+    <ClCompile Include="ITransformableCommand.cpp" />
     <ClCompile Include="Monochrome.cpp" />
     <ClCompile Include="MonochromeCommand.cpp" />
     <ClCompile Include="MyString.cpp" />
@@ -153,13 +153,9 @@
     <ClCompile Include="RasterGraphics.cpp" />
     <ClCompile Include="Rotate.cpp" />
     <ClCompile Include="RotateCommand.cpp" />
-    <ClCompile Include="SaveAsCommand.cpp" />
-    <ClCompile Include="SaveCommand.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionContainer.cpp" />
-    <ClCompile Include="SessionInfoCommand.cpp" />
     <ClCompile Include="SessionManager.cpp" />
-    <ClCompile Include="UndoCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCommand.h" />
@@ -171,12 +167,10 @@
     <ClInclude Include="Grayscale.h" />
     <ClInclude Include="GrayscaleCommand.h" />
     <ClInclude Include="IAddableCommand.h" />
-    <ClInclude Include="IExecutableCommand.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageContainer.h" />
     <ClInclude Include="InputService.h" />
     <ClInclude Include="ITransformableCommand.h" />
-    <ClInclude Include="LoadCommand.h" />
     <ClInclude Include="Monochrome.h" />
     <ClInclude Include="MonochromeCommand.h" />
     <ClInclude Include="MyString.h" />
@@ -190,14 +184,10 @@
     <ClInclude Include="PPMImage.h" />
     <ClInclude Include="Rotate.h" />
     <ClInclude Include="RotateCommand.h" />
-    <ClInclude Include="SaveAsCommand.h" />
-    <ClInclude Include="SaveCommand.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionContainer.h" />
-    <ClInclude Include="SessionInfoCommand.h" />
     <ClInclude Include="SessionManager.h" />
     <ClInclude Include="Transformation.h" />
-    <ClInclude Include="UndoCommand.h" />
     <ClInclude Include="Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
