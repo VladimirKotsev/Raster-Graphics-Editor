@@ -154,6 +154,7 @@
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionContainer.cpp" />
     <ClCompile Include="SessionManager.cpp" />
+    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCommand.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionContainer.h" />
     <ClInclude Include="SessionManager.h" />
+    <ClInclude Include="Utility.h" />
     <ClInclude Include="Vector.hpp" />
   </ItemGroup>
   <ItemGroup>

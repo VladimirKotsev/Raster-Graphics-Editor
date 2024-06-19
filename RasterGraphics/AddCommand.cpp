@@ -1,4 +1,5 @@
 #include "AddCommand.h"
+#include "SessionManager.h"
 
 AddCommand::AddCommand(const MyString& filePath) : IAddableCommand(filePath)
 {
@@ -12,5 +13,5 @@ Command* AddCommand::clone() const
 
 void AddCommand::execute(SessionManager* sessionManager) const
 {
-	
+	sessionManager->addImage(filePath);
 }

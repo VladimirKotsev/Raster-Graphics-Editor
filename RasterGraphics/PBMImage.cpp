@@ -117,7 +117,11 @@ void PBMImage::monochrome()
 {
 }
 
-void PBMImage::rotate(const MyString& direction)
+void PBMImage::rotateLeft()
+{
+}
+
+void PBMImage::rotateRight()
 {
 }
 

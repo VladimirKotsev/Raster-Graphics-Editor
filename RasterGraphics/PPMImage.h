@@ -41,6 +41,7 @@ public:
 	void negative() override;
 	void grayscale() override;
 	void monochrome() override;
-	void rotate(const MyString& direction) override;
+	void rotateLeft() override;
+	void rotateRight() override;
 };
 

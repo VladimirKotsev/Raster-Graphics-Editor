@@ -147,6 +147,9 @@
     <ClCompile Include="ITransformableCommand.cpp">
       <Filter>Source Files\Command files\Transformational</Filter>
     </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image.h">
@@ -232,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="ImageFactory.h">
       <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -13,5 +13,6 @@ Command* CollageCommand::clone() const
 
 void CollageCommand::execute(SessionManager* sessionManager) const
 {
+    
 }
 

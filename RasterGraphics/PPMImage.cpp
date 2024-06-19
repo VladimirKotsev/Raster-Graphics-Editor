@@ -159,6 +159,11 @@ void PPMImage::negative()
 void PPMImage::grayscale()
 {
 
+    for (size_t i = 0; i < data.getSize(); i++)
+    {
+        uint16_t gray = std::round((0.299 * data[i].red) + (0.587 * data[i].green) + (0.114 * data[i].blue));
+        data[i].red = data[i].green = data[i].blue = gray;
+    }
 }
 
 void PPMImage::monochrome()
@@ -166,7 +171,10 @@ void PPMImage::monochrome()
 
 }
 
-void PPMImage::rotate(const MyString& direction)
+void PPMImage::rotateLeft()
 {
+}
 
+void PPMImage::rotateRight()
+{
 }

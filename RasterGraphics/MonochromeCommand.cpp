@@ -9,4 +9,5 @@ Command* MonochromeCommand::clone() const
 
 void MonochromeCommand::execute(SessionManager* sessionManager) const
 {
+    sessionManager->monochrome();
 }

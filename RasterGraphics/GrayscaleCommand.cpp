@@ -1,4 +1,5 @@
 #include "GrayscaleCommand.h"
+#include "SessionManager.h"
 #include <iostream>
 
 class SessionManager;
@@ -11,4 +12,5 @@ Command* GrayscaleCommand::clone() const
 
 void GrayscaleCommand::execute(SessionManager* sessionManager) const
 {
+    sessionManager->grayscale();
 }

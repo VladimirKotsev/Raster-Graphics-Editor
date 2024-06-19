@@ -45,7 +45,8 @@ public:
 	virtual void negative() = 0;
 	virtual void grayscale() = 0;
 	virtual void monochrome() = 0;
-	virtual void rotate(const MyString& direction) = 0;
+	virtual void rotateLeft() = 0;
+	virtual void rotateRight() = 0;
 
 	//virtual void getType() const = 0;
 

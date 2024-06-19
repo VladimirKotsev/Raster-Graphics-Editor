@@ -157,6 +157,10 @@ void PGMImage::monochrome()
 {
 }
 
-void PGMImage::rotate(const MyString& direction)
+void PGMImage::rotateLeft()
+{
+}
+
+void PGMImage::rotateRight()
 {
 }

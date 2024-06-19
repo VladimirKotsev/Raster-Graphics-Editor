@@ -30,6 +30,10 @@ void SessionManager::addCommand(Command* command)
 	container[currentSession - 1]->addCommand(command);
 }
 
+void SessionManager::addImage(const MyString& filePath)
+{
+}
+
 void SessionManager::rotateLeft()
 {
 
