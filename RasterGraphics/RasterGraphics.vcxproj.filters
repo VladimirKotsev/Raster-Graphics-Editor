@@ -160,7 +160,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CommandContainer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Container files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -258,7 +258,7 @@
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
     <ClInclude Include="CommandContainer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Container files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

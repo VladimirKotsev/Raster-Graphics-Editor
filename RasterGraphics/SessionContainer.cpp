@@ -117,22 +117,16 @@ void SessionContainer::removeAt(size_t index)
 		data[i] = data[i + 1];
 	}
 
-	data[--size] = nullptr;  // Optional: nullify the last element
+	data[--size] = nullptr;
 }
 
 const Session* SessionContainer::operator[](size_t index) const
 {
-	if (index < 0 || index >= size)
-		throw std::invalid_argument("Given index out of bounds!");
-
 	return data[index];
 }
 
 Session* SessionContainer::operator[](size_t index)
 {
-	if (index < 0 || index >= size)
-		throw std::invalid_argument("Given index out of bounds!");
-
 	return data[index];
 }
 
