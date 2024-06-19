@@ -6,13 +6,12 @@
 class IAddableCommand : public Command
 {
 protected:
-	MyString* filePath;
+	MyString filePath;
 public:
-	IAddableCommand(SessionManager* const sesManager, MyString* filePath);
+	IAddableCommand(const MyString& filePath);
 
 	virtual ~IAddableCommand() = default;
 
 	// Inherited via Command
-	void execute() const override;
 	Command* clone() const = 0;
 };

@@ -10,7 +10,7 @@ private:
     MyString direction;
 
 public:
-    RotateCommand(SessionManager* const sesManager, MyString direction);
+    RotateCommand(MyString direction);
 
     const MyString& getDirection() const;
 

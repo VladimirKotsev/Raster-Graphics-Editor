@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SessionContainer.h"
+#include "CommandFactory.h"
 #include "Session.h"
 #include "MyString.h"
 
@@ -11,14 +12,13 @@ class SessionManager
 private:
 	SessionContainer container;
 
-	unsigned currentSession; // public??
+	unsigned currentSession;
 public:
 	SessionManager() = default;
 	SessionManager(Session& session);
 
 	void createSession(Session* const session);
 
-	void addImage(MyString& filePath);
 	void undo(); //undoes the last added transformation
 	void collage(); //makes a collage between to image from the same format and adds to image collection
 	void switchSession(unsigned sessionId); //switches to other session

@@ -12,12 +12,6 @@ void SessionManager::createSession(Session* const session)
 	container.addSession(session);
 }
 
-void SessionManager::addImage(MyString& filePath)
-{
-	//Contant factory
-	//container[currentSession - 1]->addImage();
-}
-
 void SessionManager::undo()
 {
 	container[currentSession - 1]->undoTransformation();

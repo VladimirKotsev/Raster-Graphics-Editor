@@ -1,12 +1,5 @@
 #include "IAddableCommand.h"
 
-IAddableCommand::IAddableCommand(SessionManager* const sesManager, MyString* filePath) : 
-	filePath(filePath), Command(sesManager)
+IAddableCommand::IAddableCommand(const MyString& filePath) :filePath(filePath)
 {
-
-}
-
-void IAddableCommand::execute() const
-{
-	//sessionManager->addImage(image);
 }

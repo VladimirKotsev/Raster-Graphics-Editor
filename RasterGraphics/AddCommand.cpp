@@ -1,6 +1,6 @@
 #include "AddCommand.h"
 
-AddCommand::AddCommand(SessionManager* const sesManager, MyString* filePath) : IAddableCommand(sesManager, filePath)
+AddCommand::AddCommand(const MyString& filePath) : IAddableCommand(filePath)
 {
 }
 
@@ -8,4 +8,9 @@ Command* AddCommand::clone() const
 {
 	Command* toReturn = new (std::nothrow) AddCommand(*this);
 	return toReturn;
+}
+
+void AddCommand::execute() const
+{
+
 }

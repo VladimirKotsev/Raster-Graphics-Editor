@@ -5,12 +5,7 @@ class SessionManager;
 
 class Command
 {
-protected:
-	SessionManager* const sessionManager;
-
 public:
-	Command(SessionManager* const sesManager);
-
 	virtual ~Command() = default;
 
 	virtual void execute() const = 0;

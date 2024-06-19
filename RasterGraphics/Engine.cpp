@@ -10,13 +10,15 @@ void Engine::run()
 	{
 		MyString command = input[0];
 		command.toLower();
+
 		if (command == "add")
 		{
-			//Create add command from factory and give it to session
+			Command* command = CommandFactory::createAddCommand(input[1]);
+			sessionManager.addCommand(command);
 		}
 		else if (command == "help")
 		{
-			//outputService prints info
+			OutputService::printHelp();
 		}
 		else if (command == "load")
 		{
@@ -27,7 +29,8 @@ void Engine::run()
 			sessionManager.createSession(&session);
 			for (size_t i = 1; i < input.getSize(); i++)
 			{
-				//create commands and add to session
+				Command* command = CommandFactory::createAddCommand(input[i]);
+				sessionManager.addCommand(command);
 			}
 		}
 		else if (command == "close")

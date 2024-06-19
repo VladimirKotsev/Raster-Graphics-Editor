@@ -8,8 +8,6 @@ class Command;
 class ITransformableCommand : public Command
 {
 public:
-	ITransformableCommand(SessionManager* const sesManager) : Command(sesManager) {};
-
 	virtual ~ITransformableCommand() = default;
 
 	// Inherited via Command
