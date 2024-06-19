@@ -4,6 +4,10 @@ GrayscaleCommand::GrayscaleCommand(SessionManager* const sesManager) : ITransfor
 {
 }
 
+void GrayscaleCommand::execute() const
+{
+}
+
 Command* GrayscaleCommand::clone() const
 {
     Command* toReturn = new (std::nothrow) GrayscaleCommand(*this);
