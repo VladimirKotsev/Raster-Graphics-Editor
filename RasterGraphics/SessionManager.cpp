@@ -30,7 +30,12 @@ void SessionManager::addCommand(Command* command)
 	container[currentSession - 1]->addCommand(command);
 }
 
-void SessionManager::rotate()
+void SessionManager::rotateLeft()
+{
+
+}
+
+void SessionManager::rotateRight()
 {
 
 }

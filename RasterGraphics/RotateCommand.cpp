@@ -14,5 +14,8 @@ Command* RotateCommand::clone() const
 
 void RotateCommand::execute(SessionManager* sessionManager) const
 {
-	sessionManager->rotate();
+	if (direction == Direction::right)
+		sessionManager->rotateRight();
+	else
+		sessionManager->rotateLeft();
 }

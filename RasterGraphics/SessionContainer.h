@@ -30,7 +30,6 @@ public:
 	void addSession(Session* other);
 
 	void removeAt(size_t index);
-	//Remove for close() Session???? !!!
 
 	const Session* operator[](size_t index) const;
 	Session* operator[](size_t index);

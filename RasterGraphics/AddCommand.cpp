@@ -12,4 +12,5 @@ Command* AddCommand::clone() const
 
 void AddCommand::execute(SessionManager* sessionManager) const
 {
+	
 }

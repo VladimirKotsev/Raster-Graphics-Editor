@@ -10,4 +10,5 @@ Command* NegativeCommand::clone() const
 
 void NegativeCommand::execute(SessionManager* sessionManager) const
 {
+    sessionManager->negative();
 }

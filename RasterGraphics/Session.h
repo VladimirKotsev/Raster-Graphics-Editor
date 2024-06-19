@@ -28,7 +28,8 @@ public:
 	void negative();
 	void grayscale();
 	void monochrome();
-	void rotate(const MyString& direction);
+	void rotateLeft();
+	void rotateRight();
 
 	void undoTransformation();
 	void save();

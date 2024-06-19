@@ -19,12 +19,6 @@
     <Filter Include="Source Files\Image files">
       <UniqueIdentifier>{df5be887-426b-4faf-b7c2-9f86049b88dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Transformation files">
-      <UniqueIdentifier>{67a6b4eb-4aab-472c-b769-9afd6220f202}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Transformation files">
-      <UniqueIdentifier>{55f866d5-2bd2-4eb4-afea-b7fb3003f62e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Session files">
       <UniqueIdentifier>{d6773fa0-899e-46d1-9d83-46ae8ec97c67}</UniqueIdentifier>
     </Filter>
@@ -86,18 +80,6 @@
     </ClCompile>
     <ClCompile Include="PPMImage.cpp">
       <Filter>Source Files\Image files</Filter>
-    </ClCompile>
-    <ClCompile Include="Grayscale.cpp">
-      <Filter>Source Files\Transformation files</Filter>
-    </ClCompile>
-    <ClCompile Include="Monochrome.cpp">
-      <Filter>Source Files\Transformation files</Filter>
-    </ClCompile>
-    <ClCompile Include="Negative.cpp">
-      <Filter>Source Files\Transformation files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rotate.cpp">
-      <Filter>Source Files\Transformation files</Filter>
     </ClCompile>
     <ClCompile Include="Session.cpp">
       <Filter>Source Files\Session files</Filter>
@@ -178,21 +160,6 @@
     </ClInclude>
     <ClInclude Include="PPMImage.h">
       <Filter>Header Files\Image files</Filter>
-    </ClInclude>
-    <ClInclude Include="Monochrome.h">
-      <Filter>Header Files\Transformation files</Filter>
-    </ClInclude>
-    <ClInclude Include="Negative.h">
-      <Filter>Header Files\Transformation files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rotate.h">
-      <Filter>Header Files\Transformation files</Filter>
-    </ClInclude>
-    <ClInclude Include="Transformation.h">
-      <Filter>Header Files\Transformation files</Filter>
-    </ClInclude>
-    <ClInclude Include="Grayscale.h">
-      <Filter>Header Files\Transformation files</Filter>
     </ClInclude>
     <ClInclude Include="Session.h">
       <Filter>Header Files\Session files</Filter>

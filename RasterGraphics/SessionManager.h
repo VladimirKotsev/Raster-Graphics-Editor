@@ -24,7 +24,8 @@ public:
 	void switchSession(unsigned sessionId); //switches to other session
 	void addCommand(Command* command); //adds a command to current session
 
-	void rotate();
+	void rotateLeft();
+	void rotateRight();
 	void grayscale();
 	void monochrome();
 	void negative();

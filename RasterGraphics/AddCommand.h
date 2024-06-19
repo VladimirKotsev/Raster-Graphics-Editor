@@ -8,9 +8,7 @@ public:
     // Inherited via IAddableCommand
     Command* clone() const override;
 
-
     // Inherited via IAddableCommand
     void execute(SessionManager* sessionManager) const override;
-
 };
 
