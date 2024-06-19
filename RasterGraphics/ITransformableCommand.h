@@ -11,6 +11,6 @@ public:
 	virtual ~ITransformableCommand() = default;
 
 	// Inherited via Command
-	void execute() const override = 0;
+	void execute(SessionManager* sessionManager) const = 0;
 	Command* clone() const override = 0;
 };

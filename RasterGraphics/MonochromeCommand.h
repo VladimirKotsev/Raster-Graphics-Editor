@@ -4,8 +4,9 @@
 class MonochromeCommand : public ITransformableCommand
 {
 public:
-	// Inherited via ITransformableCommand
-	void execute() const override;
 	Command* clone() const override;
+
+	// Inherited via ITransformableCommand
+	void execute(SessionManager* sessionManager) const override;
 };
 

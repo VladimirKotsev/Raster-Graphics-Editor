@@ -10,7 +10,9 @@ public:
 
 	Command* clone() const override;
 
+
 	// Inherited via IAddableCommand
-	void execute() const override;
+	void execute(SessionManager* sessionManager) const override;
+
 };
 

@@ -14,4 +14,7 @@ public:
 
 	// Inherited via Command
 	Command* clone() const = 0;
+
+	// Inherited via Command
+	void execute(SessionManager* sessionManager) const = 0;
 };

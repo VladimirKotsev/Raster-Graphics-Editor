@@ -10,7 +10,6 @@ Command* AddCommand::clone() const
 	return toReturn;
 }
 
-void AddCommand::execute() const
+void AddCommand::execute(SessionManager* sessionManager) const
 {
-
 }

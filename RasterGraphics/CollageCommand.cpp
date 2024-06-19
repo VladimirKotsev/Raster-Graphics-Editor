@@ -11,6 +11,7 @@ Command* CollageCommand::clone() const
     return toReturn;
 }
 
-void CollageCommand::execute() const
+void CollageCommand::execute(SessionManager* sessionManager) const
 {
 }
+

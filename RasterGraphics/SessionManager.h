@@ -2,8 +2,8 @@
 
 #include "SessionContainer.h"
 #include "CommandFactory.h"
-#include "Session.h"
 #include "MyString.h"
+#include "Session.h"
 
 class Command;
 
@@ -23,6 +23,11 @@ public:
 	void collage(); //makes a collage between to image from the same format and adds to image collection
 	void switchSession(unsigned sessionId); //switches to other session
 	void addCommand(Command* command); //adds a command to current session
+
+	void rotate();
+	void grayscale();
+	void monochrome();
+	void negative();
 
 	void closeSession();
 

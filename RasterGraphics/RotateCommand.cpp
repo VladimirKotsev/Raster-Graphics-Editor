@@ -1,16 +1,18 @@
 #include "RotateCommand.h"
+#include "SessionManager.h"
 
-const MyString& RotateCommand::getDirection() const
-{
-	return direction;
-}
-
-void RotateCommand::execute() const
+RotateCommand::RotateCommand(Direction direction) : direction(direction)
 {
 }
+
 
 Command* RotateCommand::clone() const
 {
 	Command* toReturn = new (std::nothrow) RotateCommand(*this);
 	return toReturn;
+}
+
+void RotateCommand::execute(SessionManager* sessionManager) const
+{
+	sessionManager->rotate();
 }

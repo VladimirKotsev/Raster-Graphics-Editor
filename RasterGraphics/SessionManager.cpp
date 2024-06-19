@@ -30,6 +30,25 @@ void SessionManager::addCommand(Command* command)
 	container[currentSession - 1]->addCommand(command);
 }
 
+void SessionManager::rotate()
+{
+
+}
+
+void SessionManager::grayscale()
+{
+
+}
+
+void SessionManager::monochrome()
+{
+}
+
+void SessionManager::negative()
+{
+
+}
+
 void SessionManager::closeSession()
 {
 	container.removeAt(currentSession - 1);

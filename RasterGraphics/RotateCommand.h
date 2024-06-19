@@ -6,15 +6,21 @@
 
 class RotateCommand : public ITransformableCommand
 {
+public:
+    enum Direction
+    {
+        right,
+        left
+    };
+
 private:
-    MyString direction;
+    Direction direction;
 
 public:
-    RotateCommand(MyString direction);
+    RotateCommand(Direction direction);
 
-    const MyString& getDirection() const;
+    Command* clone() const override;
 
     // Inherited via ITransformableCommand
-    void execute() const override;
-    Command* clone() const override;
+    void execute(SessionManager* sessionManager) const override;
 };

@@ -47,22 +47,25 @@ void Engine::run()
 		}
 		else if (command == "grayscale")
 		{
-			Command* transformableCommand = CommandFactory::createTransformableCommand(command);
+			Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 			sessionManager.addCommand(transformableCommand);
 		}
 		else if (command == "rotate")
 		{
-			Command* transformableCommand = CommandFactory::createTransformableCommand(command);
+			MyString direction = input[1];
+			direction.toLower();
+
+			Command* transformableCommand = CommandFactory::createTransformableCommand(command, direction);
 			sessionManager.addCommand(transformableCommand);
 		}
 		else if (command == "monochrome")
 		{
-			Command* transformableCommand = CommandFactory::createTransformableCommand(command);
+			Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 			sessionManager.addCommand(transformableCommand);
 		}
 		else if (command == "negative")
 		{
-			Command* transformableCommand = CommandFactory::createTransformableCommand(command);
+			Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 			sessionManager.addCommand(transformableCommand);
 		}
 		else if (command == "undo")
@@ -74,9 +77,7 @@ void Engine::run()
 			MyString& additional = input[1];
 			additional.toLower();
 			if (additional == "info")
-			{
 				std::cout << sessionManager;
-			}
 		}
 		else if (command == "switch")
 		{
