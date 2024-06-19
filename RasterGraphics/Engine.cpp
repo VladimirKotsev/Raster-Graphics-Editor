@@ -8,7 +8,7 @@ void Engine::run()
 	
 	while (input[0] != "exit")
 	{
-		MyString& command = input[0];
+		MyString command = input[0];
 		command.toLower();
 		if (command == "add")
 		{
@@ -82,6 +82,10 @@ void Engine::run()
 		else if (command == "collage")
 		{
 			//creates a colage
+		}
+		else
+		{
+			std::cout << "Invalid command!" << std::endl;
 		}
 
 

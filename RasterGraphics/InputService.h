@@ -6,6 +6,6 @@ class InputService
 {
 public:
 	static Vector<MyString> readSplitedInput(char separator);
-	static MyString& readInput();
+	static MyString readInput();
 };
 

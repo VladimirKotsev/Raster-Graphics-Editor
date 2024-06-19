@@ -3,7 +3,7 @@ const size_t BUFFER_SIZE = 1024;
 
 Vector<MyString> InputService::readSplitedInput(char separator)
 {
-	MyString str = readInput();
+	const MyString str = readInput();
 	Vector<MyString> result;
 
 	size_t start = 0;
@@ -27,7 +27,7 @@ Vector<MyString> InputService::readSplitedInput(char separator)
 	return result;
 }
 
-MyString& InputService::readInput()
+MyString InputService::readInput()
 {
 	char buffer[1024]; //should be constant
 	std::cin.getline(buffer, 1024);

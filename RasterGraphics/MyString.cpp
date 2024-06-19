@@ -171,6 +171,7 @@ MyString MyString::substr(size_t begin, size_t howMany) const
 
     MyString res(howMany + 1);
     strncat(res._data, _data + begin, howMany);
+    res._size = howMany;
     return res;
 }
 
