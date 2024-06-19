@@ -13,3 +13,25 @@ Command* CommandFactory::createCollageCommand(const MyString& direction, const M
 
     return nullptr;
 }
+
+Command* CommandFactory::createTransformableCommand(const MyString& type)
+{
+    if (type == "grayscale")
+    {
+
+    }
+    else if (type == "rotate")
+    {
+
+    }
+    else if (type == "monochrome")
+    {
+
+    }
+    else if (type == "negative")
+    {
+
+    }
+
+    return nullptr;
+}

@@ -150,3 +150,23 @@ void PPMImage::loadContentFromBinary()
 {
 
 }
+
+void PPMImage::negative()
+{
+
+}
+
+void PPMImage::grayscale()
+{
+
+}
+
+void PPMImage::monochrome()
+{
+
+}
+
+void PPMImage::rotate(const MyString& direction)
+{
+
+}

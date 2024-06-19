@@ -13,8 +13,8 @@ void Engine::run()
 
 		if (command == "add")
 		{
-			Command* command = CommandFactory::createAddCommand(input[1]);
-			sessionManager.addCommand(command);
+			Command* createCommand = CommandFactory::createAddCommand(input[1]);
+			sessionManager.addCommand(createCommand);
 		}
 		else if (command == "help")
 		{
@@ -29,8 +29,8 @@ void Engine::run()
 			sessionManager.createSession(&session);
 			for (size_t i = 1; i < input.getSize(); i++)
 			{
-				Command* command = CommandFactory::createAddCommand(input[i]);
-				sessionManager.addCommand(command);
+				Command* createCommand = CommandFactory::createAddCommand(input[i]);
+				sessionManager.addCommand(createCommand);
 			}
 		}
 		else if (command == "close")
@@ -47,19 +47,23 @@ void Engine::run()
 		}
 		else if (command == "grayscale")
 		{
-			//Create grayscale command and add to session
+			Command* transformableCommand = CommandFactory::createTransformableCommand(command);
+			sessionManager.addCommand(transformableCommand);
 		}
 		else if (command == "rotate")
 		{
-			//Create rotate command with give rotation and add to session
+			Command* transformableCommand = CommandFactory::createTransformableCommand(command);
+			sessionManager.addCommand(transformableCommand);
 		}
 		else if (command == "monochrome")
 		{
-			//creates monochrome command and adds to session
+			Command* transformableCommand = CommandFactory::createTransformableCommand(command);
+			sessionManager.addCommand(transformableCommand);
 		}
 		else if (command == "negative")
 		{
-			//creates negative command and adds to session
+			Command* transformableCommand = CommandFactory::createTransformableCommand(command);
+			sessionManager.addCommand(transformableCommand);
 		}
 		else if (command == "undo")
 		{
@@ -84,13 +88,19 @@ void Engine::run()
 		}
 		else if (command == "collage")
 		{
-			//creates a colage
+			if (input.getSize() <= 1)
+				throw std::invalid_argument("Not enough data give to make a collage!");
+
+			MyString direction = input[1];
+			direction.toLower();
+
+			Command* command = CommandFactory::createCollageCommand(direction, input[2], input[3], input[4]);
+			sessionManager.addCommand(command);
 		}
 		else
 		{
 			std::cout << "Invalid command!" << std::endl;
 		}
-
 
 		input = InputService::readSplitedInput(' '); // separator should be constant
 	}

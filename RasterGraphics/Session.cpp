@@ -17,7 +17,13 @@ int Session::getLastTransformationIndex() const
 
 void Session::executeCommands()
 {
-	//unqueue the command and executes the transformations to each image
+	size_t imageCount = images.getSize();
+	for (size_t i = 0; i < imageCount; i++)
+	{
+		images[i]->load();
+	}
+
+
 }
 
 Session::Session()
@@ -53,6 +59,16 @@ void Session::undoTransformation()
 void Session::addImage(Image* image)
 {
 	images.addImage(image);
+}
+
+void Session::negative()
+{
+	size_t imageCount = images.getSize();
+	for (size_t i = 0; i < imageCount; i++)
+	{
+
+	}
+
 }
 
 void Session::save()

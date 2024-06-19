@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 
+class MyString;
+
 class Image
 {
 private:
@@ -39,6 +41,11 @@ public:
 	virtual void load() = 0;
 	virtual void save() const = 0;
 	virtual void saveAs(const char* direction) const = 0;
+
+	virtual void negative() = 0;
+	virtual void grayscale() = 0;
+	virtual void monochrome() = 0;
+	virtual void rotate(const MyString& direction) = 0;
 
 	//virtual void getType() const = 0;
 

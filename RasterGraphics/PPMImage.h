@@ -36,5 +36,11 @@ public:
 	void saveToBinary(const char* filePath) const override;
 	void loadContentFromASCII() override;
 	void loadContentFromBinary() override;
+
+	// Inherited via Image
+	void negative() override;
+	void grayscale() override;
+	void monochrome() override;
+	void rotate(const MyString& direction) override;
 };
 

@@ -105,6 +105,22 @@ void PBMImage::loadContentFromBinary()
 {
 }
 
+void PBMImage::negative()
+{
+}
+
+void PBMImage::grayscale()
+{
+}
+
+void PBMImage::monochrome()
+{
+}
+
+void PBMImage::rotate(const MyString& direction)
+{
+}
+
 void PBMImage::free()
 {
 	//delete[] bits; //handles by class DynamicSet

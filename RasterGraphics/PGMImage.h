@@ -29,5 +29,11 @@ public:
 	void load() override;
 	void save() const override;
 	void saveAs(const char* direction) const override;
+
+	// Inherited via Image
+	void negative() override;
+	void grayscale() override;
+	void monochrome() override;
+	void rotate(const MyString& direction) override;
 };
 

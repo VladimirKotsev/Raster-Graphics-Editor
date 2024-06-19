@@ -144,3 +144,19 @@ void PGMImage::saveAs(const char* direction) const
 		saveToASCII(direction);
 	}
 }
+
+void PGMImage::negative()
+{
+}
+
+void PGMImage::grayscale()
+{
+}
+
+void PGMImage::monochrome()
+{
+}
+
+void PGMImage::rotate(const MyString& direction)
+{
+}

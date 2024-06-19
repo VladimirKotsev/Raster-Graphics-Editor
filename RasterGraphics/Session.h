@@ -25,6 +25,11 @@ public:
 	void addCommand(Command* command);
 	void addImage(Image* image);
 
+	void negative();
+	void grayscale();
+	void monochrome();
+	void rotate(const MyString& direction);
+
 	void undoTransformation();
 	void save();
 	void saveAs();
