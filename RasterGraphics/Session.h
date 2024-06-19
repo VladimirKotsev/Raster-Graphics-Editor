@@ -1,9 +1,8 @@
 #pragma once
 
-#include "Vector.hpp"
 #include "MyString.h"
-#include "PolymorphicPtr.hpp"
 #include "ImageContainer.h"
+#include "CommandContainer.h"
 
 class Command;
 
@@ -15,7 +14,7 @@ private:
 	unsigned ID = 0;
 
 	ImageContainer images;
-	Vector<polymorphic_ptr<Command>> commands;
+	CommandContainer commands;
 
 	int getLastTransformationIndex() const;
 	void executeCommands();
@@ -23,9 +22,9 @@ public:
 	Session();
 	Session* clone() const;
 
-	void addCommand(const polymorphic_ptr<Command>& command);
+	void addCommand(Command* command);
+	void addImage(Image* image);
 
-	void addImage(MyString filePath);
 	void undoTransformation();
 	void save();
 	void saveAs();

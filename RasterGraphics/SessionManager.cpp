@@ -12,9 +12,10 @@ void SessionManager::createSession(Session* const session)
 	container.addSession(session);
 }
 
-void SessionManager::addImage(MyString filePath)
+void SessionManager::addImage(MyString& filePath)
 {
-	container[currentSession - 1]->addImage(filePath);
+	//Contant factory
+	//container[currentSession - 1]->addImage();
 }
 
 void SessionManager::undo()
@@ -30,7 +31,7 @@ void SessionManager::switchSession(unsigned sessionId)
 	currentSession = sessionId;
 }
 
-void SessionManager::addCommand(const polymorphic_ptr<Command>& command)
+void SessionManager::addCommand(Command* command)
 {
 	container[currentSession - 1]->addCommand(command);
 }

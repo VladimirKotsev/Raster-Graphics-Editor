@@ -32,9 +32,9 @@ Session* Session::clone() const
 	return toReturn;
 }
 
-void Session::addCommand(const polymorphic_ptr<Command>& command)
+void Session::addCommand(Command* command)
 {
-	commands.pushBack(command);
+	commands.addCommand(command);
 }
 
 void Session::undoTransformation()
@@ -47,12 +47,12 @@ void Session::undoTransformation()
 	int index = getLastTransformationIndex();
 
 	if (index != -1)
-		commands.popAt(index);
+		commands.removeAt(index);
 }
 
-void Session::addImage(MyString filePath)
+void Session::addImage(Image* image)
 {
-	addImage(filePath);
+	images.addImage(image);
 }
 
 void Session::save()

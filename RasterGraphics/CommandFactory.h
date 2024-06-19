@@ -4,5 +4,5 @@
 class CommandFactory
 {
 public:
-	//static Command* createCommand(/*TO DO*/);
+	//static Command* createCommand(MyString* filePath);
 };

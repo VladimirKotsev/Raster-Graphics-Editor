@@ -162,6 +162,9 @@
     <ClCompile Include="CommandContainer.cpp">
       <Filter>Source Files\Container files</Filter>
     </ClCompile>
+    <ClCompile Include="ImageFactory.cpp">
+      <Filter>Source Files\Factory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image.h">
@@ -259,6 +262,9 @@
     </ClInclude>
     <ClInclude Include="CommandContainer.h">
       <Filter>Header Files\Container files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFactory.h">
+      <Filter>Header Files\Factory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

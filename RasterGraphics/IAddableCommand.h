@@ -6,13 +6,11 @@
 class IAddableCommand : public Command
 {
 protected:
-	MyString imagePath;
+	MyString* filePath;
 public:
-	IAddableCommand(SessionManager* const sesManager, MyString filePath);
+	IAddableCommand(SessionManager* const sesManager, MyString* filePath);
 
 	virtual ~IAddableCommand() = default;
-
-	const MyString& getImagePath() const;
 
 	// Inherited via Command
 	void execute() const override;

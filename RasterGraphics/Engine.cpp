@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "CommandFactory.h"
 
 void Engine::run()
 {
@@ -26,7 +27,7 @@ void Engine::run()
 			sessionManager.createSession(&session);
 			for (size_t i = 1; i < input.getSize(); i++)
 			{
-				sessionManager.addImage(input[i]);
+				//create commands and add to session
 			}
 		}
 		else if (command == "close")

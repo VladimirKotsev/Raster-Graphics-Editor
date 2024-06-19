@@ -140,6 +140,7 @@
     <ClCompile Include="IAddableCommand.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageContainer.cpp" />
+    <ClCompile Include="ImageFactory.cpp" />
     <ClCompile Include="InputService.cpp" />
     <ClCompile Include="ITransformableCommand.cpp" />
     <ClCompile Include="Monochrome.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="IAddableCommand.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageContainer.h" />
+    <ClInclude Include="ImageFactory.h" />
     <ClInclude Include="InputService.h" />
     <ClInclude Include="ITransformableCommand.h" />
     <ClInclude Include="Monochrome.h" />

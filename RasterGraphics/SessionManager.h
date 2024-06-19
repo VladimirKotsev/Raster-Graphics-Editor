@@ -18,11 +18,11 @@ public:
 
 	void createSession(Session* const session);
 
-	void addImage(MyString filePath);
+	void addImage(MyString& filePath);
 	void undo(); //undoes the last added transformation
 	void collage(); //makes a collage between to image from the same format and adds to image collection
 	void switchSession(unsigned sessionId); //switches to other session
-	void addCommand(const polymorphic_ptr<Command>& command); //adds a command to current session
+	void addCommand(Command* command); //adds a command to current session
 
 	void closeSession();
 

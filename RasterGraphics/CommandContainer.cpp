@@ -1,4 +1,5 @@
 #include "CommandContainer.h"
+#include <iostream>
 
 void CommandContainer::free()
 {
@@ -68,12 +69,12 @@ CommandContainer& CommandContainer::operator=(const CommandContainer& other)
 	return *this;
 }
 
-CommandContainer::CommandContainer(CommandContainer&& other)
+CommandContainer::CommandContainer(CommandContainer&& other) noexcept
 {
 	moveFrom(std::move(other));
 }
 
-CommandContainer& CommandContainer::operator=(CommandContainer&& other)
+CommandContainer& CommandContainer::operator=(CommandContainer&& other) noexcept
 {
 	if (this != &other)
 	{

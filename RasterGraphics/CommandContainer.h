@@ -1,5 +1,7 @@
-#pragma onc
-#include "Command.h"
+#pragma once
+//#include "Command.h"
+
+class Command;
 
 class CommandContainer
 {
