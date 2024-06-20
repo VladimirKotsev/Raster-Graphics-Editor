@@ -240,28 +240,28 @@ void PPMImage::rotateLeft()
 
 void PPMImage::rotateRight()
 {
-    Vector<Pixel> newPixels(getHeight() * getWidth());
+    Vector<Pixel> newData(getHeight() * getWidth());
     for (size_t i = 0; i < data.getSize(); i++)
     {
         Pixel pixel;
         pixel.red = data[i].red;
         pixel.green = data[i].red;
         pixel.blue = data[i].blue;
-        newPixels.pushBack(pixel);
+        newData.pushBack(pixel);
     }
 
-    for (size_t y = 0; y < getHeight(); ++y)
+    for (size_t y = 0; y < getWidth(); ++y)
     {
-        for (size_t x = 0; x < getWidth(); ++x)
+        for (size_t x = 0; x < getHeight(); ++x)
         {
-            size_t newX = getHeight() - 1 - y;
+            size_t newX = getWidth() - 1 - y;
             size_t newY = x;
 
-            newPixels[newY * getHeight() + newX] = data[y * getWidth() + x];
+            newData[newY * getWidth() + newX] = data[y * getHeight() + x];
         }
     }
 
-    data = newPixels; // copy
+    data = newData; // copy
 }
 
 bool PPMImage::isLoaded() const

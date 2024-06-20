@@ -157,22 +157,66 @@ void PGMImage::saveAs(const char* direction) const
 
 void PGMImage::negative()
 {
+	for (size_t i = 0; i < data.getSize(); i++)
+	{
+		data[i] = maxColor - data[i];
+	}
 }
 
 void PGMImage::grayscale()
 {
+	//does no changes to a already grayscaled image
 }
 
 void PGMImage::monochrome()
 {
+	unsigned sum = 0;
+
+	for (unsigned int i = 0; i < data.getSize(); i++)
+	{
+		sum += data[i]; // we want integer
+	}
+
+	uint16_t threshold = sum / (getHeight() * getWidth());
+
+	int pixel = 0;
+
+	for (size_t i = 0; i < data.getSize(); i++)
+	{
+		if (data[i] > threshold)
+			pixel = maxColor;
+
+		data[i] = pixel;
+
+		pixel = 0;
+	}
 }
 
 void PGMImage::rotateLeft()
 {
+	for (size_t i = 0; i < 3; i++)
+	{
+		rotateRight();
+	}
 }
 
 void PGMImage::rotateRight()
 {
+	Vector<uint16_t> newData;
+	for (size_t i = 0; i < data.getSize(); i++)
+	{
+		newData[i] = data[i];
+	}
+
+	for (size_t i = 0; i < getWidth(); i++)
+	{
+		for (size_t j = 0; j < getHeight(); j++)
+		{
+			newData[i] = data[getHeight() - 1 - j];
+		}
+	}
+
+	data = newData; //copy
 }
 
 bool PGMImage::isLoaded() const

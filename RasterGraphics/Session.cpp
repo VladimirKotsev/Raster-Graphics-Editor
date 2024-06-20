@@ -22,14 +22,17 @@ void Session::executeCommands()
 	{
 		commands[i]->execute(this);
 	}
-
-
 }
 
 Session::Session()
 {
 	initializationCount++;
 	ID = initializationCount;
+}
+
+Session::~Session()
+{
+	std::cout << "detele";
 }
 
 Session* Session::clone() const
@@ -147,7 +150,7 @@ std::ostream& operator<<(std::ostream& os, const Session& ses)
 	size_t count = ses.images.getSize();
 	for (size_t i = 0; i < count; i++)
 	{
-		os << ses.images[i];
+		os << ses.images[i]->getFilePath();
 		if (i + 1 < count)
 			os << ", ";
 	}

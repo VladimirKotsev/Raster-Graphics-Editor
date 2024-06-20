@@ -10,7 +10,7 @@ protected:
 public:
 	IAddableCommand(const MyString& filePath);
 
-	virtual ~IAddableCommand() = default;
+	//virtual ~IAddableCommand() = default;
 
 	// Inherited via Command
 	Command* clone() const = 0;

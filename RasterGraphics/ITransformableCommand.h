@@ -8,7 +8,7 @@ class Command;
 class ITransformableCommand : public Command
 {
 public:
-	virtual ~ITransformableCommand() = default;
+	//virtual ~ITransformableCommand() = default;
 
 	// Inherited via Command
 	Command* clone() const = 0;
