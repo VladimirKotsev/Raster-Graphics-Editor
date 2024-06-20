@@ -1,5 +1,4 @@
 #include "RotateCommand.h"
-#include "SessionManager.h"
 
 RotateCommand::RotateCommand(Direction direction) : direction(direction)
 {
@@ -12,10 +11,10 @@ Command* RotateCommand::clone() const
 	return toReturn;
 }
 
-void RotateCommand::execute(SessionManager* sessionManager) const
+void RotateCommand::execute(Session* session) const
 {
 	if (direction == Direction::right)
-		sessionManager->rotateRight();
+		session->rotateRight();
 	else
-		sessionManager->rotateLeft();
+		session->rotateLeft();
 }

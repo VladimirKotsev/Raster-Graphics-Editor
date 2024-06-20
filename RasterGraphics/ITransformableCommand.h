@@ -1,8 +1,8 @@
 #pragma once
-
 #include "Command.h"
+#include "Session.h"
 
-class SessionManager;
+//class Session;
 class Command;
 
 class ITransformableCommand : public Command
@@ -11,6 +11,6 @@ public:
 	virtual ~ITransformableCommand() = default;
 
 	// Inherited via Command
-	void execute(SessionManager* sessionManager) const = 0;
-	Command* clone() const override = 0;
+	Command* clone() const = 0;
+	virtual void execute(Session* session) const = 0;
 };

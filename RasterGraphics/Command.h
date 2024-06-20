@@ -1,14 +1,13 @@
 #pragma once
 
-//#include "SessionManager.h"
-class SessionManager;
+class Session;
 
 class Command
 {
 public:
 	virtual ~Command() = default;
 
-	virtual void execute(SessionManager* sessionManager) const = 0;
+	virtual void execute(Session* session) const = 0;
 	virtual Command* clone() const = 0;
 };
 

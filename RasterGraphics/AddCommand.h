@@ -1,5 +1,6 @@
 #pragma once
 #include "IAddableCommand.h"
+
 class AddCommand : public IAddableCommand
 {
 public:
@@ -9,6 +10,6 @@ public:
     Command* clone() const override;
 
     // Inherited via IAddableCommand
-    void execute(SessionManager* sessionManager) const override;
+    void execute(Session* session) const override;
 };
 

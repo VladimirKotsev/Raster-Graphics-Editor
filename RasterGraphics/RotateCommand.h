@@ -1,5 +1,4 @@
 #pragma once
-
 #include "ITransformableCommand.h"
 #include "Command.h"
 #include "MyString.h"
@@ -21,5 +20,5 @@ public:
     Command* clone() const override;
 
     // Inherited via ITransformableCommand
-    void execute(SessionManager* sessionManager) const override;
+    void execute(Session* session) const override;
 };

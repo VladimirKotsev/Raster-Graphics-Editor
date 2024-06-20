@@ -1,6 +1,4 @@
 #include "NegativeCommand.h"
-#include "SessionManager.h"
-
 
 Command* NegativeCommand::clone() const
 {
@@ -8,7 +6,7 @@ Command* NegativeCommand::clone() const
     return toReturn;
 }
 
-void NegativeCommand::execute(SessionManager* sessionManager) const
+void NegativeCommand::execute(Session* session) const
 {
-    sessionManager->negative();
+    session->negative();
 }

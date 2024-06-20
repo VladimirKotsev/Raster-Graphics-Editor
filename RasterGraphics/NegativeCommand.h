@@ -1,5 +1,6 @@
 #pragma once
 #include "ITransformableCommand.h"
+
 class NegativeCommand : public ITransformableCommand
 {
 public:
@@ -7,6 +8,6 @@ public:
 	Command* clone() const override;
 
 	// Inherited via ITransformableCommand
-	void execute(SessionManager* sessionManager) const override;
+	void execute(Session* session) const override;
 };
 

@@ -1,5 +1,5 @@
 #include "Session.h"
-//#include "ITransformableCommand.h"
+#include "ITransformableCommand.h"
 
 unsigned Session::initializationCount = 0;
 
@@ -8,8 +8,8 @@ int Session::getLastTransformationIndex() const
 	size_t size = commands.getSize();
 	for (int i = size - 1; i >= 0; i--)
 	{
-		/*if (const ITransformableCommand* transf = dynamic_cast<const ITransformableCommand*>(commands[i].operator->()))
-			return i;*/
+		if (const ITransformableCommand* transf = dynamic_cast<const ITransformableCommand*>(commands[i]))
+			return i;
 	}
 
 	return -1;
@@ -17,10 +17,10 @@ int Session::getLastTransformationIndex() const
 
 void Session::executeCommands()
 {
-	size_t imageCount = images.getSize();
-	for (size_t i = 0; i < imageCount; i++)
+	size_t commandCount = commands.getSize();
+	for (size_t i = 0; i < commandCount; i++)
 	{
-		images[i]->load();
+		commands[i]->execute(this);
 	}
 
 
@@ -69,6 +69,42 @@ void Session::negative()
 
 	}
 
+}
+
+void Session::grayscale()
+{
+	size_t imageCount = images.getSize();
+	for (size_t i = 0; i < imageCount; i++)
+	{
+
+	}
+}
+
+void Session::monochrome()
+{
+	size_t imageCount = images.getSize();
+	for (size_t i = 0; i < imageCount; i++)
+	{
+
+	}
+}
+
+void Session::rotateLeft()
+{
+	size_t imageCount = images.getSize();
+	for (size_t i = 0; i < imageCount; i++)
+	{
+
+	}
+}
+
+void Session::rotateRight()
+{
+	size_t imageCount = images.getSize();
+	for (size_t i = 0; i < imageCount; i++)
+	{
+
+	}
 }
 
 void Session::save()

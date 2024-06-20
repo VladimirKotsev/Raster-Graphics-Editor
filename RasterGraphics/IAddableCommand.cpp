@@ -4,6 +4,6 @@ IAddableCommand::IAddableCommand(const MyString& filePath) :filePath(filePath)
 {
 }
 
-void IAddableCommand::execute(SessionManager* sessionManager) const
+void IAddableCommand::execute(Session* session) const
 {
 }

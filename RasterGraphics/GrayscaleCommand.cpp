@@ -1,8 +1,5 @@
 #include "GrayscaleCommand.h"
-#include "SessionManager.h"
 #include <iostream>
-
-class SessionManager;
 
 Command* GrayscaleCommand::clone() const
 {
@@ -10,7 +7,7 @@ Command* GrayscaleCommand::clone() const
     return toReturn;
 }
 
-void GrayscaleCommand::execute(SessionManager* sessionManager) const
+void GrayscaleCommand::execute(Session* session) const
 {
-    sessionManager->grayscale();
+    session->grayscale();
 }

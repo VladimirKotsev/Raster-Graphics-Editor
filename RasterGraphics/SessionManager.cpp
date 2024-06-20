@@ -10,6 +10,7 @@ SessionManager::SessionManager(Session& session)
 void SessionManager::createSession(Session* const session)
 {
 	container.addSession(session);
+	currentSession = session->getID();
 }
 
 void SessionManager::undo()

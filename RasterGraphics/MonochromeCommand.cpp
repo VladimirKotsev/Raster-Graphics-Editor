@@ -1,5 +1,4 @@
 #include "MonochromeCommand.h"
-#include "SessionManager.h"
 
 Command* MonochromeCommand::clone() const
 {
@@ -7,7 +6,7 @@ Command* MonochromeCommand::clone() const
     return toReturn;
 }
 
-void MonochromeCommand::execute(SessionManager* sessionManager) const
+void MonochromeCommand::execute(Session* session) const
 {
-    sessionManager->monochrome();
+    session->monochrome();
 }

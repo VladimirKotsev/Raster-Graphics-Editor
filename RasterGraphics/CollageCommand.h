@@ -1,5 +1,6 @@
 #pragma once
 #include "IAddableCommand.h"
+
 class CollageCommand : public IAddableCommand
 {
 private:
@@ -12,7 +13,7 @@ public:
 
 
 	// Inherited via IAddableCommand
-	void execute(SessionManager* sessionManager) const override;
+	void execute(Session* session) const override;
 
 };
 
