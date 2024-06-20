@@ -38,5 +38,8 @@ public:
 	void monochrome() override;
 	void rotateLeft() override;
 	void rotateRight() override;
+
+	// Inherited via Image
+	bool isLoaded() const override;
 };
 

@@ -99,6 +99,11 @@ Image* PGMImage::clone() const
 	return cloned;
 }
 
+const uint16_t PGMImage::getColorMax() const
+{
+	return maxColor;
+}
+
 void PGMImage::load()
 {
 	std::ifstream ifs(getFilePath(), std::ios::in);
@@ -163,4 +168,9 @@ void PGMImage::rotateLeft()
 
 void PGMImage::rotateRight()
 {
+}
+
+bool PGMImage::isLoaded() const
+{
+	return (getWidth() != 0 && getHeight() != 0 && getColorMax() != 0);
 }

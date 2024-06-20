@@ -4,7 +4,7 @@
 #include "PGMImage.h"
 #include "PPMImage.h"
 
-void ImageFactory::getImageFormat(char* format, MyString& filePath)
+void ImageFactory::getImageFormat(char* format, const MyString& filePath)
 {
 	const char* data = filePath.c_str();
 	size_t size = filePath.getSize();
@@ -31,7 +31,7 @@ void ImageFactory::getImageFormat(char* format, MyString& filePath)
 	}
 }
 
-Image* ImageFactory::createImage(MyString& filePath)
+Image* ImageFactory::createImage(const MyString& filePath)
 {
 	char buffer[1024]; //should be a constant
 	getImageFormat(buffer, filePath);

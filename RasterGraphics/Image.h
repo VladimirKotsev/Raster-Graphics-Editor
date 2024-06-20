@@ -24,7 +24,6 @@ protected:
 
 	uint16_t width;
 	uint16_t height;
-	uint16_t colorMax;
 public:
 	Image(const char* filePath);
 
@@ -52,9 +51,9 @@ public:
 
 	const uint16_t getWidth() const;
 	const uint16_t getHeight() const;
-	const uint16_t getColorMax() const;
 	const char* getFilePath() const;
 	const char* getMagicFormat() const;
+	virtual bool isLoaded() const = 0;
 
 	friend std::ostream& operator<<(std::ostream& os, const Image& image);
 };

@@ -9,6 +9,7 @@ class PPMImage : public Image
 {
 private:
 	Vector<Pixel> data;
+	uint16_t maxColor = 0;
 
 	void free();
 	void copyFrom(const PPMImage& other);
@@ -37,11 +38,16 @@ public:
 	void loadContentFromASCII() override;
 	void loadContentFromBinary() override;
 
+	const uint16_t getColorMax() const;
+
 	// Inherited via Image
 	void negative() override;
 	void grayscale() override;
 	void monochrome() override;
 	void rotateLeft() override;
 	void rotateRight() override;
+
+	// Inherited via Image
+	bool isLoaded() const override;
 };
 

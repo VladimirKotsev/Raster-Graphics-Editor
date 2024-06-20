@@ -7,6 +7,7 @@ class PGMImage : public Image
 {
 private:
 	Vector<uint16_t> data;
+	uint16_t maxColor;
 
 	void free();
 	void copyFrom(const PGMImage& other);
@@ -30,11 +31,16 @@ public:
 	void save() const override;
 	void saveAs(const char* direction) const override;
 
+	const uint16_t getColorMax() const;
+
 	// Inherited via Image
 	void negative() override;
 	void grayscale() override;
 	void monochrome() override;
 	void rotateLeft() override;
 	void rotateRight() override;
+
+	// Inherited via Image
+	bool isLoaded() const override;
 };
 

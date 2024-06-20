@@ -125,6 +125,11 @@ void PBMImage::rotateRight()
 {
 }
 
+bool PBMImage::isLoaded() const
+{
+	return (getWidth() != 0 && getHeight() != 0);
+}
+
 void PBMImage::free()
 {
 	//delete[] bits; //handles by class DynamicSet

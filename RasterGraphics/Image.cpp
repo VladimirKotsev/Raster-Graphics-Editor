@@ -11,7 +11,6 @@ void Image::copyFrom(const Image& other)
 
 	width = other.width;
 	height = other.height;
-	colorMax = other.colorMax;
 }
 
 void Image::free()
@@ -33,6 +32,9 @@ void Image::setMagicFormat(const char* format)
 {
 	if (!format)
 		throw std::invalid_argument("Null-pointer passed for image magic number!");
+
+	magicFormat = new char[strlen(format) + 1];
+	strcpy(magicFormat, format);
 }
 
 Image::Image(const char* filePath)
@@ -69,11 +71,6 @@ const uint16_t Image::getWidth() const
 const uint16_t Image::getHeight() const
 {
 	return height;
-}
-
-const uint16_t Image::getColorMax() const
-{
-	return colorMax;
 }
 
 const char* Image::getFilePath() const

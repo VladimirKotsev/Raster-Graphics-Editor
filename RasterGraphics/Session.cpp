@@ -76,7 +76,9 @@ void Session::grayscale()
 	size_t imageCount = images.getSize();
 	for (size_t i = 0; i < imageCount; i++)
 	{
-
+		if (!(images[i]->isLoaded()))
+			images[i]->load();
+		images[i]->grayscale();
 	}
 }
 
@@ -110,6 +112,11 @@ void Session::rotateRight()
 void Session::save()
 {
 	executeCommands(); //executes
+	size_t imageCount = images.getSize();
+	for (size_t i = 0; i < imageCount; i++)
+	{
+		images[i]->save();
+	}
 }
 
 void Session::saveAs()

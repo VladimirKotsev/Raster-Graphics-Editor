@@ -5,8 +5,8 @@
 class ImageFactory
 {
 private:
-	static void getImageFormat(char* format, MyString& filePath);
+	static void getImageFormat(char* format, const MyString& filePath);
 public:
-	static Image* createImage(MyString& filePath);
+	static Image* createImage(const MyString& filePath);
 };
 
