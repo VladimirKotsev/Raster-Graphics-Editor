@@ -23,6 +23,8 @@ public:
 	PPMImage(PPMImage&& other) noexcept = delete;
 	PPMImage& operator=(PPMImage&& other) noexcept = delete;
 
+	~PPMImage();
+
 	// Inherited via Image
 	Image* clone() const override;
 

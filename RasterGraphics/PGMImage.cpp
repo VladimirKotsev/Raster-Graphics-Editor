@@ -93,6 +93,11 @@ PGMImage& PGMImage::operator=(const PGMImage& other)
 	return *this;
 }
 
+PGMImage::~PGMImage()
+{
+	free();
+}
+
 Image* PGMImage::clone() const
 {
 	Image* cloned = new (std::nothrow) PGMImage(*this);

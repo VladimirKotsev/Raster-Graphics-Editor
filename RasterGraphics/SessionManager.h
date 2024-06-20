@@ -17,6 +17,8 @@ public:
 	SessionManager() = default;
 	SessionManager(Session& session);
 
+	~SessionManager();
+
 	void createSession(Session* const session);
 
 	void undo(); //undoes the last added transformation

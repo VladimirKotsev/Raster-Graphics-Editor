@@ -85,6 +85,11 @@ ImageContainer& ImageContainer::operator=(ImageContainer&& other) noexcept
 	return *this;
 }
 
+ImageContainer::~ImageContainer()
+{
+	free();
+}
+
 void ImageContainer::addImage(Image* image)
 {
 	if (size == capacity)

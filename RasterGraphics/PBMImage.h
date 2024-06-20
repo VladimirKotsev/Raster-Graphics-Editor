@@ -20,6 +20,8 @@ public:
 	PBMImage(PBMImage&&) noexcept = delete;
 	PBMImage& operator=(PBMImage&&) noexcept = delete;
 
+	~PBMImage();
+
 	// Inherited via Image
 	Image* clone() const override;
 	void load() override;

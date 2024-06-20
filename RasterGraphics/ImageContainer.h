@@ -22,6 +22,8 @@ public:
 	ImageContainer(ImageContainer&& other) noexcept;
 	ImageContainer& operator=(ImageContainer&& other) noexcept;
 
+	~ImageContainer();
+
 	void addImage(Image* image);
 	void addImage(const Image& image);
 

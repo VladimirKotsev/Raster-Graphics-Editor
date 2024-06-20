@@ -32,6 +32,11 @@ PPMImage& PPMImage::operator=(const PPMImage& other)
     return *this;
 }
 
+PPMImage::~PPMImage()
+{
+    free();
+}
+
 Image* PPMImage::clone() const
 {
     Image* cloned = new (std::nothrow) PPMImage(*this);
@@ -42,10 +47,7 @@ void PPMImage::load()
 {
     std::ifstream ifs(getFilePath(), std::ios::in);
     if (!ifs.is_open())
-    {
-        std::cout << "error";
         throw std::logic_error("File cannot be open!");
-    }
 
     char magicFormat[1024]; // should be constant
     ifs >> magicFormat;
@@ -92,7 +94,7 @@ void PPMImage::saveAs(const char* direction) const
 
 void PPMImage::saveToASCII(const char* filePath) const
 {
-    std::ofstream ofs(filePath, std::ios::out);
+    std::ofstream ofs(filePath);
     if (!ofs.is_open())
         throw std::logic_error("File cannot be opened!");
 
@@ -110,7 +112,7 @@ void PPMImage::saveToASCII(const char* filePath) const
             ofs << '/n';
         }
 
-        ofs << data[i].red << ' ' << data[i].green << ' ' << data[i].blue << ' ';
+        ofs << data[i].red << " " << data[i].green << " " << data[i].blue << " ";
         col++;
     }
 
@@ -131,12 +133,14 @@ void PPMImage::loadContentFromASCII()
     ifs.getline(buffer, 1024);
     ifs.getline(buffer, 1024);
     ifs >> maxColor;
+    ifs.ignore();
 
-    char* line = new char[getWidth() + getWidth()];
+    unsigned size = getWidth() * sizeof(Pixel) + getWidth() * 3 - 1;
+    char* line = new char[size];
 
     while (true)
     {
-        ifs.getline(line, getWidth() + getWidth() - 1, '\n');
+        ifs.getline(line, size, '\n');
 
         if (ifs.eof())
             break;
@@ -144,7 +148,6 @@ void PPMImage::loadContentFromASCII()
         if (strlen(line) == 0)
             continue;
 
-        ss.clear();
         ss.str(line);
 
         uint16_t red;
@@ -160,6 +163,8 @@ void PPMImage::loadContentFromASCII()
             pixel.blue = blue;
             data.pushBack(pixel);
         }
+
+        ss.clear();
     }
 
     delete[] line;
@@ -178,7 +183,7 @@ const uint16_t PPMImage::getColorMax() const
 
 void PPMImage::negative()
 {
-    for (unsigned int i = 0; i < data.getSize(); i++)
+    for (size_t i = 0; i < data.getSize(); i++)
     {
             data[i].red = this->maxColor - data[i].red;
             data[i].green = this->maxColor - data[i].green;
@@ -198,21 +203,21 @@ void PPMImage::grayscale()
 
 void PPMImage::monochrome()
 {
-    unsigned int avgSum = 0; // we need integer
+    unsigned avgSum = 0; // we need integer
 
-    for (unsigned int i = 0; i < data.getSize(); i++)
+    for (size_t i = 0; i < data.getSize(); i++)
     {
             int avg = data[i].red + data[i].green + data[i].blue;
             avgSum += avg / 3; // rounding down to integer number automatic
     }
 
-    unsigned short threshold = avgSum / (getHeight() * getWidth());
+    uint16_t threshold = avgSum / (getHeight() * getWidth());
 
     int pixel = 0;
 
-    for (unsigned int i = 0; i < data.getSize(); i++)
+    for (size_t i = 0; i < data.getSize(); i++)
     {
-            unsigned short sum = (data[i].red + data[i].green + data[i].blue) / 3;
+            uint16_t sum = (data[i].red + data[i].green + data[i].blue) / 3;
 
             if (sum >= threshold)
                 pixel = maxColor;
@@ -226,39 +231,35 @@ void PPMImage::monochrome()
 }
 
 void PPMImage::rotateLeft()
-{
+{ // In order to rate left we can use the already implemented rotate right
+    for (size_t i = 0; i < 3; i++)
+    {
+        rotateRight();
+    }
 }
 
 void PPMImage::rotateRight()
 {
-    Vector<Pixel> newPixels;
+    Vector<Pixel> newPixels(getHeight() * getWidth());
     for (size_t i = 0; i < data.getSize(); i++)
     {
         Pixel pixel;
         pixel.red = data[i].red;
         pixel.green = data[i].red;
         pixel.blue = data[i].blue;
-        data.pushBack(pixel);
         newPixels.pushBack(pixel);
     }
 
-    /*int temp = rows;
-    this->rows = this->cols;
-    this->cols = temp;
-
-    for (unsigned int i = 0; i < cols; i++)
+    for (size_t y = 0; y < getHeight(); ++y)
     {
-        Pixel* arrTemp = new Pixel[rows];
-        for (unsigned int j = 0; j < rows; j++)
+        for (size_t x = 0; x < getWidth(); ++x)
         {
-            arrTemp[j] = newPixels[i][j];
-        }
+            size_t newX = getHeight() - 1 - y;
+            size_t newY = x;
 
-        for (unsigned index = 0; index < rows; index++)
-        {
-            newPixels[i][index] = arrTemp[rows - 1 - index];
+            newPixels[newY * getHeight() + newX] = data[y * getWidth() + x];
         }
-    }*/
+    }
 
     data = newPixels; // copy
 }

@@ -25,6 +25,8 @@ public:
 	PGMImage(PGMImage&& other) noexcept = delete;
 	PGMImage& operator=(PGMImage&& other) noexcept = delete;
 
+	~PGMImage();
+
 	// Inherited via Image
 	Image* clone() const override;
 	void load() override;

@@ -7,6 +7,11 @@ SessionManager::SessionManager(Session& session)
 	currentSession = 1;
 }
 
+SessionManager::~SessionManager()
+{
+
+}
+
 void SessionManager::createSession(Session* const session)
 {
 	container.addSession(session);

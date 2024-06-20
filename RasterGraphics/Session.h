@@ -20,6 +20,7 @@ private:
 	void executeCommands();
 public:
 	Session();
+	~Session() = default;
 	Session* clone() const;
 
 	void addCommand(Command* command);

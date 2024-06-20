@@ -1,5 +1,10 @@
 #include "PBMImage.h"
 
+PBMImage::~PBMImage()
+{
+	free();
+}
+
 Image* PBMImage::clone() const
 {
 	Image* toReturn = new (std::nothrow) PBMImage(*this);

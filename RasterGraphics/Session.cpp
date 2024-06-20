@@ -66,7 +66,10 @@ void Session::negative()
 	size_t imageCount = images.getSize();
 	for (size_t i = 0; i < imageCount; i++)
 	{
+		if (!(images[i]->isLoaded()))
+			images[i]->load();
 
+		images[i]->negative();
 	}
 
 }
@@ -78,6 +81,7 @@ void Session::grayscale()
 	{
 		if (!(images[i]->isLoaded()))
 			images[i]->load();
+
 		images[i]->grayscale();
 	}
 }
@@ -87,7 +91,10 @@ void Session::monochrome()
 	size_t imageCount = images.getSize();
 	for (size_t i = 0; i < imageCount; i++)
 	{
+		if (!(images[i]->isLoaded()))
+			images[i]->load();
 
+		images[i]->monochrome();
 	}
 }
 
@@ -96,7 +103,10 @@ void Session::rotateLeft()
 	size_t imageCount = images.getSize();
 	for (size_t i = 0; i < imageCount; i++)
 	{
+		if (!(images[i]->isLoaded()))
+			images[i]->load();
 
+		images[i]->rotateLeft();
 	}
 }
 
@@ -105,7 +115,10 @@ void Session::rotateRight()
 	size_t imageCount = images.getSize();
 	for (size_t i = 0; i < imageCount; i++)
 	{
+		if (!(images[i]->isLoaded()))
+			images[i]->load();
 
+		images[i]->rotateRight();
 	}
 }
 

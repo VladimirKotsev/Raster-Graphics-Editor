@@ -85,6 +85,11 @@ CommandContainer& CommandContainer::operator=(CommandContainer&& other) noexcept
 	return *this;
 }
 
+CommandContainer::~CommandContainer()
+{
+	free();
+}
+
 void CommandContainer::addCommand(Command* command)
 {
 	if (size == capacity)

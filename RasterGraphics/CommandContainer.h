@@ -24,6 +24,8 @@ public:
 	CommandContainer(CommandContainer&& other) noexcept;
 	CommandContainer& operator=(CommandContainer&& other) noexcept;
 
+	~CommandContainer();
+
 	void addCommand(Command* command);
 	void removeAt(size_t index);
 
