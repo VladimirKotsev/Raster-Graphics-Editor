@@ -123,7 +123,6 @@ void PPMImage::loadContentFromASCII()
 {
 	std::ifstream ifs(getFilePath(), std::ios::in);
 	char buffer[1024]; // Should be a constant
-	std::stringstream ss;
 
 	ifs.getline(buffer, 1024);
 	ifs.getline(buffer, 1024);
@@ -220,7 +219,7 @@ void PPMImage::monochrome()
 }
 
 void PPMImage::rotateLeft()
-{ // In order to rate left we can use the already implemented rotate right
+{ 
 	size_t count = getWidth() * getHeight();
 	Vector<Pixel> newData(count);
 
@@ -231,7 +230,7 @@ void PPMImage::rotateLeft()
 	{
 		for (int i = 0; i < height; ++i)
 		{
-			int oldIndex = j * height + i; // Swap i and j
+			int oldIndex = j * height + i;
 			newData.pushBack(data[oldIndex]);
 		}
 	}

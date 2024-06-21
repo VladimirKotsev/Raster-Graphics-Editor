@@ -39,23 +39,21 @@ void PGMImage::saveToBinary(const char* filePath) const
 void PGMImage::loadContentFromASCII()
 {
 	std::ifstream ifs(getFilePath(), std::ios::in);
-	char buffer[1024]; // Should be a constant
-	std::stringstream ss;
+	char buffer[1024]; //should be constant somewhere
 
-	while (ifs.getline(buffer, 1024))
+	ifs.getline(buffer, 1024);
+	ifs.getline(buffer, 1024);
+	ifs >> maxColor;
+	ifs.ignore();
+
+	while (true)
 	{
-		if (if)
-
-		ss.clear();
-		ss.str(buffer);
+		if (ifs.eof())
+			break;
 
 		uint16_t num;
-
-		// Extract numbers from the current line
-		while (ss >> num)
-		{
-			data.pushBack(num);
-		}
+		ifs >> num;
+		data.pushBack(num);
 	}
 
 	ifs.close();
@@ -63,6 +61,7 @@ void PGMImage::loadContentFromASCII()
 
 void PGMImage::loadContentFromBinary()
 {
+
 }
 
 PGMImage::PGMImage(const char* filePath) : Image(filePath)
@@ -191,28 +190,43 @@ void PGMImage::monochrome()
 
 void PGMImage::rotateLeft()
 {
-	for (size_t i = 0; i < 3; i++)
+	size_t count = getWidth() * getHeight();
+	Vector<uint16_t> newData(count);
+
+	size_t newWidth = height;
+	size_t newHeight = width;
+
+	for (int j = width - 1; j >= 0; --j)
 	{
-		rotateRight();
+		for (int i = 0; i < height; ++i)
+		{
+			int oldIndex = j * height + i;
+			newData.pushBack(data[oldIndex]);
+		}
 	}
+
+	std::swap(width, height);
+	data = newData;
 }
 
 void PGMImage::rotateRight()
 {
-	Vector<uint16_t> newData;
-	for (size_t i = 0; i < data.getSize(); i++)
-	{
-		newData[i] = data[i];
-	}
+	size_t count = getWidth() * getHeight();
+	Vector<uint16_t> newData(count);
 
-	for (size_t i = 0; i < getWidth(); i++)
+	size_t newWidth = height;
+	size_t newHeight = width;
+
+	for (int j = 0; j < width; ++j)
 	{
-		for (size_t j = 0; j < getHeight(); j++)
+		for (int i = height - 1; i >= 0; --i)
 		{
-			newData[i] = data[getHeight() - 1 - j];
+			int oldIndex = i * width + j;
+			newData.pushBack(data[oldIndex]);
 		}
 	}
 
+	std::swap(width, height);
 	data = newData; //copy
 }
 

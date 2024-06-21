@@ -7,7 +7,7 @@ class PGMImage : public Image
 {
 private:
 	Vector<uint16_t> data;
-	uint16_t maxColor;
+	uint16_t maxColor = 0;
 
 	void free();
 	void copyFrom(const PGMImage& other);
