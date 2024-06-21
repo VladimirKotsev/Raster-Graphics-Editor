@@ -1,7 +1,7 @@
 #include "Session.h"
 #include "ITransformableCommand.h"
 
-unsigned Session::initializationCount = 0;
+unsigned Session::liveCount = 0;
 
 int Session::getLastTransformationIndex() const
 {
@@ -26,8 +26,13 @@ void Session::executeCommands()
 
 Session::Session()
 {
-	initializationCount++;
-	ID = initializationCount;
+	liveCount++;
+	ID = liveCount;
+}
+
+Session::~Session()
+{
+	liveCount--;
 }
 
 Session* Session::clone() const

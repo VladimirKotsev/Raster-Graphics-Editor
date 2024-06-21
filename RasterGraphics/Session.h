@@ -9,7 +9,7 @@ class Command;
 class Session
 {
 private:
-	static unsigned initializationCount;
+	static unsigned liveCount;
 
 	unsigned ID = 0;
 
@@ -20,7 +20,7 @@ private:
 	void executeCommands();
 public:
 	Session();
-	~Session() = default;
+	~Session();
 	Session* clone() const;
 
 	void addCommand(Command* command);

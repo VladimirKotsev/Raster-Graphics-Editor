@@ -33,6 +33,7 @@ void Engine::run()
 
 				Session* session = new Session();
 				sessionManager.createSession(session);
+				std::cout << "Started session with ID: " << sessionManager.getCurrSessionID() << std::endl;
 				for (size_t i = 1; i < input.getSize(); i++)
 				{
 					Command* createCommand = CommandFactory::createAddCommand(input[i]);

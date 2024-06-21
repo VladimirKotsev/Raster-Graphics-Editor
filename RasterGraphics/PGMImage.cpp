@@ -158,8 +158,6 @@ void PGMImage::negative()
 void PGMImage::grayscale()
 {
 	
-
-	isGrayscale = true;
 }
 
 void PGMImage::monochrome()
@@ -200,7 +198,7 @@ void PGMImage::rotateLeft()
 	{
 		for (int i = 0; i < height; ++i)
 		{
-			int oldIndex = j * height + i;
+			size_t oldIndex = i * width + j;
 			newData.pushBack(data[oldIndex]);
 		}
 	}
