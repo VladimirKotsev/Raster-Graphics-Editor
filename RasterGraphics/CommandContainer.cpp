@@ -113,6 +113,19 @@ void CommandContainer::removeAt(size_t index)
 	data[--size] = nullptr;
 }
 
+void CommandContainer::empty()
+{
+	for (size_t i = 0; i < size; ++i)
+	{
+		delete data[i];
+	}
+
+	size = 0; // Reset the size to zero
+	capacity = 8;
+	delete[] data; // Deallocate the data array
+	data = new Command* [capacity];
+}
+
 const Command* CommandContainer::operator[](size_t index) const
 {
 	return data[index];

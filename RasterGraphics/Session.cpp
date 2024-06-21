@@ -131,6 +131,7 @@ void Session::save()
 
 		images[i]->save();
 	}
+	commands.empty();
 }
 
 void Session::saveAs()

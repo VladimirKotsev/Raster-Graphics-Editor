@@ -28,6 +28,7 @@ public:
 
 	void addCommand(Command* command);
 	void removeAt(size_t index);
+	void empty();
 
 	const Command* operator[](size_t index) const;
 	Command* operator[](size_t index);
