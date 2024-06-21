@@ -5,6 +5,10 @@
 #include "Pixel.h"
 #include "Vector.hpp"
 
+const double Red = 0.299;
+const double Green = 0.587;
+const double Blue = 0.114;
+
 class PPMImage : public Image
 {
 private:

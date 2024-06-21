@@ -25,8 +25,8 @@ void Engine::run()
 			if (input.getSize() == 1)
 				throw std::invalid_argument("No image file path given to load a session");
 			
-			Session session;
-			sessionManager.createSession(&session);
+			Session* session = new Session();
+			sessionManager.createSession(session);
 			for (size_t i = 1; i < input.getSize(); i++)
 			{
 				Command* createCommand = CommandFactory::createAddCommand(input[i]);

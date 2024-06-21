@@ -30,11 +30,6 @@ Session::Session()
 	ID = initializationCount;
 }
 
-Session::~Session()
-{
-	std::cout << "detele";
-}
-
 Session* Session::clone() const
 {
 	Session* toReturn = new (std::nothrow) Session(*this);
@@ -131,6 +126,9 @@ void Session::save()
 	size_t imageCount = images.getSize();
 	for (size_t i = 0; i < imageCount; i++)
 	{
+		if (!(images[i]->isLoaded()))
+			continue;
+
 		images[i]->save();
 	}
 }
