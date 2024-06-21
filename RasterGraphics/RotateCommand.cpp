@@ -18,3 +18,11 @@ void RotateCommand::execute(Session* session) const
 	else
 		session->rotateLeft();
 }
+
+void RotateCommand::execute(Image* image) const
+{
+	if (direction == Direction::right)
+		image->rotateRight();
+	else
+		image->rotateLeft();
+}

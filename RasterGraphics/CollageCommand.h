@@ -14,6 +14,5 @@ public:
 
 	// Inherited via IAddableCommand
 	void execute(Session* session) const override;
-
 };
 

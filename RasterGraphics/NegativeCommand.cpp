@@ -10,3 +10,8 @@ void NegativeCommand::execute(Session* session) const
 {
     session->negative();
 }
+
+void NegativeCommand::execute(Image* image) const
+{
+    image->negative();
+}

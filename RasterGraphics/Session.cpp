@@ -80,6 +80,9 @@ void Session::grayscale()
 		if (!(images[i]->isLoaded()))
 			images[i]->load();
 
+		if (images[i]->getIsGrayscale())
+			continue;
+
 		images[i]->grayscale();
 	}
 }
@@ -91,6 +94,9 @@ void Session::monochrome()
 	{
 		if (!(images[i]->isLoaded()))
 			images[i]->load();
+
+		if (images[i]->getIsMonochrome())
+			continue;
 
 		images[i]->monochrome();
 	}
@@ -136,7 +142,14 @@ void Session::save()
 
 void Session::saveAs()
 {
-	//executes command only for the first loaded image
+	commands[0]->execute(this);
+	images[0]->load();
+
+	for (size_t i = 0; i < commands.getSize(); i++)
+	{
+		commands[i]->execute(images[0]);
+	}
+	images[0]->save();
 }
 
 unsigned Session::getID() const

@@ -10,3 +10,8 @@ void MonochromeCommand::execute(Session* session) const
 {
     session->monochrome();
 }
+
+void MonochromeCommand::execute(Image* image) const
+{
+    image->monochrome();
+}

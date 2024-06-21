@@ -17,4 +17,5 @@ public:
 
 	// Inherited via Command
 	virtual void execute(Session* session) const = 0;
+	void execute(Image* session) const override final;
 };

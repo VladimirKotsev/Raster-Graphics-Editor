@@ -83,6 +83,16 @@ const char* Image::getMagicFormat() const
 	return magicFormat;
 }
 
+bool Image::getIsGrayscale() const
+{
+	return isGrayscale;
+}
+
+bool Image::getIsMonochrome() const
+{
+	return isMonochrome;
+}
+
 std::ostream& operator<<(std::ostream& os, const Image& image)
 {
 	return os << image.getFilePath();

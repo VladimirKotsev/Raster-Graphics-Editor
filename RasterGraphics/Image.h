@@ -24,6 +24,9 @@ protected:
 
 	uint16_t width;
 	uint16_t height;
+
+	bool isGrayscale;
+	bool isMonochrome;
 public:
 	Image(const char* filePath);
 
@@ -54,6 +57,9 @@ public:
 	const char* getFilePath() const;
 	const char* getMagicFormat() const;
 	virtual bool isLoaded() const = 0;
+
+	bool getIsGrayscale() const;
+	bool getIsMonochrome() const;
 
 	friend std::ostream& operator<<(std::ostream& os, const Image& image);
 };

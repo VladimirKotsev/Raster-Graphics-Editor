@@ -13,4 +13,5 @@ public:
 	// Inherited via Command
 	Command* clone() const = 0;
 	virtual void execute(Session* session) const = 0;
+	virtual void execute(Image* image) const = 0;
 };
