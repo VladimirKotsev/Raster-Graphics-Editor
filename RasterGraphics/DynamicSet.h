@@ -17,6 +17,7 @@ public:
 
 	DynamicSet(const DynamicSet& other);
 	DynamicSet& operator=(const DynamicSet& other);
+
 	~DynamicSet();
 
 	void add(unsigned num);

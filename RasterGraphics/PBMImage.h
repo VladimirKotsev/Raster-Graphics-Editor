@@ -6,7 +6,7 @@
 class PBMImage : public Image
 {
 private:
-	DynamicSet* data = nullptr;
+	DynamicSet data;
 
 	void free();
 	void copyFrom(const PBMImage& other);
