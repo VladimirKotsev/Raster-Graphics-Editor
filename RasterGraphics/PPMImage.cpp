@@ -186,6 +186,7 @@ void PPMImage::grayscale()
 		data[i].green = (oldRed * Red) + (oldGreen * Green) + (oldBlue * Blue);
 		data[i].blue = (oldRed * Red) + (oldGreen * Green) + (oldBlue * Blue);
 	}
+	isGrayscale = true;
 }
 
 void PPMImage::monochrome()
@@ -215,6 +216,7 @@ void PPMImage::monochrome()
 
 		pixel = 0;
 	}
+	isMonochrome = true;
 }
 
 void PPMImage::rotateLeft()

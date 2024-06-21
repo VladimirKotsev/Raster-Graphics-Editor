@@ -11,3 +11,8 @@ void GrayscaleCommand::execute(Session* session) const
 {
     session->grayscale();
 }
+
+void GrayscaleCommand::execute(Image* image) const
+{
+    image->grayscale();
+}

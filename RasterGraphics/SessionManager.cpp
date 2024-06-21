@@ -18,6 +18,11 @@ void SessionManager::createSession(Session* const session)
 	currentSession = session->getID();
 }
 
+bool SessionManager::checkIfSessionOpened() const
+{
+	return (currentSession != 0);
+}
+
 void SessionManager::undo()
 {
 	container[currentSession - 1]->undoTransformation();
@@ -36,37 +41,10 @@ void SessionManager::addCommand(Command* command)
 	container[currentSession - 1]->addCommand(command);
 }
 
-void SessionManager::addImage(const MyString& filePath)
-{
-}
-
-void SessionManager::rotateLeft()
-{
-
-}
-
-void SessionManager::rotateRight()
-{
-
-}
-
-void SessionManager::grayscale()
-{
-
-}
-
-void SessionManager::monochrome()
-{
-}
-
-void SessionManager::negative()
-{
-
-}
-
 void SessionManager::closeSession()
 {
 	container.removeAt(currentSession - 1);
+	currentSession = 0;
 }
 
 void SessionManager::saveSession()
@@ -74,9 +52,9 @@ void SessionManager::saveSession()
 	container[currentSession - 1]->save();
 }
 
-void SessionManager::saveAsSession()
+void SessionManager::saveAsSession(const MyString& newFilePath)
 {
-	container[currentSession - 1]->saveAs();
+	container[currentSession - 1]->saveAs(newFilePath);
 }
 
 unsigned SessionManager::getCurrSessionID() const

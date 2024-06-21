@@ -21,16 +21,10 @@ void PGMImage::saveToASCII(const char* filePath) const
 
 	ofs << getMagicFormat() << '\n';
 	ofs << getWidth() << ' ' << getHeight() << '\n';
+	ofs << getColorMax() << '\n';
 
-	unsigned col = 0;
 	for (size_t i = 0; i < data.getSize(); i++)
 	{
-		if (col == getWidth())
-		{
-			col = 0;
-			ofs << '/n';
-		}
-
 		ofs << data[i] << ' ';
 	}
 
@@ -50,8 +44,7 @@ void PGMImage::loadContentFromASCII()
 
 	while (ifs.getline(buffer, 1024))
 	{
-		if (strlen(buffer) == 0)
-			continue;
+		if (if)
 
 		ss.clear();
 		ss.str(buffer);
@@ -165,7 +158,9 @@ void PGMImage::negative()
 
 void PGMImage::grayscale()
 {
-	//does no changes to a already grayscaled image
+	
+
+	isGrayscale = true;
 }
 
 void PGMImage::monochrome()
@@ -190,6 +185,8 @@ void PGMImage::monochrome()
 
 		pixel = 0;
 	}
+
+	isMonochrome = true;
 }
 
 void PGMImage::rotateLeft()

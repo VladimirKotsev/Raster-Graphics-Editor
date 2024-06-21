@@ -140,7 +140,7 @@ void Session::save()
 	commands.empty();
 }
 
-void Session::saveAs()
+void Session::saveAs(const MyString& newFilePath)
 {
 	commands[0]->execute(this);
 	images[0]->load();
@@ -149,7 +149,7 @@ void Session::saveAs()
 	{
 		commands[i]->execute(images[0]);
 	}
-	images[0]->save();
+	images[0]->saveAs(newFilePath.c_str());
 }
 
 unsigned Session::getID() const

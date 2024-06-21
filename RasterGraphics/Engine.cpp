@@ -4,7 +4,7 @@
 void Engine::run()
 {
 	SessionManager sessionManager;
-	std::cout << " >";
+	std::cout << "> ";
 	Vector<MyString> input = InputService::readSplitedInput(' '); //const seperator
 	
 	while (input[0] != "exit")
@@ -16,6 +16,9 @@ void Engine::run()
 
 			if (command == "add")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				Command* createCommand = CommandFactory::createAddCommand(input[1]);
 				sessionManager.addCommand(createCommand);
 			}
@@ -38,23 +41,37 @@ void Engine::run()
 			}
 			else if (command == "close")
 			{
-				sessionManager.closeSession();
+				sessionManager.closeSession(); //check for switched session
 			}
 			else if (command == "save")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				sessionManager.saveSession();
 			}
 			else if (command == "saveas")
 			{
-				sessionManager.saveAsSession();
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
+				MyString filePath = input[1];
+				filePath.toLower();
+				sessionManager.saveAsSession(filePath);
 			}
 			else if (command == "grayscale")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 				sessionManager.addCommand(transformableCommand);
 			}
 			else if (command == "rotate")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				MyString direction = input[1];
 				direction.toLower();
 
@@ -63,20 +80,32 @@ void Engine::run()
 			}
 			else if (command == "monochrome")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 				sessionManager.addCommand(transformableCommand);
 			}
 			else if (command == "negative")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 				sessionManager.addCommand(transformableCommand);
 			}
 			else if (command == "undo")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				sessionManager.undo();
 			}
 			else if (command == "session")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				MyString& additional = input[1];
 				additional.toLower();
 				if (additional == "info")
@@ -92,6 +121,9 @@ void Engine::run()
 			}
 			else if (command == "collage")
 			{
+				if (!sessionManager.checkIfSessionOpened())
+					throw std::logic_error("No selected session!");
+
 				if (input.getSize() <= 1)
 					throw std::invalid_argument("Not enough data give to make a collage!");
 
@@ -106,7 +138,7 @@ void Engine::run()
 				std::cout << "Invalid command!" << std::endl;
 			}
 
-			std::cout << " >";
+			std::cout << "> ";
 			input = InputService::readSplitedInput(' '); // separator should be constant
 		}
 		catch (const std::exception& e)

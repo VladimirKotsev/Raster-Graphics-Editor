@@ -34,7 +34,7 @@ public:
 
 	void undoTransformation();
 	void save();
-	void saveAs();
+	void saveAs(const MyString& newFilePath);
 
 	friend std::ostream& operator<<(std::ostream& os, const Session& ses);
 

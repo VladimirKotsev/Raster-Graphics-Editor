@@ -25,8 +25,8 @@ protected:
 	uint16_t width;
 	uint16_t height;
 
-	bool isGrayscale;
-	bool isMonochrome;
+	bool isGrayscale = false;
+	bool isMonochrome = false;
 public:
 	Image(const char* filePath);
 
