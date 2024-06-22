@@ -1,5 +1,6 @@
 #pragma warning(disable: 4996)
 #include "Image.h"
+#include "ExceptionMessages.h"
 
 void Image::copyFrom(const Image& other)
 {
@@ -22,7 +23,7 @@ void Image::free()
 void Image::setFilePath(const char* filePath)
 {
 	if (!filePath)
-		throw std::invalid_argument("Null-pointer passed for filePath!");
+		throw std::invalid_argument(ExceptionMessages::NULLPOINTER_FILEPATH);
 
 	this->filePath = new char[strlen(filePath) + 1];
 	strcpy(this->filePath, filePath);
@@ -31,7 +32,7 @@ void Image::setFilePath(const char* filePath)
 void Image::setMagicFormat(const char* format)
 {
 	if (!format)
-		throw std::invalid_argument("Null-pointer passed for image magic number!");
+		throw std::invalid_argument(ExceptionMessages::NULLPOINTER_MAGIC_NUMBER);
 
 	magicFormat = new char[strlen(format) + 1];
 	strcpy(magicFormat, format);

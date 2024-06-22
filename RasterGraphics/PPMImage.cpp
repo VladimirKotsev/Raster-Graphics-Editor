@@ -1,4 +1,5 @@
 #include "PPMImage.h"
+#include "ExceptionMessages.h"
 
 void PPMImage::free()
 {
@@ -47,7 +48,7 @@ void PPMImage::load()
 {
 	std::ifstream ifs(getFilePath(), std::ios::in);
 	if (!ifs.is_open())
-		throw std::logic_error("File cannot be open!");
+		throw std::logic_error(ExceptionMessages::FILE_NOT_OPENED);
 
 	char magicFormat[GlobalConstants::BUFFER_SIZE]; // should be constant
 	ifs >> magicFormat;
@@ -96,7 +97,7 @@ void PPMImage::saveToASCII(const char* filePath) const
 {
 	std::ofstream ofs(filePath);
 	if (!ofs.is_open())
-		throw std::logic_error("File cannot be opened!");
+		throw std::logic_error(ExceptionMessages::FILE_NOT_OPENED);
 
 	ofs << getMagicFormat() << '\n';
 	ofs << getWidth() << ' ' << getHeight() << '\n';

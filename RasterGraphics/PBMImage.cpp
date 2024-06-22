@@ -1,4 +1,5 @@
 #include "PBMImage.h"
+#include "ExceptionMessages.h"
 
 PBMImage::~PBMImage()
 {
@@ -16,7 +17,7 @@ void PBMImage::load()
 	std::ifstream ifs(getFilePath(), std::ios::in);
 
 	if (!ifs.is_open())
-		throw std::logic_error("File cannot be found!");
+		throw std::logic_error(ExceptionMessages::FILE_NOT_OPENED);
 
 	char buffer[GlobalConstants::BUFFER_SIZE]; // CONSTANT SHOULD NOT BE HERE
 	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
@@ -96,7 +97,7 @@ void PBMImage::saveToASCII(const char* filePath) const
 	std::ofstream ofs(getFilePath(), std::ios::out);
 
 	if (!ofs.is_open())
-		throw std::logic_error("File cannot be found!");
+		throw std::logic_error(ExceptionMessages::FILE_NOT_OPENED);
 
 	ofs << getMagicFormat() << '\n';
 	ofs << getWidth() << ' ' << getHeight() << '\n';
@@ -120,7 +121,7 @@ void PBMImage::loadContentFromASCII()
 	std::ifstream ifs(getFilePath(), std::ios::in);
 
 	if (!ifs.is_open())
-		throw std::logic_error("File cannot be found!");
+		throw std::logic_error(ExceptionMessages::FILE_NOT_OPENED);
 
 	char buffer[GlobalConstants::BUFFER_SIZE]; // CONSTANT SHOULD NOT BE HERE
 	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);

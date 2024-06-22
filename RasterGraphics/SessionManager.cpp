@@ -1,5 +1,6 @@
 #include "SessionManager.h"
 #include "Command.h"
+#include "ExceptionMessages.h"
 
 SessionManager::SessionManager(Session& session)
 {
@@ -31,7 +32,7 @@ void SessionManager::undo()
 void SessionManager::switchSession(unsigned sessionId)
 {
 	if (sessionId > container.getSize())
-		throw std::invalid_argument("Invalid session id provided!");
+		throw std::invalid_argument(ExceptionMessages::INVALID_SESSION_ID);
 
 	currentSession = sessionId;
 }

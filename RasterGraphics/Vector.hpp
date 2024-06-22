@@ -3,6 +3,7 @@
 #pragma once
 #include <utility>
 #include <exception>
+#include "ExceptionMessages.h"
 
 // NOTE!: most of the functions are not needed in the class
 // or do not work as in the original std::vector
@@ -114,7 +115,7 @@ void Vector<T>::assertIndex(size_t index) const
 {
 	if (index >= capacity)
 	{
-		throw std::exception("Out of range");
+		throw std::exception(ExceptionMessages::INDEX_OUT_OF_RANGE);
 	}
 }
 
@@ -218,7 +219,7 @@ T Vector<T>::popBack()
 {
 	if (empty())
 	{
-		throw std::exception("Vector is empty");
+		throw std::exception(ExceptionMessages::EMPTY_VECTOR);
 	}
 	// Note: the actual std::vector does NOT lower its capacity on this function
 	//downsizeIfNeeded();

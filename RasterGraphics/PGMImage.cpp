@@ -1,4 +1,5 @@
 #include "PGMImage.h"
+#include "ExceptionMessages.h"
 
 void PGMImage::free()
 {
@@ -17,7 +18,7 @@ void PGMImage::saveToASCII(const char* filePath) const
 {
 	std::ofstream ofs(getFilePath(), std::ios::out);
 	if (!ofs.is_open())
-		throw std::logic_error("File cannot be found!");
+		throw std::logic_error(ExceptionMessages::FILE_NOT_OPENED);
 
 	ofs << getMagicFormat() << '\n';
 	ofs << getWidth() << ' ' << getHeight() << '\n';

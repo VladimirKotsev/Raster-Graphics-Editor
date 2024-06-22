@@ -1,5 +1,6 @@
 #include "SessionContainer.h"
 #include "Session.h"
+#include "ExceptionMessages.h"
 
 void SessionContainer::resize(size_t newCap)
 {
@@ -109,7 +110,7 @@ void SessionContainer::addSession(Session* session)
 void SessionContainer::removeAt(size_t index)
 {
 	if (index >= size)
-		throw std::out_of_range("Index out of range");
+		throw std::out_of_range(ExceptionMessages::INDEX_OUT_OF_RANGE);
 
 	delete data[index];
 	for (size_t i = index; i < size - 1; i++)

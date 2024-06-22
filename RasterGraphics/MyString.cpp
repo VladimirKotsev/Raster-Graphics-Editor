@@ -1,5 +1,6 @@
 #include "MyString.h"
 #include "GlobalConstants.h"
+#include "ExceptionMessages.h"
 #pragma warning (disable : 4996)
 
 static unsigned roundToPowerOfTwo(unsigned v)
@@ -168,7 +169,7 @@ void MyString::copyFrom(const MyString& other)
 MyString MyString::substr(size_t begin, size_t howMany) const
 {
     if (begin + howMany > getSize())
-        throw std::length_error("Error, Substr out of range");
+        throw std::length_error(ExceptionMessages::SUBSTR_OUT_OF_RANGE);
 
     MyString res(howMany + 1);
     strncat(res._data, _data + begin, howMany);

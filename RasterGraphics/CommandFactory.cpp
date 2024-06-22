@@ -4,6 +4,7 @@
 #include "MonochromeCommand.h"
 #include "RotateCommand.h"
 #include "NegativeCommand.h"
+#include "ExceptionMessages.h"
 
 Command* CommandFactory::createAddCommand(const MyString& filePath)
 {
@@ -25,7 +26,7 @@ Command* CommandFactory::createTransformableCommand(const MyString& type, const 
     else if (type == "rotate")
     {
         if (direction != "right" && direction != "left")
-            throw std::invalid_argument("Rotation not specified!");
+            throw std::invalid_argument(ExceptionMessages::UNSUFFICIENT_DATA_FOR_ROTATION);
 
         if (direction == "right")
             return new RotateCommand(RotateCommand::right);

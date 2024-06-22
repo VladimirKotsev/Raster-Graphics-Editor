@@ -1,5 +1,6 @@
 #include "CommandContainer.h"
 #include <iostream>
+#include "ExceptionMessages.h"
 
 void CommandContainer::free()
 {
@@ -102,7 +103,7 @@ void CommandContainer::addCommand(Command* command)
 void CommandContainer::removeAt(size_t index)
 {
 	if (index >= size)
-		throw std::out_of_range("Index out of range");
+		throw std::out_of_range(ExceptionMessages::INDEX_OUT_OF_RANGE);
 
 	delete data[index];
 	for (size_t i = index; i < size - 1; i++)
