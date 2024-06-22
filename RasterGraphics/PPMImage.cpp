@@ -268,17 +268,56 @@ bool PPMImage::isLoaded() const
 
 void PPMImage::collageWith(Image* other, bool isHorizontal)
 {
+	other->collageWithPPM(this, isHorizontal);
 }
 
 void PPMImage::collageWithPGM(const PGMImage* other, bool isHorizontal)
 {
+	std::cout << ExceptionMessages::INVALID_IMAGE_FORMATS;
 }
 
 void PPMImage::collageWithPPM(const PPMImage* other, bool isHorizontal)
 {
+	Vector<Pixel> newData((getWidth() * getHeight()) + (other->getWidth() * other->getHeight()));
+	if (isHorizontal)
+	{
+		size_t rows = std::max(getHeight(), other->getHeight());
+		size_t cols = std::max(getWidth(), other->getWidth());
+		for (size_t i = 0; i < rows; i++)
+		{
+			for (size_t j = 0; j < getWidth(); j++)
+			{
+				newData.pushBack(data[j + (getWidth() * i)]);
+			}
+			for (size_t k = 0; k < other->getWidth(); k++)
+			{
+				newData.pushBack(other->data[k + (getWidth() * i)]);
+			}
+		}
+
+		width += other->getWidth();
+	}
+	else
+	{
+		size_t count1 = getWidth() * getHeight();
+		for (size_t i = 0; i < count1; i++)
+		{
+			newData.pushBack(data[i]);
+		}
+
+		size_t count2 = other->getWidth() * other->getHeight();
+		for (size_t i = 0; i < count2; i++)
+		{
+			newData.pushBack(other->data[i]);
+		}
+
+		height += other->getHeight();
+	}
+	data = newData;
 }
 
 void PPMImage::collageWithPBM(const PBMImage* other, bool isHorizontal)
 {
+	std::cout << ExceptionMessages::INVALID_IMAGE_FORMATS;
 }
 

@@ -259,7 +259,6 @@ void PGMImage::collageWithPGM(const PGMImage* other, bool isHorizontal)
 		}
 
 		width += other->getWidth();
-		data = newData;
 	}
 	else
 	{
@@ -276,8 +275,8 @@ void PGMImage::collageWithPGM(const PGMImage* other, bool isHorizontal)
 		}
 
 		height += other->getHeight();
-		data = newData;
 	}
+	data = newData;
 }
 
 void PGMImage::collageWithPPM(const PPMImage* other, bool isHorizontal)
