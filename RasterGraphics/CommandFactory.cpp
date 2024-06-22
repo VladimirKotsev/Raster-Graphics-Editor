@@ -1,5 +1,6 @@
 #include "CommandFactory.h"
 #include "AddCommand.h"
+#include "CollageCommand.h"
 #include "GrayscaleCommand.h"
 #include "MonochromeCommand.h"
 #include "RotateCommand.h"
@@ -13,8 +14,12 @@ Command* CommandFactory::createAddCommand(const MyString& filePath)
 
 Command* CommandFactory::createCollageCommand(const MyString& direction, const MyString& firstFilePath, const MyString& secondFilePath, const MyString& outFilePath)
 {
-    
-    return new AddCommand(outFilePath);
+    if (direction == "horizontal")
+        return new CollageCommand(CollageCommand::Direction::horizontal, firstFilePath, secondFilePath, outFilePath);
+    else if (direction == "vertical")
+        return new CollageCommand(CollageCommand::Direction::vertical, firstFilePath, secondFilePath, outFilePath);
+    else
+        throw std::invalid_argument(ExceptionMessages::INVALID_COLLAGE_DIRECTION);
 }
 
 Command* CommandFactory::createTransformableCommand(const MyString& type, const MyString& direction)

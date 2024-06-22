@@ -1,8 +1,11 @@
 #include "CollageCommand.h"
+#include "Session.h"
+#include "ExceptionMessages.h"
 
-CollageCommand::CollageCommand(const MyString& firstFilePath, const MyString& secondFilePath, const MyString& outFilePath)
-    : firstFilePath(firstFilePath), secondFilePath(secondFilePath), IAddableCommand(outFilePath)
+CollageCommand::CollageCommand(Direction direction, const MyString& firstFilePath, const MyString& secondFilePath, const MyString& outFilePath)
+    : direction(direction), firstFilePath(firstFilePath), secondFilePath(secondFilePath), IAddableCommand(outFilePath)
 {
+
 }
 
 Command* CollageCommand::clone() const
@@ -13,7 +16,15 @@ Command* CollageCommand::clone() const
 
 void CollageCommand::execute(Session* session) const
 {
-    //TO DO
+    switch (direction)
+    {
+    case CollageCommand::horizontal:
+        session->collageImagesHorizontal(firstFilePath, secondFilePath, filePath);
+        break;
+    case CollageCommand::vertical:
+        session->collageImagesHorizontal(firstFilePath, secondFilePath, filePath);
+        break;
+    }
 }
 
 

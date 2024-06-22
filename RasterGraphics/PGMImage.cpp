@@ -158,7 +158,7 @@ void PGMImage::negative()
 
 void PGMImage::grayscale()
 {
-	
+	std::cout << "PGM image already in grayscale!" << std::endl;
 }
 
 void PGMImage::monochrome()
@@ -232,4 +232,20 @@ void PGMImage::rotateRight()
 bool PGMImage::isLoaded() const
 {
 	return (getWidth() != 0 && getHeight() != 0 && getColorMax() != 0);
+}
+
+void PGMImage::collageWith(const Image* other, bool isHorizontal) const
+{
+}
+
+void PGMImage::collageWithPGM(const PGMImage* other, bool isHorizontal) const
+{
+}
+
+void PGMImage::collageWithPPM(const PPMImage* other, bool isHorizontal) const
+{
+}
+
+void PGMImage::collageWithPBM(const PBMImage* other, bool isHorizontal) const
+{
 }

@@ -4,6 +4,9 @@
 #include "GlobalConstants.h"
 
 class MyString;
+class PPMImage;
+class PBMImage;
+class PGMImage;
 
 class Image
 {
@@ -40,6 +43,12 @@ public:
 	virtual ~Image();
 
 	virtual Image* clone() const = 0;
+
+	virtual void collageWith(const Image* other, bool isHorizontal) const = 0;
+
+	virtual void collageWithPGM(const PGMImage* other, bool isHorizontal) const = 0;
+	virtual void collageWithPPM(const PPMImage* other, bool isHorizontal) const = 0;
+	virtual void collageWithPBM(const PBMImage* other, bool isHorizontal) const = 0;
 
 	virtual void load() = 0;
 	virtual void save() const = 0;

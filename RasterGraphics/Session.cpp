@@ -1,5 +1,6 @@
 #include "Session.h"
 #include "ITransformableCommand.h"
+#include "ExceptionMessages.h"
 
 unsigned Session::liveCount = 0;
 
@@ -62,6 +63,45 @@ void Session::undoTransformation()
 void Session::addImage(Image* image)
 {
 	images.addImage(image);
+}
+
+int Session::findImageIndexByName(const MyString& filePath) const
+{
+	for (int i = 0; i < images.getSize(); i++)
+	{
+		if (images[i]->getFilePath() == filePath)
+			return i;
+	}
+
+	return -1;
+}
+
+void Session::collageImagesHorizontal(const MyString& file1, const MyString& file2, const MyString& outFilePath)
+{
+	int firstImageIndex = findImageIndexByName(file1);
+	int secondImageIndex = findImageIndexByName(file2);
+
+	if (firstImageIndex == -1 || secondImageIndex == -1)
+		throw std::logic_error(ExceptionMessages::MISSING_IMAGES_FOR_COLLAGE);
+
+	Image* collage = images[firstImageIndex]; // copy
+	collage->collageWith(images[secondImageIndex], true); // horizonal => true;
+
+	images.addImage(collage);
+}
+
+void Session::collageImagesVertical(const MyString& file1, const MyString& file2, const MyString& outFilePath)
+{
+	int firstImageIndex = findImageIndexByName(file1);
+	int secondImageIndex = findImageIndexByName(file2);
+
+	if (firstImageIndex == -1 || secondImageIndex == -1)
+		throw std::logic_error(ExceptionMessages::MISSING_IMAGES_FOR_COLLAGE);
+
+	Image* collage = images[firstImageIndex]; // copy
+	collage->collageWith(images[secondImageIndex], false); // not horizonal => false
+
+	images.addImage(collage);
 }
 
 void Session::negative()

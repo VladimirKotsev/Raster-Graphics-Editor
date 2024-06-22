@@ -16,4 +16,6 @@ public:
 	static const char* INVALID_SESSION_ID;
 	static const char* SUBSTR_OUT_OF_RANGE;
 	static const char* EMPTY_VECTOR;
+	static const char* INVALID_COLLAGE_DIRECTION;
+	static const char* MISSING_IMAGES_FOR_COLLAGE;
 };

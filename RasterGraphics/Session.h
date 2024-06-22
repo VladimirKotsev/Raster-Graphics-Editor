@@ -26,6 +26,11 @@ public:
 	void addCommand(Command* command);
 	void addImage(Image* image);
 
+	int findImageIndexByName(const MyString& filePath) const;
+
+	void collageImagesHorizontal(const MyString& file1, const MyString& file2, const MyString& outFilePath);
+	void collageImagesVertical(const MyString& file1, const MyString& file2, const MyString& outFilePath);
+
 	void negative();
 	void grayscale();
 	void monochrome();

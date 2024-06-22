@@ -12,3 +12,5 @@ const char* ExceptionMessages::NULLPOINTER_MAGIC_NUMBER = "Null - pointer passed
 const char* ExceptionMessages::INVALID_SESSION_ID = "Invalid session id provided!";
 const char* ExceptionMessages::SUBSTR_OUT_OF_RANGE = "Error, Substr out of range!";
 const char* ExceptionMessages::EMPTY_VECTOR = "Vector is empty!";
+const char* ExceptionMessages::INVALID_COLLAGE_DIRECTION = "Direction given for collage invalid!";
+const char* ExceptionMessages::MISSING_IMAGES_FOR_COLLAGE = "Missing image/images for creating a collage!";

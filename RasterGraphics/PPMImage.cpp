@@ -265,3 +265,19 @@ bool PPMImage::isLoaded() const
 {
 	return (getWidth() != 0 && getHeight() != 0 && getColorMax() != 0);
 }
+
+void PPMImage::collageWith(const Image* other, bool isHorizontal) const
+{
+}
+
+void PPMImage::collageWithPGM(const PGMImage* other, bool isHorizontal) const
+{
+}
+
+void PPMImage::collageWithPPM(const PPMImage* other, bool isHorizontal) const
+{
+}
+
+void PPMImage::collageWithPBM(const PBMImage* other, bool isHorizontal) const
+{
+}
