@@ -2,6 +2,7 @@
 #include "ITransformableCommand.h"
 #include "ExceptionMessages.h"
 #include "ImageFactory.h"
+#include "IAddableCommand.h"
 
 unsigned Session::liveCount = 0;
 
@@ -10,7 +11,8 @@ int Session::getLastTransformationIndex() const
 	size_t size = commands.getSize();
 	for (int i = size - 1; i >= 0; i--)
 	{
-		if (const ITransformableCommand* transf = dynamic_cast<const ITransformableCommand*>(commands[i]))
+		const ITransformableCommand* transf = dynamic_cast<const ITransformableCommand*>(commands[i]);
+		if (transf != nullptr)
 			return i;
 	}
 
@@ -100,11 +102,11 @@ void Session::collageImagesVertical(const MyString& file1, const MyString& file2
 	int firstImageIndex = findImageIndexByName(file1);
 	int secondImageIndex = findImageIndexByName(file2);
 
-	images[firstImageIndex]->load();
-	images[secondImageIndex]->load();
-
 	if (firstImageIndex == -1 || secondImageIndex == -1)
 		throw std::logic_error(ExceptionMessages::MISSING_IMAGES_FOR_COLLAGE);
+
+	images[firstImageIndex]->load();
+	images[secondImageIndex]->load();
 
 	Image* collage = images[firstImageIndex]; // copy
 	collage->collageWith(images[secondImageIndex], false); // not horizonal => false
@@ -212,12 +214,33 @@ unsigned Session::getID() const
 
 std::ostream& operator<<(std::ostream& os, const Session& ses)
 {
-	size_t count = ses.images.getSize();
+	size_t count = ses.commands.getSize();
+	os << "Images in session: ";
 	for (size_t i = 0; i < count; i++)
 	{
-		os << ses.images[i]->getFilePath();
-		if (i + 1 < count)
-			os << ", ";
+		const IAddableCommand* addable = dynamic_cast<const IAddableCommand*>(ses.commands[i]);
+
+		if (addable != nullptr)
+		{
+			os << addable->toString();
+
+			if (i + 1 < count)
+				os << ", ";
+		}
+	}
+	os << '\n';
+	os << "Transformation in session: ";
+	for (size_t i = 0; i < count; i++)
+	{
+		const ITransformableCommand* transformable = dynamic_cast<const ITransformableCommand*>(ses.commands[i]);
+
+		if (transformable != nullptr)
+		{
+			os << transformable->toString();
+
+			if (i + 1 < count)
+				os << ", ";
+		}
 	}
 
 	return os;

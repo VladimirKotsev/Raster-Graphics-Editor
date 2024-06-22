@@ -1,3 +1,4 @@
+#pragma warning(disable: 4996)
 #include "RotateCommand.h"
 
 RotateCommand::RotateCommand(Direction direction) : direction(direction)
@@ -25,4 +26,21 @@ void RotateCommand::execute(Image* image) const
 		image->rotateRight();
 	else
 		image->rotateLeft();
+}
+
+MyString& RotateCommand::toString() const
+{
+	char str[GlobalConstants::BUFFER_SIZE] = "rotate";
+	switch (direction)
+	{
+	case Direction::left: 
+		strcat(str, " left");
+		break;
+	case Direction::right:
+		strcat(str, " right");
+		break;
+	}
+
+	MyString toReturn(str);
+	return toReturn;
 }

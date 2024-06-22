@@ -51,7 +51,6 @@ void Engine::run()
 					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				sessionManager.saveSession();
-				std::cout << "Changes applied succesfully!" << std::endl;
 			}
 			else if (command == "saveas")
 			{
@@ -121,13 +120,14 @@ void Engine::run()
 
 				unsigned id = input[1][0] - '0';
 				sessionManager.switchSession(id);
+				std::cout << "Switched to session id: " << id << std::endl;
 			}
 			else if (command == "collage")
 			{
 				if (!sessionManager.checkIfSessionOpened())
 					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
-				if (input.getSize() <= 1)
+				if (input.getSize() < 5)
 					throw std::invalid_argument(ExceptionMessages::UNSUFFICIENT_DATA_FOR_COLLAGE);
 
 				MyString direction = input[1];
@@ -146,7 +146,9 @@ void Engine::run()
 		}
 		catch (const std::exception& e)
 		{
-			std::cout << "Error: " << e.what();
+			std::cout << "Error: " << e.what() << '\n';
+			std::cout << "> ";
+			input = InputService::readSplitedInput(GlobalConstants::INPUT_SEPARATOR);
 		}
 	}
 }

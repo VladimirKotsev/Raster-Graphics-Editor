@@ -17,3 +17,9 @@ void AddCommand::execute(Session* session) const
 	Image* image = ImageFactory::createImage(filePath);
 	session->addImage(image);
 }
+
+MyString& AddCommand::toString() const
+{
+	MyString toReturn(filePath);
+	return toReturn;
+}

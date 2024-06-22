@@ -73,8 +73,8 @@ void SessionManager::collage() {}
 std::ostream& operator<<(std::ostream& os, const SessionManager& sm)
 {
 	os << "Session ID: " << sm.currentSession << '\n';
-	os << "Images in session: " << sm.container[sm.currentSession - 1] << '\n';
-	os << "Transformation in session: " /*TO DO CONTAINER*/;
+	const Session* session = sm.container[sm.currentSession - 1];
+	os << *session << '\n';
 
 	return os;
 }

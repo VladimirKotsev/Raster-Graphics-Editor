@@ -1,5 +1,7 @@
 #pragma once
+#include <iostream>
 
+class MyString;
 class Session;
 class Image;
 
@@ -11,5 +13,7 @@ public:
 	virtual void execute(Session* session) const = 0;
 	virtual void execute(Image* image) const = 0;
 	virtual Command* clone() const = 0;
+
+	virtual MyString& toString() const = 0;
 };
 

@@ -16,3 +16,9 @@ void GrayscaleCommand::execute(Image* image) const
 {
     image->grayscale();
 }
+
+MyString& GrayscaleCommand::toString() const
+{
+    MyString toReturn("grayscale");
+    return toReturn;
+}

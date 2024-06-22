@@ -11,5 +11,8 @@ public:
 
     // Inherited via IAddableCommand
     void execute(Session* session) const override;
+
+    // Inherited via IAddableCommand
+    MyString& toString() const override;
 };
 
