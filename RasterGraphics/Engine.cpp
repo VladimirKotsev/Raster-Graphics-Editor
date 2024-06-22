@@ -1,11 +1,12 @@
 #include "Engine.h"
 #include "CommandFactory.h"
+#include "ExceptionMessages.h"
 
 void Engine::run()
 {
 	SessionManager sessionManager;
 	std::cout << "> ";
-	Vector<MyString> input = InputService::readSplitedInput(' '); //const seperator
+	Vector<MyString> input = InputService::readSplitedInput(GlobalConstants::INPUT_SEPARATOR);
 	
 	while (input[0] != "exit")
 	{
@@ -17,7 +18,7 @@ void Engine::run()
 			if (command == "add")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				Command* createCommand = CommandFactory::createAddCommand(input[1]);
 				sessionManager.addCommand(createCommand);
@@ -29,7 +30,7 @@ void Engine::run()
 			else if (command == "load")
 			{
 				if (input.getSize() == 1)
-					throw std::invalid_argument("No image file path given to load a session");
+					throw std::invalid_argument(ExceptionMessages::NO_IMAGE_PATH);
 
 				Session* session = new Session();
 				sessionManager.createSession(session);
@@ -47,14 +48,14 @@ void Engine::run()
 			else if (command == "save")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				sessionManager.saveSession();
 			}
 			else if (command == "saveas")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				MyString filePath = input[1];
 				filePath.toLower();
@@ -63,7 +64,7 @@ void Engine::run()
 			else if (command == "grayscale")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 				sessionManager.addCommand(transformableCommand);
@@ -71,7 +72,7 @@ void Engine::run()
 			else if (command == "rotate")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				MyString direction = input[1];
 				direction.toLower();
@@ -82,7 +83,7 @@ void Engine::run()
 			else if (command == "monochrome")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 				sessionManager.addCommand(transformableCommand);
@@ -90,7 +91,7 @@ void Engine::run()
 			else if (command == "negative")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				Command* transformableCommand = CommandFactory::createTransformableCommand(command, MyString());
 				sessionManager.addCommand(transformableCommand);
@@ -98,14 +99,14 @@ void Engine::run()
 			else if (command == "undo")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				sessionManager.undo();
 			}
 			else if (command == "session")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				MyString& additional = input[1];
 				additional.toLower();
@@ -115,7 +116,7 @@ void Engine::run()
 			else if (command == "switch")
 			{
 				if (input.getSize() == 1)
-					throw std::invalid_argument("Session ID needed!");
+					throw std::invalid_argument(ExceptionMessages::NO_ID_GIVEN);
 
 				unsigned id = input[1][0] - '0';
 				sessionManager.switchSession(id);
@@ -123,10 +124,10 @@ void Engine::run()
 			else if (command == "collage")
 			{
 				if (!sessionManager.checkIfSessionOpened())
-					throw std::logic_error("No selected session!");
+					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				if (input.getSize() <= 1)
-					throw std::invalid_argument("Not enough data give to make a collage!");
+					throw std::invalid_argument(ExceptionMessages::UNSUFFICIENT_DATA_FOR_COLLAGE);
 
 				MyString direction = input[1];
 				direction.toLower();
@@ -140,7 +141,7 @@ void Engine::run()
 			}
 
 			std::cout << "> ";
-			input = InputService::readSplitedInput(' '); // separator should be constant
+			input = InputService::readSplitedInput(GlobalConstants::INPUT_SEPARATOR);
 		}
 		catch (const std::exception& e)
 		{
