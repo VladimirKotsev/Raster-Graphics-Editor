@@ -14,10 +14,10 @@ private:
 	char* filePath;
 	char* magicFormat;
 	
+	void setFilePath(const char* filePath);
+
 	void copyFrom(const Image& other);
 	void free();
-
-	void setFilePath(const char* filePath);
 
 	virtual void saveToASCII(const char* filePath) const = 0;
 	virtual void saveToBinary(const char* filePath) const = 0;
@@ -44,11 +44,12 @@ public:
 
 	virtual Image* clone() const = 0;
 
-	virtual void collageWith(const Image* other, bool isHorizontal) const = 0;
+	void changeFilePath(const char* filePath);
+	virtual void collageWith(Image* other, bool isHorizontal) = 0;
 
-	virtual void collageWithPGM(const PGMImage* other, bool isHorizontal) const = 0;
-	virtual void collageWithPPM(const PPMImage* other, bool isHorizontal) const = 0;
-	virtual void collageWithPBM(const PBMImage* other, bool isHorizontal) const = 0;
+	virtual void collageWithPGM(const PGMImage* other, bool isHorizontal) = 0;
+	virtual void collageWithPPM(const PPMImage* other, bool isHorizontal) = 0;
+	virtual void collageWithPBM(const PBMImage* other, bool isHorizontal) = 0;
 
 	virtual void load() = 0;
 	virtual void save() const = 0;

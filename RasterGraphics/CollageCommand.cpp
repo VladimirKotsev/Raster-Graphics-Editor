@@ -22,7 +22,7 @@ void CollageCommand::execute(Session* session) const
         session->collageImagesHorizontal(firstFilePath, secondFilePath, filePath);
         break;
     case CollageCommand::vertical:
-        session->collageImagesHorizontal(firstFilePath, secondFilePath, filePath);
+        session->collageImagesVertical(firstFilePath, secondFilePath, filePath);
         break;
     }
 }

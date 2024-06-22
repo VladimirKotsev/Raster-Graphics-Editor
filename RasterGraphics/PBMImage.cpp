@@ -226,20 +226,19 @@ bool PBMImage::isLoaded() const
 	return (getWidth() != 0 && getHeight() != 0);
 }
 
-
-void PBMImage::collageWith(const Image* other, bool isHorizontal) const
+void PBMImage::collageWith(Image* other, bool isHorizontal)
 {
 }
 
-void PBMImage::collageWithPGM(const PGMImage* other, bool isHorizontal) const
+void PBMImage::collageWithPGM(const PGMImage* other, bool isHorizontal)
 {
 }
 
-void PBMImage::collageWithPPM(const PPMImage* other, bool isHorizontal) const
+void PBMImage::collageWithPPM(const PPMImage* other, bool isHorizontal)
 {
 }
 
-void PBMImage::collageWithPBM(const PBMImage* other, bool isHorizontal) const
+void PBMImage::collageWithPBM(const PBMImage* other, bool isHorizontal)
 {
 }
 

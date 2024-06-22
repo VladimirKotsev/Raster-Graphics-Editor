@@ -64,6 +64,11 @@ Image::~Image()
 	free();
 }
 
+void Image::changeFilePath(const char* filePath)
+{
+	setFilePath(filePath);
+}
+
 const uint16_t Image::getWidth() const
 {
 	return width;

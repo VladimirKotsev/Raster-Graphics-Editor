@@ -18,4 +18,5 @@ public:
 	static const char* EMPTY_VECTOR;
 	static const char* INVALID_COLLAGE_DIRECTION;
 	static const char* MISSING_IMAGES_FOR_COLLAGE;
+	static const char* INVALID_IMAGE_FORMATS;
 };

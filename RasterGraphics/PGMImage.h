@@ -46,9 +46,9 @@ public:
 	bool isLoaded() const override;
 
 	// Inherited via Image
-	void collageWith(const Image* other, bool isHorizontal) const override;
-	void collageWithPGM(const PGMImage* other, bool isHorizontal) const override;
-	void collageWithPPM(const PPMImage* other, bool isHorizontal) const override;
-	void collageWithPBM(const PBMImage* other, bool isHorizontal) const override;
+	void collageWith(Image* other, bool isHorizontal) override;
+	void collageWithPGM(const PGMImage* other, bool isHorizontal) override;
+	void collageWithPPM(const PPMImage* other, bool isHorizontal) override;
+	void collageWithPBM(const PBMImage* other, bool isHorizontal) override;
 };
 

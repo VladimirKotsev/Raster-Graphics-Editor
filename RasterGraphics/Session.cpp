@@ -1,6 +1,7 @@
 #include "Session.h"
 #include "ITransformableCommand.h"
 #include "ExceptionMessages.h"
+#include "ImageFactory.h"
 
 unsigned Session::liveCount = 0;
 
@@ -84,9 +85,13 @@ void Session::collageImagesHorizontal(const MyString& file1, const MyString& fil
 	if (firstImageIndex == -1 || secondImageIndex == -1)
 		throw std::logic_error(ExceptionMessages::MISSING_IMAGES_FOR_COLLAGE);
 
-	Image* collage = images[firstImageIndex]; // copy
-	collage->collageWith(images[secondImageIndex], true); // horizonal => true;
+	images[firstImageIndex]->load();
+	images[secondImageIndex]->load();
 
+	Image* collage = images[firstImageIndex]; // copy
+	images[secondImageIndex]->collageWith(images[secondImageIndex], true); // horizonal => true;
+
+	collage->changeFilePath(outFilePath.c_str());
 	images.addImage(collage);
 }
 
@@ -95,12 +100,16 @@ void Session::collageImagesVertical(const MyString& file1, const MyString& file2
 	int firstImageIndex = findImageIndexByName(file1);
 	int secondImageIndex = findImageIndexByName(file2);
 
+	images[firstImageIndex]->load();
+	images[secondImageIndex]->load();
+
 	if (firstImageIndex == -1 || secondImageIndex == -1)
 		throw std::logic_error(ExceptionMessages::MISSING_IMAGES_FOR_COLLAGE);
 
 	Image* collage = images[firstImageIndex]; // copy
 	collage->collageWith(images[secondImageIndex], false); // not horizonal => false
 
+	collage->changeFilePath(outFilePath.c_str());
 	images.addImage(collage);
 }
 
@@ -114,7 +123,6 @@ void Session::negative()
 
 		images[i]->negative();
 	}
-
 }
 
 void Session::grayscale()
@@ -190,7 +198,7 @@ void Session::saveAs(const MyString& newFilePath)
 	commands[0]->execute(this);
 	images[0]->load();
 
-	for (size_t i = 0; i < commands.getSize(); i++)
+	for (size_t i = 1; i < commands.getSize(); i++)
 	{
 		commands[i]->execute(images[0]);
 	}
