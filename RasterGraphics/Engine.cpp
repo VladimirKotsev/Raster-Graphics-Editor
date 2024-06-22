@@ -51,6 +51,7 @@ void Engine::run()
 					throw std::logic_error(ExceptionMessages::NO_OPENED_SESSION);
 
 				sessionManager.saveSession();
+				std::cout << "Changes applied succesfully!" << std::endl;
 			}
 			else if (command == "saveas")
 			{

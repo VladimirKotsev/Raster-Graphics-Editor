@@ -18,13 +18,14 @@ void PBMImage::load()
 	if (!ifs.is_open())
 		throw std::logic_error("File cannot be found!");
 
-	char buffer[2 + 1]; // CONSTANT SHOULD NOT BE HERE
-	ifs.getline(buffer, 2);
+	char buffer[GlobalConstants::BUFFER_SIZE]; // CONSTANT SHOULD NOT BE HERE
+	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
 	setMagicFormat(buffer);
+	ifs >> width >> height;
 
 	ifs.close();
 
-	if (strcmp(getMagicFormat(), "P5") == 0) //BINARY
+	if (strcmp(getMagicFormat(), "P4") == 0) //BINARY
 	{
 		
 	}
@@ -67,16 +68,47 @@ void PBMImage::load()
 
 void PBMImage::save() const
 {
+	if (strcmp(getMagicFormat(), "P4") == 0)
+	{
+		saveToBinary(getFilePath());
 
+	}
+	else //P2 ASCII
+	{
+		saveToASCII(getFilePath());
+	}
 }
 
 void PBMImage::saveAs(const char* direction) const
 {
-
+	if (strcmp(getMagicFormat(), "P4") == 0)
+	{
+		saveToBinary(direction);
+	}
+	else //ASCII
+	{
+		saveToASCII(direction);
+	}
 }
 
 void PBMImage::saveToASCII(const char* filePath) const
 {
+	std::ofstream ofs(getFilePath(), std::ios::out);
+
+	if (!ofs.is_open())
+		throw std::logic_error("File cannot be found!");
+
+	ofs << getMagicFormat() << '\n';
+	ofs << getWidth() << ' ' << getHeight() << '\n';
+
+	size_t bits = getWidth() * getHeight();
+
+	for (size_t i = 0; i < bits; i++)
+	{
+		ofs << data.contains(i) << ' ';
+	}
+
+	ofs.close(); //calls flush()
 }
 
 void PBMImage::saveToBinary(const char* filePath) const
@@ -93,7 +125,7 @@ void PBMImage::loadContentFromASCII()
 	char buffer[GlobalConstants::BUFFER_SIZE]; // CONSTANT SHOULD NOT BE HERE
 	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
 	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
-	ifs.ignore();
+	//ifs.ignore();
 
 	unsigned bits = getWidth() * getHeight();
 	uint8_t currentBit = 0;
@@ -103,7 +135,7 @@ void PBMImage::loadContentFromASCII()
 	for (size_t i = 0; i < bits; i++)
 	{
 		ifs >> currentBit;
-		if (currentBit == 1)
+		if (currentBit == '1')
 			data.add(i);
 	}
 
@@ -116,14 +148,26 @@ void PBMImage::loadContentFromBinary()
 
 void PBMImage::negative()
 {
+	size_t count = getWidth() * getHeight();
+	DynamicSet newData(count);
+
+	for (size_t i = 0; i < count; i++)
+	{
+		if (!data.contains(i))
+			newData.add(i);
+	}
+
+	data = newData;
 }
 
 void PBMImage::grayscale()
 {
+	std::cout << "PBM image cannot be grayscaled!" << std::endl;
 }
 
 void PBMImage::monochrome()
 {
+	std::cout << "PBM image cannot be monochromed!" << std::endl;
 }
 
 void PBMImage::rotateLeft()
@@ -140,8 +184,10 @@ void PBMImage::rotateLeft()
 		for (int i = 0; i < height; ++i)
 		{
 			int oldIndex = i * width + j;
-			if (data.contains(oldIndex)){}
-				newData.add(number++);
+			if (data.contains(oldIndex))
+				newData.add(number);
+
+			number++;
 		}
 	}
 
@@ -164,7 +210,9 @@ void PBMImage::rotateRight()
 		{
 			int oldIndex = i * width + j;
 			if (data.contains(oldIndex))
-				newData.add(number++);
+				newData.add(number);
+
+			number++;
 		}
 	}
 
