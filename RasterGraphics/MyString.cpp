@@ -1,4 +1,5 @@
 #include "MyString.h"
+#include "GlobalConstants.h"
 #pragma warning (disable : 4996)
 
 static unsigned roundToPowerOfTwo(unsigned v)
@@ -130,7 +131,7 @@ std::ostream& operator<<(std::ostream& os, const MyString& obj)
 
 std::istream& operator>>(std::istream& is, MyString& ref)
 {
-    char buff[1024];
+    char buff[GlobalConstants::BUFFER_SIZE];
     is >> buff;
     size_t buffStringSize = std::strlen(buff);
 

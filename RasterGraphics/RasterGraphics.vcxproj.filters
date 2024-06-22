@@ -147,9 +147,6 @@
     <ClCompile Include="ITransformableCommand.cpp">
       <Filter>Source Files\Command files\Transformational</Filter>
     </ClCompile>
-    <ClCompile Include="Utility.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image.h">
@@ -169,9 +166,6 @@
     </ClInclude>
     <ClInclude Include="SessionManager.h">
       <Filter>Header Files\Session files</Filter>
-    </ClInclude>
-    <ClInclude Include="DynamicSet.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Pixel.h">
       <Filter>Header Files\Utility</Filter>
@@ -236,8 +230,11 @@
     <ClInclude Include="ImageFactory.h">
       <Filter>Header Files\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="Utility.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GlobalConstants.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSet.h">
+      <Filter>Header Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

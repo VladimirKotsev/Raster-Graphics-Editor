@@ -1,5 +1,5 @@
 #include "InputService.h"
-const size_t BUFFER_SIZE = 1024;
+#include "GlobalConstants.h"
 
 Vector<MyString> InputService::readSplitedInput(char separator)
 {
@@ -29,8 +29,8 @@ Vector<MyString> InputService::readSplitedInput(char separator)
 
 MyString InputService::readInput()
 {
-	char buffer[1024]; //should be constant
-	std::cin.getline(buffer, 1024);
+	char buffer[GlobalConstants::BUFFER_SIZE]; //should be constant
+	std::cin.getline(buffer, GlobalConstants::BUFFER_SIZE);
 	MyString toReturn(buffer);
 
 	return toReturn;

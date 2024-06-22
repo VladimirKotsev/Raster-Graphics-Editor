@@ -1,5 +1,6 @@
 #pragma warning (disable:4996)
 #include "ImageFactory.h"
+#include "GlobalConstants.h"
 #include "PBMImage.h"
 #include "PGMImage.h"
 #include "PPMImage.h"
@@ -33,7 +34,7 @@ void ImageFactory::getImageFormat(char* format, const MyString& filePath)
 
 Image* ImageFactory::createImage(const MyString& filePath)
 {
-	char buffer[1024]; //should be a constant
+	char buffer[GlobalConstants::BUFFER_SIZE]; //should be a constant
 	getImageFormat(buffer, filePath);
 	MyString format(buffer);
 

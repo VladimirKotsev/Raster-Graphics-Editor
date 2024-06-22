@@ -49,7 +49,7 @@ void PPMImage::load()
 	if (!ifs.is_open())
 		throw std::logic_error("File cannot be open!");
 
-	char magicFormat[1024]; // should be constant
+	char magicFormat[GlobalConstants::BUFFER_SIZE]; // should be constant
 	ifs >> magicFormat;
 	setMagicFormat(magicFormat);
 
@@ -122,10 +122,10 @@ void PPMImage::saveToBinary(const char* filePath) const
 void PPMImage::loadContentFromASCII()
 {
 	std::ifstream ifs(getFilePath(), std::ios::in);
-	char buffer[1024]; // Should be a constant
+	char buffer[GlobalConstants::BUFFER_SIZE]; // Should be a constant
 
-	ifs.getline(buffer, 1024);
-	ifs.getline(buffer, 1024);
+	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
+	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
 	ifs >> maxColor;
 	ifs.ignore();
 

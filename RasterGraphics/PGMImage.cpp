@@ -39,10 +39,10 @@ void PGMImage::saveToBinary(const char* filePath) const
 void PGMImage::loadContentFromASCII()
 {
 	std::ifstream ifs(getFilePath(), std::ios::in);
-	char buffer[1024]; //should be constant somewhere
+	char buffer[GlobalConstants::BUFFER_SIZE]; //should be constant somewhere
 
-	ifs.getline(buffer, 1024);
-	ifs.getline(buffer, 1024);
+	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
+	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
 	ifs >> maxColor;
 	ifs.ignore();
 
@@ -105,7 +105,7 @@ void PGMImage::load()
 {
 	std::ifstream ifs(getFilePath(), std::ios::in);
 
-	char magicFormat[1024]; // should be constant
+	char magicFormat[GlobalConstants::BUFFER_SIZE]; // should be constant
 	ifs >> magicFormat;
 	setMagicFormat(magicFormat);
 

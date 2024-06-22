@@ -90,9 +90,9 @@ void PBMImage::loadContentFromASCII()
 	if (!ifs.is_open())
 		throw std::logic_error("File cannot be found!");
 
-	char buffer[1024]; // CONSTANT SHOULD NOT BE HERE
-	ifs.getline(buffer, 1024);
-	ifs.getline(buffer, 1024);
+	char buffer[GlobalConstants::BUFFER_SIZE]; // CONSTANT SHOULD NOT BE HERE
+	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
+	ifs.getline(buffer, GlobalConstants::BUFFER_SIZE);
 	ifs.ignore();
 
 	unsigned bits = getWidth() * getHeight();
