@@ -18,8 +18,8 @@ void AddCommand::execute(Session* session) const
 	session->addImage(image);
 }
 
-MyString& AddCommand::toString() const
+const char* AddCommand::toString() const
 {
 	MyString toReturn(filePath);
-	return toReturn;
+	return toReturn.c_str();
 }

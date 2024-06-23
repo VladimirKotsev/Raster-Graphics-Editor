@@ -27,10 +27,10 @@ void CollageCommand::execute(Session* session) const
     }
 }
 
-MyString& CollageCommand::toString() const
+const char* CollageCommand::toString() const
 {
     MyString toReturn(filePath);
-    return toReturn;
+    return toReturn.c_str();
 }
 
 

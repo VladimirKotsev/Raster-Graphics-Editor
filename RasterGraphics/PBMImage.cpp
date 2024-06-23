@@ -228,18 +228,74 @@ bool PBMImage::isLoaded() const
 
 void PBMImage::collageWith(Image* other, bool isHorizontal)
 {
+	other->collageWithPBM(this, isHorizontal);
 }
 
 void PBMImage::collageWithPGM(const PGMImage* other, bool isHorizontal)
 {
+	std::cout << ExceptionMessages::INVALID_IMAGE_FORMATS;
 }
 
 void PBMImage::collageWithPPM(const PPMImage* other, bool isHorizontal)
 {
+	std::cout << ExceptionMessages::INVALID_IMAGE_FORMATS;
 }
 
 void PBMImage::collageWithPBM(const PBMImage* other, bool isHorizontal)
 {
+	DynamicSet newData((getWidth() * getHeight()) + (other->getWidth() * other->getHeight()));
+	if (isHorizontal)
+	{
+		size_t rows = std::max(getHeight(), other->getHeight());
+		size_t cols = std::max(getWidth(), other->getWidth());
+		uint8_t number = 0;
+		for (size_t i = 0; i < rows; i++)
+		{
+			for (size_t j = 0; j < getWidth(); j++)
+			{
+				if (data.contains(j + (getWidth() * i)))
+					newData.add(number);
+
+				number++;
+				//newData.pushBack(data[j + (getWidth() * i)]);
+			}
+			for (size_t k = 0; k < other->getWidth(); k++)
+			{
+
+				if (other->data.contains(k + (getWidth() * i)))
+					newData.add(number);
+
+				number++;
+			}
+		}
+
+		width += other->getWidth();
+	}
+	else
+	{
+		uint8_t number = 0;
+		size_t count1 = getWidth() * getHeight();
+		for (size_t i = 0; i < count1; i++)
+		{
+			if (data.contains(i))
+				newData.add(number);
+
+			number++;
+		}
+
+		size_t count2 = other->getWidth() * other->getHeight();
+		for (size_t i = 0; i < count2; i++)
+		{
+
+			if (other->data.contains(i))
+				newData.add(number);
+
+			number++;
+		}
+
+		height += other->getHeight();
+	}
+	data = newData;
 }
 
 void PBMImage::free()

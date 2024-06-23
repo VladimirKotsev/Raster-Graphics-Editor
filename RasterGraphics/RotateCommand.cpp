@@ -28,7 +28,7 @@ void RotateCommand::execute(Image* image) const
 		image->rotateLeft();
 }
 
-MyString& RotateCommand::toString() const
+const char* RotateCommand::toString() const
 {
 	char str[GlobalConstants::BUFFER_SIZE] = "rotate";
 	switch (direction)
@@ -42,5 +42,5 @@ MyString& RotateCommand::toString() const
 	}
 
 	MyString toReturn(str);
-	return toReturn;
+	return toReturn.c_str();
 }

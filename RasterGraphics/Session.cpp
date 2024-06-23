@@ -222,7 +222,7 @@ std::ostream& operator<<(std::ostream& os, const Session& ses)
 
 		if (addable != nullptr)
 		{
-			os << addable->toString();
+			os << *(addable->toString());
 
 			if (i + 1 < count)
 				os << ", ";
@@ -236,7 +236,7 @@ std::ostream& operator<<(std::ostream& os, const Session& ses)
 
 		if (transformable != nullptr)
 		{
-			os << transformable->toString();
+			os << *(transformable->toString());
 
 			if (i + 1 < count)
 				os << ", ";

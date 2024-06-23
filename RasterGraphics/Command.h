@@ -14,6 +14,6 @@ public:
 	virtual void execute(Image* image) const = 0;
 	virtual Command* clone() const = 0;
 
-	virtual MyString& toString() const = 0;
+	virtual const char* toString() const = 0;
 };
 

@@ -13,7 +13,7 @@ public:
 
 
 	// Inherited via ITransformableCommand
-	MyString& toString() const override;
+	const char* toString() const override;
 
 };
 

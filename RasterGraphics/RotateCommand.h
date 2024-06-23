@@ -24,5 +24,5 @@ public:
     void execute(Image* image) const override;
 
     // Inherited via ITransformableCommand
-    MyString& toString() const override;
+    const char* toString() const override;
 };

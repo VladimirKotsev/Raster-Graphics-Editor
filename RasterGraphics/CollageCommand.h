@@ -24,6 +24,6 @@ public:
 	void execute(Session* session) const override;
 
 	// Inherited via IAddableCommand
-	MyString& toString() const override;
+	const char* toString() const override;
 };
 
