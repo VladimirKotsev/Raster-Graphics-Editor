@@ -180,7 +180,6 @@
     <ClInclude Include="PBMImage.h" />
     <ClInclude Include="PGMImage.h" />
     <ClInclude Include="Pixel.h" />
-    <ClInclude Include="PolymorphicPtr.hpp" />
     <ClInclude Include="PPMImage.h" />
     <ClInclude Include="RotateCommand.h" />
     <ClInclude Include="Session.h" />

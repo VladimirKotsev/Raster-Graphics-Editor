@@ -224,9 +224,6 @@
     <ClInclude Include="CommandFactory.h">
       <Filter>Header Files\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="PolymorphicPtr.hpp">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
     <ClInclude Include="CommandContainer.h">
       <Filter>Header Files\Container files</Filter>
     </ClInclude>
