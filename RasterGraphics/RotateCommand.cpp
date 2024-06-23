@@ -30,16 +30,5 @@ void RotateCommand::execute(Image* image) const
 
 const char* RotateCommand::toString() const
 {
-	char str[GlobalConstants::BUFFER_SIZE] = "rotate";
-	switch (direction)
-	{
-	case Direction::left: 
-		strcat(str, " left");
-		break;
-	case Direction::right:
-		strcat(str, " right");
-		break;
-	}
-	MyString* toReturn = new MyString(str);
-	return toReturn->c_str();
+	return (direction == Direction::left) ? "rotate left" : "rotate right";
 }
