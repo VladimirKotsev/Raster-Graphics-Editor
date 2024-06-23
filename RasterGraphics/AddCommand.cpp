@@ -20,6 +20,5 @@ void AddCommand::execute(Session* session) const
 
 const char* AddCommand::toString() const
 {
-	MyString toReturn(filePath);
-	return toReturn.c_str();
+	return filePath.c_str();
 }

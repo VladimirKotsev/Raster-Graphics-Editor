@@ -40,7 +40,6 @@ const char* RotateCommand::toString() const
 		strcat(str, " right");
 		break;
 	}
-
-	MyString toReturn(str);
-	return toReturn.c_str();
+	MyString* toReturn = new MyString(str);
+	return toReturn->c_str();
 }

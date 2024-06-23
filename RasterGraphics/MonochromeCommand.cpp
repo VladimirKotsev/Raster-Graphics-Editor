@@ -18,6 +18,5 @@ void MonochromeCommand::execute(Image* image) const
 
 const char* MonochromeCommand::toString() const
 {
-    MyString toReturn("monochrome");
-    return toReturn.c_str();
+    return "monochrome";
 }

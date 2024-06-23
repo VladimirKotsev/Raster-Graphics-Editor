@@ -19,6 +19,5 @@ void GrayscaleCommand::execute(Image* image) const
 
 const char* GrayscaleCommand::toString() const
 {
-    MyString toReturn("grayscale");
-    return toReturn.c_str();
+    return "grayscale";
 }

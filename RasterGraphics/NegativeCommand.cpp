@@ -18,6 +18,5 @@ void NegativeCommand::execute(Image* image) const
 
 const char* NegativeCommand::toString() const
 {
-    MyString toReturn("negative");
-    return toReturn.c_str();
+    return "negative";
 }

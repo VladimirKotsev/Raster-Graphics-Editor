@@ -66,6 +66,7 @@ Image::~Image()
 
 void Image::changeFilePath(const char* filePath)
 {
+	delete this->filePath;
 	setFilePath(filePath);
 }
 

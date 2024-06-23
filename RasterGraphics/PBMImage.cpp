@@ -275,6 +275,9 @@ void PBMImage::collageWithPBM(const PBMImage* other, bool isHorizontal)
 	{
 		uint8_t number = 0;
 		size_t count1 = getWidth() * getHeight();
+		size_t count2 = other->getWidth() * other->getHeight();
+
+		//size_t count = std::max(count1, count2);
 		for (size_t i = 0; i < count1; i++)
 		{
 			if (data.contains(i))
@@ -283,7 +286,6 @@ void PBMImage::collageWithPBM(const PBMImage* other, bool isHorizontal)
 			number++;
 		}
 
-		size_t count2 = other->getWidth() * other->getHeight();
 		for (size_t i = 0; i < count2; i++)
 		{
 

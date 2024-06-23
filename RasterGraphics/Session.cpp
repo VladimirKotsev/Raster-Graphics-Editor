@@ -3,6 +3,7 @@
 #include "ExceptionMessages.h"
 #include "ImageFactory.h"
 #include "IAddableCommand.h"
+#include "RotateCommand.h"
 
 unsigned Session::liveCount = 0;
 
@@ -90,6 +91,9 @@ void Session::collageImagesHorizontal(const MyString& file1, const MyString& fil
 	images[firstImageIndex]->load();
 	images[secondImageIndex]->load();
 
+	if (images[firstImageIndex]->getHeight() != images[secondImageIndex]->getHeight() || images[firstImageIndex]->getWidth() != images[secondImageIndex]->getWidth())
+		throw std::logic_error(ExceptionMessages::IMAGE_DIMENSIONS_DIFFERENT);
+
 	Image* collage = images[firstImageIndex]; // copy
 	images[secondImageIndex]->collageWith(images[secondImageIndex], true); // horizonal => true;
 
@@ -108,8 +112,11 @@ void Session::collageImagesVertical(const MyString& file1, const MyString& file2
 	images[firstImageIndex]->load();
 	images[secondImageIndex]->load();
 
+	if (images[firstImageIndex]->getHeight() != images[secondImageIndex]->getHeight() || images[firstImageIndex]->getWidth() != images[secondImageIndex]->getWidth())
+		throw std::logic_error(ExceptionMessages::IMAGE_DIMENSIONS_DIFFERENT);
+
 	Image* collage = images[firstImageIndex]; // copy
-	collage->collageWith(images[secondImageIndex], false); // not horizonal => false
+	images[secondImageIndex]->collageWith(collage, false); // not horizonal => false
 
 	collage->changeFilePath(outFilePath.c_str());
 	images.addImage(collage);
@@ -215,17 +222,29 @@ unsigned Session::getID() const
 std::ostream& operator<<(std::ostream& os, const Session& ses)
 {
 	size_t count = ses.commands.getSize();
+	size_t imageCount = ses.images.getSize();
 	os << "Images in session: ";
+	for (size_t i = 0; i < imageCount; i++)
+	{
+		os << ses.images[i]->getFilePath();
+
+		if (i + 1 < count)
+			os << " ";
+	}
+
+	if (count >= 1)
+		os << " ";
+
 	for (size_t i = 0; i < count; i++)
 	{
 		const IAddableCommand* addable = dynamic_cast<const IAddableCommand*>(ses.commands[i]);
 
 		if (addable != nullptr)
 		{
-			os << *(addable->toString());
+			os << addable->toString();
 
 			if (i + 1 < count)
-				os << ", ";
+				os << " ";
 		}
 	}
 	os << '\n';
@@ -236,10 +255,10 @@ std::ostream& operator<<(std::ostream& os, const Session& ses)
 
 		if (transformable != nullptr)
 		{
-			os << *(transformable->toString());
+			os << transformable->toString();
 
 			if (i + 1 < count)
-				os << ", ";
+				os << " ";
 		}
 	}
 

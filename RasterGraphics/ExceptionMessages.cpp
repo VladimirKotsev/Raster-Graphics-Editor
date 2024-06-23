@@ -15,3 +15,4 @@ const char* ExceptionMessages::EMPTY_VECTOR = "Vector is empty!";
 const char* ExceptionMessages::INVALID_COLLAGE_DIRECTION = "Direction given for collage invalid!";
 const char* ExceptionMessages::MISSING_IMAGES_FOR_COLLAGE = "Missing image/images for creating a collage!";
 const char* ExceptionMessages::INVALID_IMAGE_FORMATS = "Image from different format! Cannot collage from different formats!";
+const char* ExceptionMessages::IMAGE_DIMENSIONS_DIFFERENT = "Image dimensions do not match!";
