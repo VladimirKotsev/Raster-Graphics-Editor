@@ -15,19 +15,8 @@ private:
 	Vector<Pixel> data;
 	uint16_t maxColor = 0;
 
-	void free();
-	void copyFrom(const PPMImage& other);
-
 public:
 	PPMImage(const char* filePath);
-
-	PPMImage(const PPMImage& other);
-	PPMImage& operator=(const PPMImage& other);
-
-	PPMImage(PPMImage&& other) noexcept = delete;
-	PPMImage& operator=(PPMImage&& other) noexcept = delete;
-
-	~PPMImage();
 
 	// Inherited via Image
 	Image* clone() const override;

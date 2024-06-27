@@ -94,8 +94,8 @@ void Session::collageImagesHorizontal(const MyString& file1, const MyString& fil
 	if (images[firstImageIndex]->getHeight() != images[secondImageIndex]->getHeight() || images[firstImageIndex]->getWidth() != images[secondImageIndex]->getWidth())
 		throw std::logic_error(ExceptionMessages::IMAGE_DIMENSIONS_DIFFERENT);
 
-	Image* collage = images[firstImageIndex]; // copy
-	images[secondImageIndex]->collageWith(images[secondImageIndex], true); // horizonal => true;
+	Image* collage = images[firstImageIndex]->clone(); // copy
+	images[secondImageIndex]->collageWith(collage, true); // horizonal => true;
 
 	collage->changeFilePath(outFilePath.c_str());
 	images.addImage(collage);
@@ -115,7 +115,7 @@ void Session::collageImagesVertical(const MyString& file1, const MyString& file2
 	if (images[firstImageIndex]->getHeight() != images[secondImageIndex]->getHeight() || images[firstImageIndex]->getWidth() != images[secondImageIndex]->getWidth())
 		throw std::logic_error(ExceptionMessages::IMAGE_DIMENSIONS_DIFFERENT);
 
-	Image* collage = images[firstImageIndex]; // copy
+	Image* collage = images[firstImageIndex]->clone(); // copy
 	images[secondImageIndex]->collageWith(collage, false); // not horizonal => false
 
 	collage->changeFilePath(outFilePath.c_str());
@@ -226,10 +226,10 @@ std::ostream& operator<<(std::ostream& os, const Session& ses)
 	os << "Images in session: ";
 	for (size_t i = 0; i < imageCount; i++)
 	{
-		os << ses.images[i]->getFilePath();
+		os << ses.images[i]->getFilePath() << " ";
 
-		if (i + 1 < count)
-			os << " ";
+		//if (i + 1 < count)
+		//	os << " ";
 	}
 
 	if (count >= 1)
@@ -241,10 +241,10 @@ std::ostream& operator<<(std::ostream& os, const Session& ses)
 
 		if (addable != nullptr)
 		{
-			os << addable->toString();
+			os << addable->toString() << " ";
 
-			if (i + 1 < count)
-				os << " ";
+			//if (i + 1 < count)
+			//	os << " ";
 		}
 	}
 	os << '\n';
@@ -255,10 +255,10 @@ std::ostream& operator<<(std::ostream& os, const Session& ses)
 
 		if (transformable != nullptr)
 		{
-			os << transformable->toString();
+			os << transformable->toString() << " ";
 
-			if (i + 1 < count)
-				os << " ";
+			//if (i + 1 < count)
+			//	os << " ";
 		}
 	}
 

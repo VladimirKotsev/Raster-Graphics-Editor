@@ -8,19 +8,8 @@ class PBMImage : public Image
 private:
 	DynamicSet data;
 
-	void free();
-	void copyFrom(const PBMImage& other);
-
 public:
 	PBMImage(const char* filePath);
-
-	PBMImage(const PBMImage& other);
-	PBMImage& operator=(const PBMImage& other);
-
-	PBMImage(PBMImage&&) noexcept = delete;
-	PBMImage& operator=(PBMImage&&) noexcept = delete;
-
-	~PBMImage();
 
 	// Inherited via Image
 	Image* clone() const override;

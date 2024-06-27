@@ -1,10 +1,6 @@
 #include "PBMImage.h"
 #include "ExceptionMessages.h"
 
-PBMImage::~PBMImage()
-{
-	free();
-}
 
 Image* PBMImage::clone() const
 {
@@ -257,7 +253,6 @@ void PBMImage::collageWithPBM(const PBMImage* other, bool isHorizontal)
 					newData.add(number);
 
 				number++;
-				//newData.pushBack(data[j + (getWidth() * i)]);
 			}
 			for (size_t k = 0; k < other->getWidth(); k++)
 			{
@@ -277,7 +272,6 @@ void PBMImage::collageWithPBM(const PBMImage* other, bool isHorizontal)
 		size_t count1 = getWidth() * getHeight();
 		size_t count2 = other->getWidth() * other->getHeight();
 
-		//size_t count = std::max(count1, count2);
 		for (size_t i = 0; i < count1; i++)
 		{
 			if (data.contains(i))
@@ -300,38 +294,7 @@ void PBMImage::collageWithPBM(const PBMImage* other, bool isHorizontal)
 	data = newData;
 }
 
-void PBMImage::free()
-{
-	//delete[] bits; //handles by class DynamicSet
-}
-
-void PBMImage::copyFrom(const PBMImage& other)
-{
-	//data = DynamicSet(other.getHeight() * other.getWidth());
-	for (size_t i = 0; i < other.data.getCount(); i++)
-	{
-		if (other.data.contains(i))
-			data.add(i);
-	}
-}
-
 PBMImage::PBMImage(const char* filePath) : data(0), Image(filePath)
 {
 }
 
-PBMImage::PBMImage(const PBMImage& other) : data(other.data.getCount()), Image(other)
-{
-	copyFrom(other);
-}
-
-PBMImage& PBMImage::operator=(const PBMImage& other)
-{
-	if (this != &other)
-	{
-		Image::operator=(other);
-		free();
-		copyFrom(other);
-	}
-
-	return *this;
-}

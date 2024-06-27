@@ -1,19 +1,6 @@
 #include "PGMImage.h"
 #include "ExceptionMessages.h"
 
-void PGMImage::free()
-{
-	data.clear();
-}
-
-void PGMImage::copyFrom(const PGMImage& other)
-{
-	for (size_t i = 0; i < other.data.getSize(); i++)
-	{
-		data[i] = other.data[i]; // copy
-	}
-}
-
 void PGMImage::saveToASCII(const char* filePath) const
 {
 	std::ofstream ofs(getFilePath(), std::ios::out);
@@ -69,27 +56,6 @@ PGMImage::PGMImage(const char* filePath) : Image(filePath)
 {
 }
 
-PGMImage::PGMImage(const PGMImage& other) : Image(other)
-{
-	copyFrom(other);
-}
-
-PGMImage& PGMImage::operator=(const PGMImage& other)
-{
-	if (this != &other)
-	{
-		Image::operator=(other);
-		free();
-		copyFrom(other);
-	}
-
-	return *this;
-}
-
-PGMImage::~PGMImage()
-{
-	free();
-}
 
 Image* PGMImage::clone() const
 {

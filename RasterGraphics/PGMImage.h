@@ -9,23 +9,12 @@ private:
 	Vector<uint16_t> data;
 	uint16_t maxColor = 0;
 
-	void free();
-	void copyFrom(const PGMImage& other);
-
 	void saveToASCII(const char* filePath) const override;
 	void saveToBinary(const char* filePath) const override;
 	void loadContentFromASCII() override;
 	void loadContentFromBinary() override;
 public:
 	PGMImage(const char* filePath);
-
-	PGMImage(const PGMImage& other);
-	PGMImage& operator=(const PGMImage& other);
-
-	PGMImage(PGMImage&& other) noexcept = delete;
-	PGMImage& operator=(PGMImage&& other) noexcept = delete;
-
-	~PGMImage();
 
 	// Inherited via Image
 	Image* clone() const override;
